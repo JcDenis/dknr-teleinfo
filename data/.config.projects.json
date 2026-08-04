@@ -1,0 +1,8 @@
+{
+    "projects": {
+        "DkTeleinfo": {
+            "credentialSecret": "dknr-teleinfo"
+        }
+    },
+    "activeProject": "dknr-teleinfo"
+}

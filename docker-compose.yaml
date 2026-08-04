@@ -1,0 +1,70 @@
+# Required the following environement variables:
+# - DKNR_USERNAME
+# - DKNR_PASSWORD
+# - DKNR_SECRET
+#
+name: dknr-teleinfo
+
+services: 
+  dknr-teleinfo:
+    container_name: dknr-teleinfo
+    image: nodered/node-red:5.0
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1024M
+    environment:
+      NODE_RED_ENABLE_PROJECTS: true
+      TZ: Europe/Paris
+      DK_USERNAME: ${DKNR_USERNAME}
+      DK_PASSWORD: ${DKNR_PASSWORD}
+      DK_SECRET: ${DKNR_SECRET}
+    entrypoint: >
+      /bin/sh -c '
+        echo "> Checking repository"
+        if [ -n "$(git ls-remote https://github.com/JcDenis/dknr-teleinfo master)" ]; then echo "> Deleting old projects" && rm -Rf /data/projects/dknr-teleinfo; fi;
+        echo "> Cloning project"
+        git clone https://github.com/JcDenis/dknr-teleinfo /data/projects/dknr-teleinfo
+        echo "> Creating settings"
+        cp /data/projects/dknr-teleinfo/package.json /data/package.json
+        cp /data/projects/dknr-teleinfo/data/settings.js /data/settings.js
+        cp /data/projects/dknr-teleinfo/data/.config.projects.json /data/.config.projects.json
+        cp /data/projects/dknr-teleinfo/data/admin.png /data/admin.png
+        mkdir -p /data/dknr-teleinfo
+        sed -i -e "s|DKNR_USERNAME|${DKNR_USERNAME}|g" /data/settings.js
+        sed -i -e "s|DKNR_HASH|$(expr substr "$(echo "${DKNR_PASSWORD}" | node-red admin hash-pw)" 11 100)|g" /data/settings.js
+        sed -i -e "s|DKNR_SECRET|${DKNR_SECRET}|g" /data/settings.js
+        echo "> Instaling packages"
+        cd /data
+        npm install --unsafe-perm --no-update-notifier --no-fund --omit=dev
+        echo "> Running node-red"
+        cd /usr/src/node-red
+        exec ./entrypoint.sh
+      '
+    group_add:
+      - 20 #dialout
+    ports:
+      - 1880:1880
+    devices:
+      - /dev/ttyUSB0
+    networks:
+      - dknet
+    volumes:
+      - dknr_teleinfo_data:/data
+    healthcheck:
+      test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/1880' || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 90s 
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "5"
+networks:
+  dknet:
+volumes:
+  dknr_teleinfo_data:
