@@ -6,7 +6,7 @@ FROM nodered/node-red:5.0
 USER root
 
 # Install usermod
-RUN apk add shadow
+RUN apk add shadow runuser
 
 # Add node red user to dialout group to access to USB port
 RUN usermod -aG dialout node-red
