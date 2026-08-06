@@ -37,7 +37,7 @@ COPY flow-manager-cfg.json /flow-manager-cfg.json
 COPY flow-manager-nodes-order.json /flow-manager-nodes-order.json
 COPY flows.json /flows.json
 COPY flows_cred.json /flows_cred.json
-COPY package.json /package.json
+COPY package.json /projects/dknr-teleinfo/package.json
 COPY package.json /data/package.json
 
 # Fix ownership
