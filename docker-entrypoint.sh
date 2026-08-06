@@ -11,4 +11,4 @@ echo "> Instaling packages"
 npm install --unsafe-perm --no-update-notifier --no-fund --omit=dev
 echo "> Running node-red"
 cd /usr/src/node-red
-/usr/src/node-red/docker-entrypoint.sh node-red
+/usr/src/node-red/entrypoint.sh node-red
