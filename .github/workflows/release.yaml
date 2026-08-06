@@ -10,6 +10,7 @@ on:
 
 env:
   DKNR_NAMESPACE: jcpd
+  DKNR_IMAGE: dknr-teleinfo
 
 jobs:
   do_image:
@@ -70,7 +71,7 @@ jobs:
 
       - name: set lower case github repository
         run: |
-          echo "DKNR_IMAGE=${REPO,,}" >>${GITHUB_ENV}
+          echo "GITHUB_REPOSITORY=${REPO,,}" >>${GITHUB_ENV}
         env:
           REPO: '${{ github.repository }}'
 
@@ -83,8 +84,8 @@ jobs:
           tags: |
             ${{ env.DKNR_NAMESPACE }}/${{ env.DKNR_IMAGE }}:${{ github.event.inputs.version }}
             ${{ env.DKNR_NAMESPACE }}/${{ env.DKNR_IMAGE }}:latest
-            ghcr.io/${{ env.DKNR_IMAGE }}:${{ github.event.inputs.version }}
-            ghcr.io/${{ env.DKNR_IMAGE }}:latest
+            ghcr.io/${{ env.GITHUB_REPOSITORY }}:${{ github.event.inputs.version }}
+            ghcr.io/${{ env.GITHUB_REPOSITORY }}:latest
           platforms: linux/amd64,linux/arm64
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -100,13 +101,3 @@ jobs:
           write-comment: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Docker Scout latest
-        id: docker-scout2
-        uses: docker/scout-action@v1.21.0
-        with:
-          command: environment,quickview,cves,recommendations
-          image: ${{ env.DKNR_NAMESPACE }}/${{ env.DKNR_IMAGE }}:latest
-          environment: latest
-          organization: ${{ env.DOCKER_NAMESPACE }}
-          write-comment: true
-          github-token: ${{ secrets.GITHUB_TOKEN }}
