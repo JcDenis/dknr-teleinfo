@@ -31,13 +31,13 @@ RUN echo "$TZ" > /etc/timezone
 # Prepare Node-Red structure
 RUN mkdir -p /data/projects/dknr-teleinfo
 COPY data /data
-COPY flows /flows
-COPY config-nodes.json /config-nodes.json
-COPY flow-manager-cfg.json /flow-manager-cfg.json
-COPY flow-manager-nodes-order.json /flow-manager-nodes-order.json
-COPY flows.json /flows.json
-COPY flows_cred.json /flows_cred.json
-COPY package.json /projects/dknr-teleinfo/package.json
+COPY flows /data/projects/dknr-teleinfo/flows
+COPY config-nodes.json /data/projects/dknr-teleinfo/config-nodes.json
+COPY flow-manager-cfg.json /data/projects/dknr-teleinfo/flow-manager-cfg.json
+COPY flow-manager-nodes-order.json /data/projects/dknr-teleinfo/flow-manager-nodes-order.json
+COPY flows.json /data/projects/dknr-teleinfo/flows.json
+COPY flows_cred.json /data/projects/dknr-teleinfo/flows_cred.json
+COPY package.json /data/projects/dknr-teleinfo/package.json
 COPY package.json /data/package.json
 
 # Fix ownership
