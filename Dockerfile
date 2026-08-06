@@ -36,7 +36,6 @@ COPY config-nodes.json /data/projects/dknr-teleinfo/config-nodes.json
 COPY flow-manager-cfg.json /data/projects/dknr-teleinfo/flow-manager-cfg.json
 COPY flow-manager-nodes-order.json /data/projects/dknr-teleinfo/flow-manager-nodes-order.json
 COPY flows.json /data/projects/dknr-teleinfo/flows.json
-COPY flows_cred.json /data/projects/dknr-teleinfo/flows_cred.json
 COPY package.json /data/projects/dknr-teleinfo/package.json
 COPY package.json /data/package.json
 
