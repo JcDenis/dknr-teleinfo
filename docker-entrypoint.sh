@@ -11,6 +11,3 @@ echo "> Instaling packages"
 npm install --unsafe-perm --no-update-notifier --no-fund --omit=dev
 echo "> Running node-red"
 cd /usr/src/node-red
-
-# Switch from user root to node-red
-exec runuser -u node-red "$@"

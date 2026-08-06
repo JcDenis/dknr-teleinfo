@@ -6,7 +6,7 @@ FROM nodered/node-red:5.0
 USER root
 
 # Install usermod
-RUN apk add shadow runuser
+RUN apk add shadow
 
 # Add node red user to dialout group to access to USB port
 RUN usermod -aG dialout node-red
@@ -42,6 +42,9 @@ COPY package.json /data/package.json
 
 # Fix ownership
 RUN chown -R node-red:node-red /data
+
+# Switch to node-red user
+USER node-red
 
 # Set working diretory for container starting script
 WORKDIR /data
