@@ -15,6 +15,7 @@ RUN usermod -aG dialout node-red
 ENV DKNR_USERNAME=admin \
 	DKNR_PASSWORD=admin \
 	DKNR_SECRET=dkteleinfo \
+    DKNR_REPOSITORY=https://github.com/JcDenis/dknr-teleinfo \
     NODE_RED_ENABLE_PROJECTS=true \
 	TZ=Europe\Paris
 
@@ -30,14 +31,15 @@ RUN echo "$TZ" > /etc/timezone
 
 # Prepare Node-Red structure
 RUN mkdir -p /data/projects/dknr-teleinfo
-COPY data /data
-COPY flows /data/projects/dknr-teleinfo/flows
-COPY config-nodes.json /data/projects/dknr-teleinfo/config-nodes.json
-COPY flow-manager-cfg.json /data/projects/dknr-teleinfo/flow-manager-cfg.json
-COPY flow-manager-nodes-order.json /data/projects/dknr-teleinfo/flow-manager-nodes-order.json
-COPY flows.json /data/projects/dknr-teleinfo/flows.json
-COPY package.json /data/projects/dknr-teleinfo/package.json
-COPY package.json /data/package.json
+
+# Clone repository
+RUN git clone ${DKNR_REPOSITORY} /data/projects/dknr-teleinfo
+
+# Copy nodered root from repository project
+COPY /data/projects/dknr-teleinfo/data /data
+
+# Regain nodered root package from repotiory package
+COPY /data/projects/dknr-teleinfo/package.json /data/package.json
 
 # Fix ownership
 RUN chown -R node-red:node-red /data
