@@ -88,7 +88,7 @@ jobs:
             ghcr.io/${{ env.GITHUB_REPOSITORY }}:latest
           platforms: linux/amd64,linux/arm64
           cache-from: type=gha
-          cache-to: type=gha,mode=max
+          no-cache: true
 
       - name: Docker Scout stable
         id: docker-scout
@@ -100,5 +100,4 @@ jobs:
           organization: ${{ env.DKNR_NAMESPACE }}
           write-comment: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          no-cache: true
 
