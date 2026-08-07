@@ -30,10 +30,10 @@ LABEL "org.opencontainers.image.authors"="Jean-Christian Paul Denis" \
 RUN echo "$TZ" > /etc/timezone
 
 # Prepare Node-Red structure
-RUN mkdir -p /data/projects/dknr-teleinfo
+RUN mkdir /data
 
 # Clone repository
-RUN git clone ${DKNR_REPOSITORY} /data/projects/dknr-teleinfo
+RUN git clone ${DKNR_REPOSITORY} /data
 
 # Fix ownership
 RUN chown -R node-red:node-red /data
