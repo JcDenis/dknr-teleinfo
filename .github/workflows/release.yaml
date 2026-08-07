@@ -100,4 +100,5 @@ jobs:
           organization: ${{ env.DKNR_NAMESPACE }}
           write-comment: true
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          no-cache: true
 
