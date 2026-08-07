@@ -4,7 +4,9 @@ set -e
 
 echo "> Copying settings"
 cp -rf /data/projects/dknr-teleinfo/package.json /data/package.json
-cp -rf /data/projects/dknr-teleinfo/data/* /data/
+cp -rf /data/projects/dknr-teleinfo/data/settings.js /data/settings.js
+cp -rf /data/projects/dknr-teleinfo/data/.config.projects.json /data/.config.projects.json
+cp -rf /data/projects/dknr-teleinfo/data/admin.png /data/admin.png
 echo "> Preparing credentials"
 cd /data
 sed -i -e "s|DKNR_USERNAME|${DKNR_USERNAME}|g" settings.js
