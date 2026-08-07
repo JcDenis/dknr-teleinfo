@@ -2,8 +2,11 @@
 
 set -e
 
-cd /data
+echo "> Copying root files"
+cp -rf /data/projects/dknr-teleinfo/data/* /data
+cp -rf /data/projects/dknr-teleinfo/package.json /data/package.json
 echo "> Preparing credentials"
+cd /data
 sed -i -e "s|DKNR_USERNAME|${DKNR_USERNAME}|g" settings.js
 sed -i -e "s|DKNR_HASH|$(expr substr "$(echo "${DKNR_PASSWORD}" | node-red admin hash-pw)" 11 100)|g" settings.js
 sed -i -e "s|DKNR_SECRET|${DKNR_SECRET}|g" settings.js

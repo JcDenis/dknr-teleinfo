@@ -35,12 +35,6 @@ RUN mkdir -p /data/projects/dknr-teleinfo
 # Clone repository
 RUN git clone ${DKNR_REPOSITORY} /data/projects/dknr-teleinfo
 
-# Copy nodered root from repository project
-COPY /data/projects/dknr-teleinfo/data /data
-
-# Regain nodered root package from repotiory package
-COPY /data/projects/dknr-teleinfo/package.json /data/package.json
-
 # Fix ownership
 RUN chown -R node-red:node-red /data
 
