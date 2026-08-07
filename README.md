@@ -1,7 +1,6 @@
 # README
 
-[![Release](https://img.shields.io/github/v/release/jcdenis/dknr-teleinfo?color=lightblue)](https://github.com/JcDenis/dknr-teleinfo/releases)
-![Date](https://img.shields.io/github/release-date/jcdenis/dknr-teleinfo?color=red)
+[![Release](https://img.shields.io/docker/v/jcpd/dknr-teleinfo?color=lightblue)](https://hub.docker.com/r/jcpd/dknr-teleinfo)
 [![License](https://img.shields.io/github/license/jcdenis/dknr-teleinfo?color=white)](https://github.com/JcDenis/dknr-teleinfo/blob/master/LICENSE)
 
 
