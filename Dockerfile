@@ -20,11 +20,11 @@ ENV DKNR_USERNAME=admin \
 	TZ=Europe\Paris
 
 # Image label
-LABEL "org.opencontainers.image.authors"="Jean-Christian Paul Denis" \
-    "org.opencontainers.image.source"="https://github.com/JcDenis/dknr-teleinfo" \
-    "org.opencontainers.image.description"="Teleinfo Parser with web UI and MQTT" \
-    "org.opencontainers.image.licenses"="AGPL-3.0"
-
+LABEL org.opencontainers.image.authors="Jean-Christian Paul Denis" \
+      org.opencontainers.image.source="https://github.com/JcDenis/dknr-teleinfo" \
+      org.opencontainers.image.title="DKNR Teleinfo" \
+      org.opencontainers.image.description="Teleinfo Parser with web UI and MQTT" \
+      org.opencontainers.image.licenses="AGPL-3.0" \
 
 # Set system timezone
 RUN echo "$TZ" > /etc/timezone
