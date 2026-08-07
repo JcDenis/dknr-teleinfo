@@ -4,7 +4,6 @@
     "version": "0.0.1",
     "dependencies": {
         "@flowfuse/node-red-dashboard": "1.30.2",
-        "node-red-contrib-flow-manager": "0.7.4",
         "node-red-node-serialport": "2.0.3"
     },
     "node-red": {
