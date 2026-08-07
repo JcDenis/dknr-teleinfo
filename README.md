@@ -34,6 +34,7 @@ Le matériel exact dépend de l'installation, mais l'utilisation du projet néce
 
 ## Installation
 
+Des images Docker prêtes à l'emploi sont disponibles. 
 Utilisez le fichier docker-compose.yaml à la racine du dépôt en fournissant les variables d'environnement suivant :
 
 * DKNR_USERNAME : login de l'interface node-red
