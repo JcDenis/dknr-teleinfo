@@ -1181,7 +1181,7 @@
         "width": 0,
         "height": 0,
         "head": "",
-        "format": ".v-card .remove,\n.v-card-text .remove {\n    display: none !important;\n    visibility: hidden;\n    color: transparent !important;\n}\n.v-table__wrapper table thead {\n    display: none !important;\n}",
+        "format": ".v-card .remove,\n.v-card-text .remove {\n    display: none !important;\n    visibility: hidden;\n    color: transparent !important;\n}\n.v-table__wrapper table thead {\n    display: none !important;\n}\ntbody td[data-column-key=lbl] {\n    font-weight: bold !important;\n}",
         "storeOutMessages": true,
         "passthru": true,
         "resendOnRefresh": true,
