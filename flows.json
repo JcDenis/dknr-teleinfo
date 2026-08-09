@@ -64,11 +64,12 @@
         },
         "nodes": [
             "123b4b73d0bba710",
-            "92c098c716e46e3b"
+            "92c098c716e46e3b",
+            "e25fbb1e61c21f99"
         ],
         "x": 94,
         "y": 99,
-        "w": 262,
+        "w": 522,
         "h": 82
     },
     {
@@ -426,7 +427,7 @@
         "z": "4bc72a1112cb448c",
         "g": "41f6bf7d5f4ab75c",
         "name": "parse",
-        "func": "let optarif = {\n\t'BASE': 'Option Base',\n\t'HC..': 'Option Heures Creuses',\n\t'EJP.': 'Option Effacement Jour de Pointe',\n\t'BBR.': 'Option Tempo'\n}\n\nlet ptec = {\n\t'TH..': \"Toutes les Heures\",\n\t'HC..': \"Heures Creuses\",\n\t'HP..': \"Heures Pleines\",\n\t'HN..': \"Heures Normales\",\n\t'PM..': \"Heures de Pointe Mobile\",\n\t'HCJB': \"Heures Creuses Jours Bleus\",\n\t'HCJW': \"Heures Creuses Jours Blancs\",\n\t'HCJR': \"Heures Creuses Jours Rouges\",\n\t'HPJB': \"Heures Pleines Jours Bleus\",\n\t'HPJW': \"Heures Pleines Jours Blancs\",\n\t'HPJR': \"Heures Pleines Jours Rouges\"\n}\n\nlet names = {\n\t'ADCO': 'Addresse de compteur',\n\t'OPTARIF': 'Option tarifaire',\n\t'ISOUSC': 'Intensité souscrite',\n\t'BASE': 'Index de base',\n\t'HCHC': 'Heures creuses',\n\t'HCHP': 'Heures pleines',\n\t'EJPHN': 'Heures normales',\n\t'EJPHPM': 'Heures de point mobile',\n\t'BBRHCJB': 'Heures creuses jours bleus',\n\t'BBRHPJB': 'Herues pleines jours bleus',\n\t'BBRHCJW': 'Heures creuses jours blancs',\n\t'BBRHPJW': 'Heures peines jours blancs',\n\t'BBRHCJR': 'Heures creuses jours rouges',\n\t'BBRHPJR': 'Heures pleines jours rouges',\n\t'PEJP': 'Préavis debuté EJP',\n\t'PTEC': 'Période tarifaire en cours',\n\t'DEMAIN': 'Couleur du lendemain',\n\t'IINST': 'Intensité instantanée',\n\t'PAPP': 'Puissance apparente',\n\t'HHPHC': 'Groupe horaire'\n}\n\n// Remove dirty code\nvar lines = msg.payload.toString().replace(\"\\u0002\\n\",\"\").replace(\"\\r\\u0003\",\"\");\nmsg.payload = {};\n\n// Split message by line\nlines = lines.split(\"\\r\\n\");\nfor (var line in lines) {\n\n\t// Prepare checksum\n\tlet i;\n\tlet checksum = 32;\n\tlet myline = lines[line].toString().replace(\"  \",\" s\").split(\" \");\n\n\t// Split current message\n\tlet check = myline.pop();\n\tlet value = myline.pop();\n\tlet label = myline.pop();\n\n\t// Regain checksum\n\tif (check == \"s\") check = \" \";\n\n\t// Calcul checksum\n\tfor (i = 0; i < label.length; i++) checksum += label.charCodeAt(i);\n\tfor (i = 0; i < value.length; i++) checksum += value.charCodeAt(i);\n\tchecksum = ((checksum%256) & 63) + 32;\n\tchecksum = String.fromCharCode(checksum);\n\n\t// Checksum is not ok\n\tif (checksum != check ) {\n\t\tlet error = {\n\t\t\t'topic':'',\n\t\t\t'payload': 'Bad Checksum \"' + checksum + '\" for label \"' + label + '\".'\n\t\t};\n\t\treturn [null, error];\n\t}\n\n\t// Parse message\n\tlet full = value;\n\tlet trans = value;\n\tlet name = label;\n\n\t// get readbale label\n\tif (typeof names[label] == 'string') {\n\t\tname = names[label];\n\t}\n\n\t// Convert numeric value to number\n\tif (!isNaN(trans) && isFinite(Number(trans))) trans = Number(trans);\n\n\t// OPTARIF : chars, length 4\n\tif (label == \"OPTARIF\") {\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\n\t\tfull = typeof optarif[value] === 'string' ? optarif[value] : '';\n\t}\n\t// HHPHC : char, length 1\n\telse if (label == \"HHPHC\") {\n\t\t//trans = full = value.charCodeAt();\n\t}\n\t// PTEC : chars, length 4\n\telse if (label == \"PTEC\") {\n\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\n\t\tfull = typeof ptec[value] === 'string' ? ptec[value] : '';\n\t}\n\n\t// Add to output\n\tmsg.payload[label] ={\n\t\t'raw': value,\n\t\t'value': trans,\n\t\t'full': full,\n\t\t'name': name\n\t};\n}\n\nreturn [msg, null];",
+        "func": "// get descriptions\nlet describe = global.get('describe', 'default');\n\n// Remove dirty code\nlet lines = msg.payload.toString().replace(\"\\u0002\\n\",\"\").replace(\"\\r\\u0003\",\"\");\nmsg.payload = {};\n\n// Split message by line\nlines = lines.split(\"\\r\\n\");\nfor (const line in lines) {\n\n\t// Prepare checksum\n\tlet i;\n\tlet checksum = 32;\n\tlet myline = lines[line].toString().replace(\"  \",\" s\").split(\" \");\n\n\t// Split current message\n\tlet check = myline.pop();\n\tlet value = myline.pop();\n\tlet label = myline.pop();\n\n\t// Regain checksum\n\tif (check == \"s\") check = \" \";\n\n\t// Calcul checksum\n\tfor (i = 0; i < label.length; i++) checksum += label.charCodeAt(i);\n\tfor (i = 0; i < value.length; i++) checksum += value.charCodeAt(i);\n\tchecksum = ((checksum%256) & 63) + 32;\n\tchecksum = String.fromCharCode(checksum);\n\n\t// Checksum is not ok\n\tif (checksum != check ) {\n\t\tlet error = {\n\t\t\t'topic':'',\n\t\t\t'payload': 'Bad Checksum \"' + checksum + '\" for label \"' + label + '\".'\n\t\t};\n\t\treturn [null, error];\n\t}\n\n\t// Parse message\n\tlet full = value;\n\tlet trans = value;\n\tlet name = label;\n\n\t// get readbale label\n\tif (typeof describe.names[label] == 'string') {\n\t\tname = describe.names[label];\n\t}\n\n\t// Convert numeric value to number\n\tif (!isNaN(trans) && isFinite(Number(trans))) trans = Number(trans);\n\n\t// OPTARIF : chars, length 4\n\tif (label == \"OPTARIF\") {\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\n\t\tfull = typeof describe.optarif[value] === 'string' ? describe.optarif[value] : '';\n\t}\n\t// HHPHC : char, length 1\n\telse if (label == \"HHPHC\") {\n\t\t//trans = full = value.charCodeAt();\n\t}\n\t// PTEC : chars, length 4\n\telse if (label == \"PTEC\") {\n\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\n\t\tfull = typeof describe.ptec[value] === 'string' ? describe.ptec[value] : '';\n\t}\n\n\t// Add to output\n\tmsg.payload[label] ={\n\t\t'raw': value,\n\t\t'value': trans,\n\t\t'full': full,\n\t\t'name': name\n\t};\n}\n\nreturn [msg, null];",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -823,7 +824,7 @@
         "y": 140,
         "wires": [
             [
-                "92c098c716e46e3b"
+                "e25fbb1e61c21f99"
             ]
         ]
     },
@@ -840,7 +841,7 @@
             "df19be1275e79b1c",
             "f4a2353e5f92576c"
         ],
-        "x": 315,
+        "x": 575,
         "y": 140,
         "wires": []
     },
@@ -1548,6 +1549,37 @@
         "wires": [
             [
                 "fecaee88b8c296ed"
+            ]
+        ]
+    },
+    {
+        "id": "ddb169ba113b5586",
+        "type": "comment",
+        "z": "4bc72a1112cb448c",
+        "name": "Sources",
+        "info": "https://hallard.me/pitinfo/\nhttps://fmartinou.github.io/teleinfo2mqtt\n",
+        "x": 780,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "e25fbb1e61c21f99",
+        "type": "function",
+        "z": "4bc72a1112cb448c",
+        "g": "bcc6f36c217d1643",
+        "name": "describe",
+        "func": "global.set('describe', {\n    'optarif': {\n        'BASE': 'Option Base',\n        'HC..': 'Option Heures Creuses',\n        'EJP.': 'Option Effacement Jour de Pointe',\n        'BBR.': 'Option Tempo'\n    },\n    'ptec': {\n        'TH..': \"Toutes les Heures\",\n        'HC..': \"Heures Creuses\",\n        'HP..': \"Heures Pleines\",\n        'HN..': \"Heures Normales\",\n        'PM..': \"Heures de Pointe Mobile\",\n        'HCJB': \"Heures Creuses Jours Bleus\",\n        'HCJW': \"Heures Creuses Jours Blancs\",\n        'HCJR': \"Heures Creuses Jours Rouges\",\n        'HPJB': \"Heures Pleines Jours Bleus\",\n        'HPJW': \"Heures Pleines Jours Blancs\",\n        'HPJR': \"Heures Pleines Jours Rouges\"\n    },\n    'names': {\n        'ADCO': 'Addresse de compteur',\n        'OPTARIF': 'Option tarifaire',\n        'ISOUSC': 'Intensité souscrite',\n        'BASE': 'Index de base',\n        'HCHC': 'Heures creuses',\n        'HCHP': 'Heures pleines',\n        'EJPHN': 'Heures normales',\n        'EJPHPM': 'Heures de point mobile',\n        'BBRHCJB': 'Heures creuses jours bleus',\n        'BBRHPJB': 'Herues pleines jours bleus',\n        'BBRHCJW': 'Heures creuses jours blancs',\n        'BBRHPJW': 'Heures peines jours blancs',\n        'BBRHCJR': 'Heures creuses jours rouges',\n        'BBRHPJR': 'Heures pleines jours rouges',\n        'PEJP': 'Préavis debuté EJP',\n        'PTEC': 'Période tarifaire en cours',\n        'DEMAIN': 'Couleur du lendemain',\n        'IINST': 'Intensité instantanée',\n        'PAPP': 'Puissance apparente',\n        'HHPHC': 'Groupe horaire'\n    }\n}, 'default');\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 140,
+        "wires": [
+            [
+                "92c098c716e46e3b"
             ]
         ]
     }
