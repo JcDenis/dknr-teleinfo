@@ -7,7 +7,7 @@ on:
 
 env:
   DKNR_NAMESPACE: jcpd
-  DKNR_IMAGE: dknr-daikin
+  DKNR_IMAGE: dknr-teleinfo
 
 jobs:
   do_image:
