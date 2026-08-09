@@ -1,7 +1,9 @@
 # README
 
-[![Release](https://img.shields.io/docker/v/jcpd/dknr-teleinfo?color=lightblue)](https://hub.docker.com/r/jcpd/dknr-teleinfo)
-[![License](https://img.shields.io/github/license/jcdenis/dknr-teleinfo?color=white)](https://github.com/JcDenis/dknr-teleinfo/blob/master/LICENSE)
+[![Release](https://img.shields.io/docker/v/jcpd/dknr-teleinfo)](https://img.shields.io/docker/v/jcpd/dknr-teleinfo)
+[![Pull](https://img.shields.io/docker/pulls/jcpd/dknr-teleinfo)](https://img.shields.io/docker/pulls/jcpd/dknr-teleinfo)
+[![Issue](https://img.shields.io/github/issues/jcdenis/dknr-teleinfo)](https://img.shields.io/github/issues/jcdenis/dknr-teleinfo)
+[![License](https://img.shields.io/github/license/jcdenis/dknr-teleinfo)](https://github.com/JcDenis/dknr-teleinfo/blob/master/LICENSE)
 
 
 ## A propos
@@ -10,7 +12,7 @@
 
 Il permet de collecter les informations transmises par la sortie Téléinformation Client (TIC), puis de les rendre disponibles pour leur consultation, leur traitement ou leur intégration dans un système domotique.
 
-![Dashboard Screenshot](https://github.com/JcDenis/dknr-teleinfo/blob/master/dknr-teleinfo_screenshot.png)
+[![Dashboard Screenshot](https://github.com/JcDenis/dknr-teleinfo/blob/master/dknr-teleinfo_screenshot.png)](https://github.com/JcDenis/dknr-teleinfo/blob/master/dknr-teleinfo_screenshot.png)
 
 
 ## Fonctionnalités
@@ -37,6 +39,19 @@ Le matériel exact dépend de l'installation, mais l'utilisation du projet néce
 Des images Docker prêtes à l'emploi sont disponibles. 
 Utilisez le fichier docker-compose.yaml à la racine du dépôt en fournissant les variables d'environnement suivant :
 
-* DKNR_USERNAME : login de l'interface node-red
-* DKNR_PASSWORD : mot de passe de l'interface node-red
-* DKNR_SECRET   : un mot secret pour encrypter les credits.
+* **DKNR_USERNAME** : login de l'interface node-red.
+* **DKNR_PASSWORD** : mot de passe de l'interface node-red.
+* **DKNR_SECRET**   : un mot secret pour encrypter les credits.
+
+
+## A faire
+
+* **Support triphasé**.
+* **Support multicompteur** et support multi port série/USB.
+* **Support Home-Assistant** pour les messages MQTT.
+* **Rétention de données** local ou configurateur pour une base distante.
+
+
+## Contribuer
+
+Ce projet est **open-source**, vous pouvez participer en créant des [tickets](https://github.com/JcDenis/dknr-teleinfo/issues) ou en proposant de [requêtes](https://github.com/JcDenis/dknr-teleinfo/pulls) sur le dépôt github du projet.

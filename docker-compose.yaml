@@ -14,7 +14,7 @@ services:
       resources:
         limits:
           cpus: '1.0'
-          memory: 1024M
+          memory: 512M
     environment:
       TZ: Europe/Paris
       DKNR_USERNAME: ${DKNR_USERNAME}
