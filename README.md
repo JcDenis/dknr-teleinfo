@@ -1,6 +1,6 @@
 # README
 
-[![Release](https://img.shields.io/docker/v/jcpd/dknr-teleinfo)](https://img.shields.io/docker/v/jcpd/dknr-teleinfo)
+[![Release](https://img.shields.io/docker/v/jcpd/dknr-teleinfo?sort=semver)](https://img.shields.io/docker/v/jcpd/dknr-teleinfo?sort=semver)
 [![Pull](https://img.shields.io/docker/pulls/jcpd/dknr-teleinfo)](https://img.shields.io/docker/pulls/jcpd/dknr-teleinfo)
 [![Issue](https://img.shields.io/github/issues/jcdenis/dknr-teleinfo)](https://img.shields.io/github/issues/jcdenis/dknr-teleinfo)
 [![License](https://img.shields.io/github/license/jcdenis/dknr-teleinfo)](https://github.com/JcDenis/dknr-teleinfo/blob/master/LICENSE)
