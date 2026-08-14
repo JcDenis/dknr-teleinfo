@@ -22,7 +22,7 @@
             "e121bb6441bf21e5"
         ],
         "x": 94,
-        "y": 459,
+        "y": 219,
         "w": 342,
         "h": 82
     },
@@ -37,7 +37,6 @@
             "label": true
         },
         "nodes": [
-            "76ef9ff356e93682",
             "d27d098a886db556",
             "d5fbf57a0ee68499",
             "624d4ac73eb21105",
@@ -45,12 +44,16 @@
             "57e3097bb0fb436d",
             "11a311cff80fcfb0",
             "f4b715c1321c6848",
-            "02278f78e79bba90"
+            "02278f78e79bba90",
+            "92e55f9a4d7e4ff9",
+            "345396b74f5a76d0",
+            "57d2ff6245be77d1",
+            "c937040cbfaaac18"
         ],
         "x": 94,
-        "y": 219,
+        "y": 879,
         "w": 562,
-        "h": 202
+        "h": 322
     },
     {
         "id": "bcc6f36c217d1643",
@@ -69,7 +72,7 @@
         ],
         "x": 94,
         "y": 99,
-        "w": 522,
+        "w": 442,
         "h": 82
     },
     {
@@ -91,7 +94,7 @@
             "f2cd63b49ac325ec"
         ],
         "x": 84,
-        "y": 939,
+        "y": 519,
         "w": 912,
         "h": 82
     },
@@ -113,7 +116,7 @@
             "f60de1529c423dee"
         ],
         "x": 84,
-        "y": 579,
+        "y": 1239,
         "w": 482,
         "h": 142
     },
@@ -133,7 +136,7 @@
             "7f15feb966b47505"
         ],
         "x": 84,
-        "y": 1059,
+        "y": 639,
         "w": 462,
         "h": 82
     },
@@ -141,7 +144,7 @@
         "id": "4a03c4c9cfd20732",
         "type": "group",
         "z": "4bc72a1112cb448c",
-        "name": "ui - live values",
+        "name": "ui - control",
         "style": {
             "fill": "#6f2fa0",
             "fill-opacity": "0.05",
@@ -152,9 +155,7 @@
             "1e8bda1231060a89",
             "21405f35d4bbf057",
             "8d40dcb9d821536a",
-            "1e1cc50b37f084a9",
             "a45b86ad6e679d2c",
-            "a76f1ec815999855",
             "3fe540fa0313af8e",
             "60237f01f465974f",
             "b9f212f2a1597650",
@@ -162,12 +163,25 @@
             "d47e0f6925c0b2f5",
             "8d6e44f837685475",
             "ff8319eaefa8bcc5",
-            "d7c4af217d645455"
+            "d7c4af217d645455",
+            "46d41095c9cd81bb",
+            "92b3657e3f795d51",
+            "3e042ccedb336093",
+            "cf1550b97074514c",
+            "2cd010eee2da8e29",
+            "c158788b3b968b34",
+            "c03d7fe0c37957cf",
+            "bc17c08e18a403b2",
+            "be9df446e8994af5",
+            "91dbd54711396594",
+            "01346f67f027524a",
+            "f2ba5712ec8cd4b1",
+            "58dc2b8d870ecad6"
         ],
         "x": 84,
-        "y": 1179,
-        "w": 462,
-        "h": 442
+        "y": 1419,
+        "w": 1812,
+        "h": 562
     },
     {
         "id": "614d71e9e019ca82",
@@ -186,9 +200,33 @@
             "289e0a6cd1209c38"
         ],
         "x": 84,
-        "y": 759,
+        "y": 339,
         "w": 352,
         "h": 142
+    },
+    {
+        "id": "6c06ab286f144e5d",
+        "type": "group",
+        "z": "4bc72a1112cb448c",
+        "name": "ui - add",
+        "style": {
+            "fill": "#6f2fa0",
+            "fill-opacity": "0.05",
+            "label": true
+        },
+        "nodes": [
+            "c581c108f77cb31c",
+            "f5a76abe96cbf5fe",
+            "a1943e8ee5c45ed9",
+            "282cc2c3be5262e7",
+            "efbab03f220791d4",
+            "d3c87c171686d25f",
+            "8b6c63c260b32840"
+        ],
+        "x": 84,
+        "y": 759,
+        "w": 1092,
+        "h": 82
     },
     {
         "id": "df7710b4b2c4e55b",
@@ -272,7 +310,7 @@
         "page": "f89655b525aee8cd",
         "width": "3",
         "height": 1,
-        "order": 2,
+        "order": 3,
         "showTitle": false,
         "className": "",
         "visible": "true",
@@ -282,7 +320,7 @@
     {
         "id": "9f6799af93da4e9b",
         "type": "serial-port",
-        "name": "USB0",
+        "name": "config USB0",
         "serialport": "/dev/ttyUSB0",
         "serialbaud": "1200",
         "databits": "7",
@@ -350,7 +388,103 @@
         "group": "8d032322dc675ac9",
         "name": "spacer",
         "tooltip": "",
-        "order": 3,
+        "order": 5,
+        "width": "6",
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "e2ec1302a8a452ec",
+        "type": "ui-group",
+        "name": "Ajouter",
+        "page": "f89655b525aee8cd",
+        "width": "3",
+        "height": 1,
+        "order": 2,
+        "showTitle": false,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "08e1aee81f87840a",
+        "type": "serial-port",
+        "name": "config USB1",
+        "serialport": "/dev/ttyUSB1",
+        "serialbaud": "1200",
+        "databits": "7",
+        "parity": "even",
+        "stopbits": 1,
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "0x3",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": 10000
+    },
+    {
+        "id": "fd1aaf0ecae5bfb5",
+        "type": "serial-port",
+        "name": "config USB2",
+        "serialport": "/dev/ttyUSB2",
+        "serialbaud": "57600",
+        "databits": 8,
+        "parity": "none",
+        "stopbits": 1,
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "0x3",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": 10000
+    },
+    {
+        "id": "90afe585d3016433",
+        "type": "serial-port",
+        "name": "config USB3",
+        "serialport": "/dev/ttyUSB3",
+        "serialbaud": "1200",
+        "databits": "7",
+        "parity": "even",
+        "stopbits": 1,
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "0x3",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": 10000
+    },
+    {
+        "id": "8bd68651a6e23c44",
+        "type": "ui-spacer",
+        "group": "8d032322dc675ac9",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 2,
+        "width": "6",
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "b75ccf059843b8f8",
+        "type": "ui-spacer",
+        "group": "8d032322dc675ac9",
+        "name": "spacer",
+        "tooltip": "",
+        "order": 10,
         "width": "6",
         "height": 1,
         "className": ""
@@ -366,7 +500,7 @@
             "Location": "/dashboard"
         },
         "x": 340,
-        "y": 500,
+        "y": 260,
         "wires": []
     },
     {
@@ -381,25 +515,10 @@
         "skipBodyParsing": false,
         "swaggerDoc": "",
         "x": 170,
-        "y": 500,
+        "y": 260,
         "wires": [
             [
                 "025edbd02daf82d0"
-            ]
-        ]
-    },
-    {
-        "id": "76ef9ff356e93682",
-        "type": "serial in",
-        "z": "4bc72a1112cb448c",
-        "g": "41f6bf7d5f4ab75c",
-        "name": "",
-        "serial": "9f6799af93da4e9b",
-        "x": 170,
-        "y": 320,
-        "wires": [
-            [
-                "d27d098a886db556"
             ]
         ]
     },
@@ -418,7 +537,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 510,
-        "y": 260,
+        "y": 1040,
         "wires": []
     },
     {
@@ -427,7 +546,7 @@
         "z": "4bc72a1112cb448c",
         "g": "41f6bf7d5f4ab75c",
         "name": "parse",
-        "func": "// get descriptions\nlet describe = global.get('describe', 'default');\n\n// Remove dirty code\nlet lines = msg.payload.toString().replace(\"\\u0002\\n\",\"\").replace(\"\\r\\u0003\",\"\");\nmsg.payload = {};\n\n// Split message by line\nlines = lines.split(\"\\r\\n\");\nfor (const line in lines) {\n\n\t// Prepare checksum\n\tlet i;\n\tlet checksum = 32;\n\tlet myline = lines[line].toString().replace(\"  \",\" s\").split(\" \");\n\n\t// Split current message\n\tlet check = myline.pop();\n\tlet value = myline.pop();\n\tlet label = myline.pop();\n\n\t// Regain checksum\n\tif (check == \"s\") check = \" \";\n\n\t// Calcul checksum\n\tfor (i = 0; i < label.length; i++) checksum += label.charCodeAt(i);\n\tfor (i = 0; i < value.length; i++) checksum += value.charCodeAt(i);\n\tchecksum = ((checksum%256) & 63) + 32;\n\tchecksum = String.fromCharCode(checksum);\n\n\t// Checksum is not ok\n\tif (checksum != check ) {\n\t\tlet error = {\n\t\t\t'topic':'',\n\t\t\t'payload': 'Bad Checksum \"' + checksum + '\" for label \"' + label + '\".'\n\t\t};\n\t\treturn [null, error];\n\t}\n\n\t// Parse message\n\tlet full = value;\n\tlet trans = value;\n\tlet name = label;\n\n\t// get readbale label\n\tif (typeof describe.names[label] == 'string') {\n\t\tname = describe.names[label];\n\t}\n\n\t// Convert numeric value to number\n\tif (!isNaN(trans) && isFinite(Number(trans))) trans = Number(trans);\n\n\t// OPTARIF : chars, length 4\n\tif (label == \"OPTARIF\") {\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\n\t\tfull = typeof describe.optarif[value] === 'string' ? describe.optarif[value] : '';\n\t}\n\t// HHPHC : char, length 1\n\telse if (label == \"HHPHC\") {\n\t\t//trans = full = value.charCodeAt();\n\t}\n\t// PTEC : chars, length 4\n\telse if (label == \"PTEC\") {\n\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\n\t\tfull = typeof describe.ptec[value] === 'string' ? describe.ptec[value] : '';\n\t}\n\n\t// Add to output\n\tmsg.payload[label] ={\n\t\t'raw': value,\n\t\t'value': trans,\n\t\t'full': full,\n\t\t'name': name\n\t};\n}\n\nreturn [msg, null];",
+        "func": "// get descriptions\nlet describe = global.get('describe', 'default');\n\n// Remove dirty code\nlet lines = msg.payload.toString().replace(\"\\u0002\\n\",\"\").replace(\"\\r\\u0003\",\"\");\nmsg.payload = {};\n\n// Split message by line\nlines = lines.split(\"\\r\\n\");\nfor (const line in lines) {\n\n\t// Prepare checksum\n\tlet i;\n\tlet checksum = 32;\n\tlet myline = lines[line].toString().replace(\"  \",\" s\").split(\" \");\n\n\t// Split current message\n\tlet check = myline.pop();\n\tlet value = myline.pop();\n\tlet label = myline.pop();\n\n\t// Regain checksum\n\tif (check == \"s\") check = \" \";\n\n\t// Calcul checksum\n\tfor (i = 0; i < label.length; i++) checksum += label.charCodeAt(i);\n\tfor (i = 0; i < value.length; i++) checksum += value.charCodeAt(i);\n\tchecksum = ((checksum%256) & 63) + 32;\n\tchecksum = String.fromCharCode(checksum);\n\n\t// Checksum is not ok\n\tif (checksum != check ) {\n\t\tlet error = {\n\t\t\t'topic':'',\n\t\t\t'payload': 'Bad Checksum \"' + checksum + '\" for label \"' + label + '\".'\n\t\t};\n\t\treturn [null, error];\n\t}\n\n\t// Parse message\n\tlet full = value;\n\tlet trans = value;\n\tlet name = label;\n\n\t// get readbale label\n\tif (typeof describe.names[label] == 'string') {\n\t\tname = describe.names[label];\n\t}\n\n\t// Convert numeric value to number\n\tif (!isNaN(trans) && isFinite(Number(trans))) trans = Number(trans);\n\n\t// OPTARIF : chars, length 4\n\tif (label == \"OPTARIF\") {\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\n\t\tfull = typeof describe.optarif[value] === 'string' ? describe.optarif[value] : '';\n\t}\n\t// HHPHC : char, length 1\n\telse if (label == \"HHPHC\") {\n\t\t//trans = full = value.charCodeAt();\n\t}\n\t// PTEC : chars, length 4\n\telse if (label == \"PTEC\") {\n\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\n\t\tfull = typeof describe.ptec[value] === 'string' ? describe.ptec[value] : '';\n\t}\n\n\t// Add to output\n\tmsg.payload[label] ={\n\t\t'raw': value,\n\t\t'value': trans,\n\t\t'full': full,\n\t\t'name': name\n\t};\n}\n\nlet unit = global.get('units[\"' + msg.port + '\"]', 'default');\nif (typeof unit === 'object') {\n\tmsg.payload['NAME'] = {\n\t\t'raw': unit['name'],\n\t\t'value': unit['name'],\n\t\t'full': unit['name'],\n\t\t'name': 'Nom'\n\t};\n\tmsg.payload['LOCATION'] = {\n\t\t'raw': unit['location'],\n\t\t'value': unit['location'],\n\t\t'full': unit['location'],\n\t\t'name': 'Emplacement'\n\t};\n\tmsg.payload['PORT'] = {\n\t\t'raw': unit['port'],\n\t\t'value': unit['port'],\n\t\t'full': unit['port'],\n\t\t'name': 'Port de communication'\n\t};\n}\n\nlet controls = global.get('controls', 'default')||{};\ncontrols[msg.port] = msg.payload;\nglobal.set('controls', controls, 'default');\n\nreturn [msg, null];",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -435,7 +554,7 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 320,
+        "y": 1100,
         "wires": [
             [
                 "d5fbf57a0ee68499"
@@ -461,7 +580,7 @@
         "expiry": "",
         "broker": "2c5e094fee5ae877",
         "x": 490,
-        "y": 680,
+        "y": 1340,
         "wires": []
     },
     {
@@ -492,7 +611,7 @@
         "to": "",
         "reg": false,
         "x": 490,
-        "y": 320,
+        "y": 1100,
         "wires": [
             [
                 "02278f78e79bba90",
@@ -508,11 +627,14 @@
         "name": "catch",
         "scope": [
             "d27d098a886db556",
-            "76ef9ff356e93682"
+            "92e55f9a4d7e4ff9",
+            "345396b74f5a76d0",
+            "57d2ff6245be77d1",
+            "c937040cbfaaac18"
         ],
         "uncaught": false,
         "x": 170,
-        "y": 380,
+        "y": 1160,
         "wires": [
             [
                 "a6b074fafe9eab76"
@@ -540,7 +662,7 @@
         "to": "",
         "reg": false,
         "x": 330,
-        "y": 380,
+        "y": 1160,
         "wires": [
             [
                 "57e3097bb0fb436d"
@@ -575,7 +697,7 @@
         "to": "",
         "reg": false,
         "x": 490,
-        "y": 380,
+        "y": 1160,
         "wires": [
             [
                 "f4b715c1321c6848"
@@ -589,7 +711,7 @@
         "g": "4a03c4c9cfd20732",
         "name": "ui - live - iiinst",
         "group": "8d032322dc675ac9",
-        "order": 1,
+        "order": 3,
         "value": "payload",
         "valueType": "msg",
         "width": "3",
@@ -619,8 +741,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 440,
-        "y": 1280,
+        "x": 1360,
+        "y": 1460,
         "wires": [
             []
         ]
@@ -638,8 +760,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 250,
-        "y": 1280,
+        "x": 1170,
+        "y": 1460,
         "wires": [
             [
                 "d14fef6d3072a1f9"
@@ -659,8 +781,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 250,
-        "y": 1340,
+        "x": 1170,
+        "y": 1520,
         "wires": [
             [
                 "8d40dcb9d821536a"
@@ -674,7 +796,7 @@
         "g": "4a03c4c9cfd20732",
         "name": "ui - live - papp",
         "group": "8d032322dc675ac9",
-        "order": 2,
+        "order": 4,
         "value": "payload",
         "valueType": "msg",
         "width": "3",
@@ -704,8 +826,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 440,
-        "y": 1340,
+        "x": 1360,
+        "y": 1520,
         "wires": [
             []
         ]
@@ -722,30 +844,8 @@
             "8704b93076a73d7e"
         ],
         "x": 615,
-        "y": 320,
+        "y": 1100,
         "wires": []
-    },
-    {
-        "id": "1e1cc50b37f084a9",
-        "type": "link in",
-        "z": "4bc72a1112cb448c",
-        "g": "4a03c4c9cfd20732",
-        "name": "ui - live values",
-        "links": [
-            "11a311cff80fcfb0"
-        ],
-        "x": 125,
-        "y": 1280,
-        "wires": [
-            [
-                "1e8bda1231060a89",
-                "21405f35d4bbf057",
-                "3fe540fa0313af8e",
-                "b9f212f2a1597650",
-                "8d6e44f837685475",
-                "ff8319eaefa8bcc5"
-            ]
-        ]
     },
     {
         "id": "f4b715c1321c6848",
@@ -759,7 +859,7 @@
             "f4a2353e5f92576c"
         ],
         "x": 615,
-        "y": 380,
+        "y": 1160,
         "wires": []
     },
     {
@@ -773,7 +873,7 @@
             "f4b715c1321c6848"
         ],
         "x": 125,
-        "y": 680,
+        "y": 1340,
         "wires": [
             [
                 "b42653048b3f39e8"
@@ -791,7 +891,7 @@
             "f4b715c1321c6848"
         ],
         "x": 125,
-        "y": 1100,
+        "y": 680,
         "wires": [
             [
                 "7f15feb966b47505"
@@ -839,9 +939,13 @@
             "3fa36de74a10eac1",
             "a76f1ec815999855",
             "df19be1275e79b1c",
-            "f4a2353e5f92576c"
+            "f4a2353e5f92576c",
+            "c581c108f77cb31c",
+            "92b3657e3f795d51",
+            "852d74360ea4224c",
+            "0c8b92f8ba2cf268"
         ],
-        "x": 575,
+        "x": 495,
         "y": 140,
         "wires": []
     },
@@ -879,8 +983,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 250,
-        "y": 1220,
+        "x": 1170,
+        "y": 1940,
         "wires": [
             [
                 "d14fef6d3072a1f9",
@@ -888,24 +992,8 @@
                 "60237f01f465974f",
                 "ce85a3986bf50f1a",
                 "d47e0f6925c0b2f5",
-                "d7c4af217d645455"
-            ]
-        ]
-    },
-    {
-        "id": "a76f1ec815999855",
-        "type": "link in",
-        "z": "4bc72a1112cb448c",
-        "g": "4a03c4c9cfd20732",
-        "name": "ui - live values boot",
-        "links": [
-            "92c098c716e46e3b"
-        ],
-        "x": 125,
-        "y": 1220,
-        "wires": [
-            [
-                "a45b86ad6e679d2c"
+                "d7c4af217d645455",
+                "58dc2b8d870ecad6"
             ]
         ]
     },
@@ -930,7 +1018,7 @@
         "to": "",
         "reg": false,
         "x": 260,
-        "y": 980,
+        "y": 560,
         "wires": [
             [
                 "d9dbb31a0ba1e2a5"
@@ -958,7 +1046,7 @@
         "to": "",
         "reg": false,
         "x": 660,
-        "y": 980,
+        "y": 560,
         "wires": [
             [
                 "490f552ee626deb7"
@@ -984,7 +1072,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 830,
-        "y": 980,
+        "y": 560,
         "wires": [
             [
                 "f2cd63b49ac325ec"
@@ -1008,7 +1096,7 @@
         "repair": false,
         "outputs": 1,
         "x": 260,
-        "y": 680,
+        "y": 1340,
         "wires": [
             [
                 "4f8fb9f9243e9939"
@@ -1022,7 +1110,7 @@
         "g": "d15289b1932a175e",
         "name": "ui - mqtt - form",
         "group": "4c116fe2697e0aa9",
-        "label": "MQTT",
+        "label": "Connexion au broker MQTT",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -1089,7 +1177,7 @@
         "passthru": false,
         "dropdownOptions": [],
         "x": 460,
-        "y": 980,
+        "y": 560,
         "wires": [
             [
                 "6483959a5e73553e"
@@ -1108,7 +1196,7 @@
             "911bbe32f79bec46"
         ],
         "x": 125,
-        "y": 980,
+        "y": 560,
         "wires": [
             [
                 "84741ff9d386b4bb"
@@ -1127,7 +1215,7 @@
             "df19be1275e79b1c"
         ],
         "x": 955,
-        "y": 980,
+        "y": 560,
         "wires": []
     },
     {
@@ -1141,7 +1229,7 @@
             "f2cd63b49ac325ec"
         ],
         "x": 125,
-        "y": 620,
+        "y": 1280,
         "wires": [
             [
                 "f60de1529c423dee"
@@ -1162,7 +1250,7 @@
         "finalize": "",
         "libs": [],
         "x": 290,
-        "y": 620,
+        "y": 1280,
         "wires": [
             [
                 "4f8fb9f9243e9939"
@@ -1189,7 +1277,7 @@
         "templateScope": "site:style",
         "className": "",
         "x": 260,
-        "y": 800,
+        "y": 380,
         "wires": [
             []
         ]
@@ -1203,7 +1291,7 @@
         "ui": "df7710b4b2c4e55b",
         "events": "all",
         "x": 260,
-        "y": 860,
+        "y": 440,
         "wires": [
             [
                 "911bbe32f79bec46"
@@ -1218,10 +1306,11 @@
         "name": "ui - control",
         "mode": "link",
         "links": [
-            "df19be1275e79b1c"
+            "df19be1275e79b1c",
+            "c581c108f77cb31c"
         ],
         "x": 395,
-        "y": 860,
+        "y": 440,
         "wires": []
     },
     {
@@ -1232,7 +1321,7 @@
         "name": "ui - control",
         "links": [],
         "x": 125,
-        "y": 860,
+        "y": 440,
         "wires": [
             [
                 "bbb6fa5ec8070fb8"
@@ -1247,138 +1336,6 @@
         "group": "8d032322dc675ac9",
         "name": "ui - live - tariff",
         "label": "Abonnement :",
-        "order": 4,
-        "width": "3",
-        "height": "1",
-        "maxrows": 0,
-        "passthru": false,
-        "autocols": false,
-        "showSearch": false,
-        "deselect": true,
-        "selectionType": "click",
-        "columns": [
-            {
-                "title": "",
-                "key": "lbl",
-                "keyType": "key",
-                "type": "text",
-                "width": "",
-                "align": "end"
-            },
-            {
-                "title": "",
-                "key": "val",
-                "keyType": "key",
-                "type": "text",
-                "width": "",
-                "align": "start"
-            }
-        ],
-        "mobileBreakpoint": "sm",
-        "mobileBreakpointType": "defaults",
-        "action": "replace",
-        "className": "",
-        "x": 440,
-        "y": 1400,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "3fe540fa0313af8e",
-        "type": "function",
-        "z": "4bc72a1112cb448c",
-        "g": "4a03c4c9cfd20732",
-        "name": "tariff",
-        "func": "let res = [];\nlet i = 0;\nlet exists = false;\n\nif (typeof msg.payload.OPTARIF == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.OPTARIF.name,\n        'val': msg.payload.OPTARIF.full\n    };\n    exists = true;\n}\n\nif (typeof msg.payload.ISOUSC == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.ISOUSC.name,\n        'val': msg.payload.ISOUSC.full + ' A'\n    }\n    exists = true;\n}\n\nif (typeof msg.payload.PTEC == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.PTEC.name,\n        'val': msg.payload.PTEC.full,\n    }\n    exists = true;\n}\n\nif (exists === true) {\n    msg.payload = res;\n    msg.class = '';\n\n    return msg;\n}\n\nreturn;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 250,
-        "y": 1400,
-        "wires": [
-            [
-                "60237f01f465974f"
-            ]
-        ]
-    },
-    {
-        "id": "b9f212f2a1597650",
-        "type": "function",
-        "z": "4bc72a1112cb448c",
-        "g": "4a03c4c9cfd20732",
-        "name": "hchp",
-        "func": "let res = [];\nlet i = 0;\nlet exists = false;\n\nif (typeof msg.payload.HHPHC == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.HHPHC.name,\n        'val': msg.payload.HHPHC.full,\n    };\n    exists = true;\n}\n\nif (typeof msg.payload.HCHC == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.HCHC.name,\n        'val': msg.payload.HCHC.value,\n    };\n    exists = true;\n}\n\nif (typeof msg.payload.HCHP == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.HCHP.name,\n        'val': msg.payload.HCHP.value,\n    };\n    exists = true;\n}\n\nif (typeof msg.payload.HCHC == 'object' && typeof msg.payload.HCHP == 'object') {\n    res[i++] = {\n        'lbl': 'Total heures',\n        'val': msg.payload.HCHP.value + msg.payload.HCHC.value,\n    };\n    exists = true;\n}\n\nif (exists === true) {\n    msg.payload = res;\n    msg.class = '';\n\n    return msg;\n}\n\nreturn;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 250,
-        "y": 1460,
-        "wires": [
-            [
-                "ce85a3986bf50f1a"
-            ]
-        ]
-    },
-    {
-        "id": "ce85a3986bf50f1a",
-        "type": "ui-table",
-        "z": "4bc72a1112cb448c",
-        "g": "4a03c4c9cfd20732",
-        "group": "8d032322dc675ac9",
-        "name": "ui - live - hchp",
-        "label": "Heures :",
-        "order": 5,
-        "width": "3",
-        "height": "1",
-        "maxrows": 0,
-        "passthru": false,
-        "autocols": false,
-        "showSearch": false,
-        "deselect": true,
-        "selectionType": "click",
-        "columns": [
-            {
-                "title": "",
-                "key": "lbl",
-                "keyType": "key",
-                "type": "text",
-                "width": "",
-                "align": "end"
-            },
-            {
-                "title": "",
-                "key": "val",
-                "keyType": "key",
-                "type": "text",
-                "width": "",
-                "align": "start"
-            }
-        ],
-        "mobileBreakpoint": "sm",
-        "mobileBreakpointType": "defaults",
-        "action": "replace",
-        "className": "",
-        "x": 440,
-        "y": 1460,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "d47e0f6925c0b2f5",
-        "type": "ui-table",
-        "z": "4bc72a1112cb448c",
-        "g": "4a03c4c9cfd20732",
-        "group": "8d032322dc675ac9",
-        "name": "ui - live - ejp",
-        "label": "Jour de pointe :",
         "order": 6,
         "width": "3",
         "height": "1",
@@ -1410,62 +1367,62 @@
         "mobileBreakpointType": "defaults",
         "action": "replace",
         "className": "",
-        "x": 430,
-        "y": 1520,
+        "x": 1360,
+        "y": 1580,
         "wires": [
             []
         ]
     },
     {
-        "id": "8d6e44f837685475",
+        "id": "3fe540fa0313af8e",
         "type": "function",
         "z": "4bc72a1112cb448c",
         "g": "4a03c4c9cfd20732",
-        "name": "ejp",
-        "func": "let res = [];\nlet i = 0;\nlet exists = false;\n\nif (typeof msg.payload.PEJP == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.PEJP.name,\n        'val': msg.payload.PEJP.full,\n    };\n    exists = true;\n}\n\nif (typeof msg.payload.EJPHN == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.EJPHN.name ,\n        'val': msg.payload.EJPHN.full,\n    };\n    exists = true;\n}\n\nif (typeof msg.payload.EJPHPM == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.EJPHPM.name,\n        'val': msg.payload.EJPHPM.full,\n    };\n    exists = true;\n}\n\nif (exists === true) {\n    msg.payload = res;\n    msg.class = '';\n\n    return msg;\n}\n\nreturn;",
+        "name": "tariff",
+        "func": "let res = [];\nlet i = 0;\nlet exists = false;\n\nif (typeof msg.payload.OPTARIF == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.OPTARIF.name,\n        'val': msg.payload.OPTARIF.full\n    };\n    exists = true;\n}\n\nif (typeof msg.payload.ISOUSC == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.ISOUSC.name,\n        'val': msg.payload.ISOUSC.full + ' A'\n    }\n    exists = true;\n}\n\nif (typeof msg.payload.PTEC == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.PTEC.name,\n        'val': msg.payload.PTEC.full,\n    }\n    exists = true;\n}\n\nif (exists === true) {\n    msg.payload = res;\n    msg.class = '';\n\n    return msg;\n}\n\nreturn;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 250,
-        "y": 1520,
-        "wires": [
-            [
-                "d47e0f6925c0b2f5"
-            ]
-        ]
-    },
-    {
-        "id": "ff8319eaefa8bcc5",
-        "type": "function",
-        "z": "4bc72a1112cb448c",
-        "g": "4a03c4c9cfd20732",
-        "name": "bbr",
-        "func": "let res = [];\nlet i = 0;\nlet exists = false;\n\nif (typeof msg.payload.BBRHCJB == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.BBRHCJB.name,\n        'val': msg.payload.BBRHCJB.full,\n    };\n    exists = true;\n}\n\nif (typeof msg.payload.BBRHPJB == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.BBRHPJB.name,\n        'val': msg.payload.BBRHPJB.full,\n    };\n    exists = true;\n}\n\nif (typeof msg.payload.BBRHCJW == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.BBRHCJW.name,\n        'val': msg.payload.BBRHCJW.full,\n    };\n    exists = true;\n}\n\nif (typeof msg.payload.BBRHPJW == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.BBRHPJW.name,\n        'val': msg.payload.BBRHPJW.full,\n    };\n    exists = true;\n}\n\nif (typeof msg.payload.BBRHCJR == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.BBRHCJR.name,\n        'val': msg.payload.BBRHCJR.full,\n    };\n    exists = true;\n}\n\nif (typeof msg.payload.BBRHPJR == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.BBRHPJR.name,\n        'payload': msg.payload.BBRHPJR.full,\n    };\n    exists = true;\n}\n\nif (exists === true) {\n    msg.payload = res;\n    msg.class = '';\n\n    return msg;\n}\n\nreturn;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 250,
+        "x": 1170,
         "y": 1580,
         "wires": [
             [
-                "d7c4af217d645455"
+                "60237f01f465974f"
             ]
         ]
     },
     {
-        "id": "d7c4af217d645455",
+        "id": "b9f212f2a1597650",
+        "type": "function",
+        "z": "4bc72a1112cb448c",
+        "g": "4a03c4c9cfd20732",
+        "name": "hchp",
+        "func": "let res = [];\nlet i = 0;\nlet exists = false;\n\nif (typeof msg.payload.HHPHC == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.HHPHC.name,\n        'val': msg.payload.HHPHC.full,\n    };\n    exists = true;\n}\n\nif (typeof msg.payload.HCHC == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.HCHC.name,\n        'val': msg.payload.HCHC.value,\n    };\n    exists = true;\n}\n\nif (typeof msg.payload.HCHP == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.HCHP.name,\n        'val': msg.payload.HCHP.value,\n    };\n    exists = true;\n}\n\nif (typeof msg.payload.HCHC == 'object' && typeof msg.payload.HCHP == 'object') {\n    res[i++] = {\n        'lbl': 'Total heures',\n        'val': msg.payload.HCHP.value + msg.payload.HCHC.value,\n    };\n    exists = true;\n}\n\nif (exists === true) {\n    msg.payload = res;\n    msg.class = '';\n\n    return msg;\n}\n\nreturn;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1170,
+        "y": 1640,
+        "wires": [
+            [
+                "ce85a3986bf50f1a"
+            ]
+        ]
+    },
+    {
+        "id": "ce85a3986bf50f1a",
         "type": "ui-table",
         "z": "4bc72a1112cb448c",
         "g": "4a03c4c9cfd20732",
         "group": "8d032322dc675ac9",
-        "name": "ui - live - bbr",
-        "label": "Tempo :",
+        "name": "ui - live - hchp",
+        "label": "Heures :",
         "order": 7,
         "width": "3",
         "height": "1",
@@ -1497,8 +1454,140 @@
         "mobileBreakpointType": "defaults",
         "action": "replace",
         "className": "",
-        "x": 430,
-        "y": 1580,
+        "x": 1360,
+        "y": 1640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d47e0f6925c0b2f5",
+        "type": "ui-table",
+        "z": "4bc72a1112cb448c",
+        "g": "4a03c4c9cfd20732",
+        "group": "8d032322dc675ac9",
+        "name": "ui - live - ejp",
+        "label": "Jour de pointe :",
+        "order": 8,
+        "width": "3",
+        "height": "1",
+        "maxrows": 0,
+        "passthru": false,
+        "autocols": false,
+        "showSearch": false,
+        "deselect": true,
+        "selectionType": "click",
+        "columns": [
+            {
+                "title": "",
+                "key": "lbl",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "end"
+            },
+            {
+                "title": "",
+                "key": "val",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "start"
+            }
+        ],
+        "mobileBreakpoint": "sm",
+        "mobileBreakpointType": "defaults",
+        "action": "replace",
+        "className": "",
+        "x": 1350,
+        "y": 1700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8d6e44f837685475",
+        "type": "function",
+        "z": "4bc72a1112cb448c",
+        "g": "4a03c4c9cfd20732",
+        "name": "ejp",
+        "func": "let res = [];\nlet i = 0;\nlet exists = false;\n\nif (typeof msg.payload.PEJP == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.PEJP.name,\n        'val': msg.payload.PEJP.full,\n    };\n    exists = true;\n}\n\nif (typeof msg.payload.EJPHN == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.EJPHN.name ,\n        'val': msg.payload.EJPHN.full,\n    };\n    exists = true;\n}\n\nif (typeof msg.payload.EJPHPM == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.EJPHPM.name,\n        'val': msg.payload.EJPHPM.full,\n    };\n    exists = true;\n}\n\nif (exists === true) {\n    msg.payload = res;\n    msg.class = '';\n\n    return msg;\n}\n\nreturn;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1170,
+        "y": 1700,
+        "wires": [
+            [
+                "d47e0f6925c0b2f5"
+            ]
+        ]
+    },
+    {
+        "id": "ff8319eaefa8bcc5",
+        "type": "function",
+        "z": "4bc72a1112cb448c",
+        "g": "4a03c4c9cfd20732",
+        "name": "bbr",
+        "func": "let res = [];\nlet i = 0;\nlet exists = false;\n\nif (typeof msg.payload.BBRHCJB == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.BBRHCJB.name,\n        'val': msg.payload.BBRHCJB.full,\n    };\n    exists = true;\n}\n\nif (typeof msg.payload.BBRHPJB == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.BBRHPJB.name,\n        'val': msg.payload.BBRHPJB.full,\n    };\n    exists = true;\n}\n\nif (typeof msg.payload.BBRHCJW == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.BBRHCJW.name,\n        'val': msg.payload.BBRHCJW.full,\n    };\n    exists = true;\n}\n\nif (typeof msg.payload.BBRHPJW == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.BBRHPJW.name,\n        'val': msg.payload.BBRHPJW.full,\n    };\n    exists = true;\n}\n\nif (typeof msg.payload.BBRHCJR == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.BBRHCJR.name,\n        'val': msg.payload.BBRHCJR.full,\n    };\n    exists = true;\n}\n\nif (typeof msg.payload.BBRHPJR == 'object') {\n    res[i++] = {\n        'lbl': msg.payload.BBRHPJR.name,\n        'payload': msg.payload.BBRHPJR.full,\n    };\n    exists = true;\n}\n\nif (exists === true) {\n    msg.payload = res;\n    msg.class = '';\n\n    return msg;\n}\n\nreturn;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1170,
+        "y": 1760,
+        "wires": [
+            [
+                "d7c4af217d645455"
+            ]
+        ]
+    },
+    {
+        "id": "d7c4af217d645455",
+        "type": "ui-table",
+        "z": "4bc72a1112cb448c",
+        "g": "4a03c4c9cfd20732",
+        "group": "8d032322dc675ac9",
+        "name": "ui - live - bbr",
+        "label": "Tempo :",
+        "order": 9,
+        "width": "3",
+        "height": "1",
+        "maxrows": 0,
+        "passthru": false,
+        "autocols": false,
+        "showSearch": false,
+        "deselect": true,
+        "selectionType": "click",
+        "columns": [
+            {
+                "title": "",
+                "key": "lbl",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "end"
+            },
+            {
+                "title": "",
+                "key": "val",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "start"
+            }
+        ],
+        "mobileBreakpoint": "sm",
+        "mobileBreakpointType": "defaults",
+        "action": "replace",
+        "className": "",
+        "x": 1350,
+        "y": 1760,
         "wires": [
             []
         ]
@@ -1523,7 +1612,7 @@
         "className": "",
         "name": "ui - live - error",
         "x": 440,
-        "y": 1100,
+        "y": 680,
         "wires": [
             []
         ]
@@ -1545,7 +1634,7 @@
         "repair": false,
         "outputs": 1,
         "x": 250,
-        "y": 1100,
+        "y": 680,
         "wires": [
             [
                 "fecaee88b8c296ed"
@@ -1558,7 +1647,7 @@
         "z": "4bc72a1112cb448c",
         "name": "Sources",
         "info": "https://hallard.me/pitinfo/\nhttps://fmartinou.github.io/teleinfo2mqtt\n",
-        "x": 780,
+        "x": 660,
         "y": 140,
         "wires": []
     },
@@ -1580,6 +1669,677 @@
         "wires": [
             [
                 "92c098c716e46e3b"
+            ]
+        ]
+    },
+    {
+        "id": "c581c108f77cb31c",
+        "type": "link in",
+        "z": "4bc72a1112cb448c",
+        "g": "6c06ab286f144e5d",
+        "name": "ui - add",
+        "links": [
+            "911bbe32f79bec46",
+            "92c098c716e46e3b",
+            "d3c87c171686d25f"
+        ],
+        "x": 125,
+        "y": 800,
+        "wires": [
+            [
+                "a1943e8ee5c45ed9"
+            ]
+        ]
+    },
+    {
+        "id": "f5a76abe96cbf5fe",
+        "type": "ui-form",
+        "z": "4bc72a1112cb448c",
+        "g": "6c06ab286f144e5d",
+        "name": "ui - add - form",
+        "group": "e2ec1302a8a452ec",
+        "label": "Ajouter un compteur",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Nom",
+                "key": "name",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Emplacement",
+                "key": "location",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "Connecteur",
+                "key": "port",
+                "type": "dropdown",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "name": "",
+            "location": "",
+            "port": ""
+        },
+        "payload": "",
+        "submit": "Ajouter",
+        "cancel": "",
+        "resetOnSubmit": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "passthru": false,
+        "dropdownOptions": [
+            {
+                "dropdown": "port",
+                "value": "/dev/ttyUSB0",
+                "label": "0"
+            },
+            {
+                "dropdown": "port",
+                "value": "/dev/ttyUSB1",
+                "label": "1"
+            },
+            {
+                "dropdown": "port",
+                "value": "/dev/ttyUSB2",
+                "label": "2"
+            },
+            {
+                "dropdown": "port",
+                "value": "/dev/ttyUSB3",
+                "label": "3"
+            }
+        ],
+        "x": 440,
+        "y": 800,
+        "wires": [
+            [
+                "efbab03f220791d4"
+            ]
+        ]
+    },
+    {
+        "id": "a1943e8ee5c45ed9",
+        "type": "change",
+        "z": "4bc72a1112cb448c",
+        "g": "6c06ab286f144e5d",
+        "name": "clear",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{'port':0}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 250,
+        "y": 800,
+        "wires": [
+            [
+                "f5a76abe96cbf5fe"
+            ]
+        ]
+    },
+    {
+        "id": "282cc2c3be5262e7",
+        "type": "change",
+        "z": "4bc72a1112cb448c",
+        "g": "6c06ab286f144e5d",
+        "name": "write mqtt",
+        "rules": [
+            {
+                "t": "set",
+                "p": "units[msg.payload.port]",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 840,
+        "y": 800,
+        "wires": [
+            [
+                "8b6c63c260b32840"
+            ]
+        ]
+    },
+    {
+        "id": "efbab03f220791d4",
+        "type": "function",
+        "z": "4bc72a1112cb448c",
+        "g": "6c06ab286f144e5d",
+        "name": "check values",
+        "func": "// todo\nif (msg.payload.name !== ' ' && msg.payload.location !== ' '  && msg.payload.port !== ' ') {\n    return msg;\n}\n\nreturn;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 800,
+        "wires": [
+            [
+                "282cc2c3be5262e7"
+            ]
+        ]
+    },
+    {
+        "id": "d3c87c171686d25f",
+        "type": "link out",
+        "z": "4bc72a1112cb448c",
+        "g": "6c06ab286f144e5d",
+        "name": "ui - add",
+        "mode": "link",
+        "links": [
+            "c581c108f77cb31c",
+            "852d74360ea4224c"
+        ],
+        "x": 1135,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "8b6c63c260b32840",
+        "type": "delay",
+        "z": "4bc72a1112cb448c",
+        "g": "6c06ab286f144e5d",
+        "name": "50ms",
+        "pauseType": "delay",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1010,
+        "y": 800,
+        "wires": [
+            [
+                "d3c87c171686d25f"
+            ]
+        ]
+    },
+    {
+        "id": "46d41095c9cd81bb",
+        "type": "function",
+        "z": "4bc72a1112cb448c",
+        "g": "4a03c4c9cfd20732",
+        "name": "get names",
+        "func": "flow.set('current_tic', '', 'default');\n\nmsg.payload = '';\nmsg.class = '';\nmsg.enabled = true;\nmsg.options = [{\n    'label':'',\n    'value':'',\n    'dropdown':'name'\n}];\n\nlet i = 1;\nlet units = global.get('units', 'default');\nif (typeof units === 'object') {\n    for(const port in units) {\n        msg.options[i++] = {\n            'label': units[port]['name'] + ' (' + port + ')',\n            'value': port,\n            'dropdown': 'name'\n        }\n    }\n}\n\nif (i == 1) {\n    node.send([null, null]);\n}\nelse if (i == 2) {\n    msg.payload = msg.options[1]['value'];\n    node.send([msg, null]);\n    msg.class = 'remove';\n    msg.enlabed = false;\n    node.send([null, msg]);\n}\nelse {\n    node.send([null, msg]);\n}\n\nreturn;",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 1820,
+        "wires": [
+            [
+                "2cd010eee2da8e29"
+            ],
+            [
+                "3e042ccedb336093"
+            ]
+        ]
+    },
+    {
+        "id": "92b3657e3f795d51",
+        "type": "link in",
+        "z": "4bc72a1112cb448c",
+        "g": "4a03c4c9cfd20732",
+        "name": "ui - control",
+        "links": [
+            "92c098c716e46e3b",
+            "f2ba5712ec8cd4b1"
+        ],
+        "x": 125,
+        "y": 1940,
+        "wires": [
+            [
+                "46d41095c9cd81bb",
+                "a45b86ad6e679d2c"
+            ]
+        ]
+    },
+    {
+        "id": "3e042ccedb336093",
+        "type": "ui-dropdown",
+        "z": "4bc72a1112cb448c",
+        "g": "4a03c4c9cfd20732",
+        "group": "8d032322dc675ac9",
+        "name": "ui - control - select",
+        "label": "Sélectionner un compteur",
+        "tooltip": "",
+        "order": 1,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "multiple": false,
+        "chips": false,
+        "clearable": false,
+        "options": [
+            {
+                "label": "",
+                "value": "",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "typeIsComboBox": false,
+        "msgTrigger": "onChange",
+        "x": 490,
+        "y": 1880,
+        "wires": [
+            [
+                "cf1550b97074514c"
+            ]
+        ]
+    },
+    {
+        "id": "cf1550b97074514c",
+        "type": "switch",
+        "z": "4bc72a1112cb448c",
+        "g": "4a03c4c9cfd20732",
+        "name": "empty",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 690,
+        "y": 1880,
+        "wires": [
+            [
+                "2cd010eee2da8e29"
+            ],
+            [
+                "a45b86ad6e679d2c"
+            ]
+        ]
+    },
+    {
+        "id": "2cd010eee2da8e29",
+        "type": "switch",
+        "z": "4bc72a1112cb448c",
+        "g": "4a03c4c9cfd20732",
+        "name": "exists",
+        "property": "controls",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "hask",
+                "v": "payload",
+                "vt": "msg"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 850,
+        "y": 1820,
+        "wires": [
+            [
+                "c158788b3b968b34"
+            ],
+            [
+                "a45b86ad6e679d2c"
+            ]
+        ]
+    },
+    {
+        "id": "c158788b3b968b34",
+        "type": "change",
+        "z": "4bc72a1112cb448c",
+        "g": "4a03c4c9cfd20732",
+        "name": "global",
+        "rules": [
+            {
+                "t": "set",
+                "p": "current_tic",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "controls[msg.payload]",
+                "tot": "global"
+            },
+            {
+                "t": "set",
+                "p": "class",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "enabled",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1010,
+        "y": 1820,
+        "wires": [
+            [
+                "be9df446e8994af5",
+                "1e8bda1231060a89",
+                "21405f35d4bbf057",
+                "3fe540fa0313af8e",
+                "b9f212f2a1597650",
+                "8d6e44f837685475",
+                "ff8319eaefa8bcc5",
+                "58dc2b8d870ecad6"
+            ]
+        ]
+    },
+    {
+        "id": "c03d7fe0c37957cf",
+        "type": "switch",
+        "z": "4bc72a1112cb448c",
+        "g": "4a03c4c9cfd20732",
+        "name": "current",
+        "property": "current_tic",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "payload",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 840,
+        "y": 1760,
+        "wires": [
+            [
+                "c158788b3b968b34"
+            ]
+        ]
+    },
+    {
+        "id": "bc17c08e18a403b2",
+        "type": "delay",
+        "z": "4bc72a1112cb448c",
+        "g": "4a03c4c9cfd20732",
+        "name": "1s",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 670,
+        "y": 1760,
+        "wires": [
+            [
+                "c03d7fe0c37957cf"
+            ]
+        ]
+    },
+    {
+        "id": "be9df446e8994af5",
+        "type": "change",
+        "z": "4bc72a1112cb448c",
+        "g": "4a03c4c9cfd20732",
+        "name": "tic",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "current_tic",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 1760,
+        "wires": [
+            [
+                "bc17c08e18a403b2"
+            ]
+        ]
+    },
+    {
+        "id": "91dbd54711396594",
+        "type": "change",
+        "z": "4bc72a1112cb448c",
+        "g": "4a03c4c9cfd20732",
+        "name": "delete",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "current_tic",
+                "tot": "flow"
+            },
+            {
+                "t": "delete",
+                "p": "units[msg.payload]",
+                "pt": "global"
+            },
+            {
+                "t": "delete",
+                "p": "controls[msg.payload]",
+                "pt": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1570,
+        "y": 1820,
+        "wires": [
+            [
+                "01346f67f027524a"
+            ]
+        ]
+    },
+    {
+        "id": "01346f67f027524a",
+        "type": "delay",
+        "z": "4bc72a1112cb448c",
+        "g": "4a03c4c9cfd20732",
+        "name": "50ms",
+        "pauseType": "delay",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1730,
+        "y": 1820,
+        "wires": [
+            [
+                "f2ba5712ec8cd4b1"
+            ]
+        ]
+    },
+    {
+        "id": "f2ba5712ec8cd4b1",
+        "type": "link out",
+        "z": "4bc72a1112cb448c",
+        "g": "4a03c4c9cfd20732",
+        "name": "ui - hvac - delete",
+        "mode": "link",
+        "links": [
+            "92b3657e3f795d51"
+        ],
+        "x": 1855,
+        "y": 1820,
+        "wires": []
+    },
+    {
+        "id": "58dc2b8d870ecad6",
+        "type": "ui-button",
+        "z": "4bc72a1112cb448c",
+        "g": "4a03c4c9cfd20732",
+        "group": "8d032322dc675ac9",
+        "name": "ui - control - delete",
+        "label": "Supprimer",
+        "order": 11,
+        "width": "3",
+        "height": "1",
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 1370,
+        "y": 1820,
+        "wires": [
+            [
+                "91dbd54711396594"
+            ]
+        ]
+    },
+    {
+        "id": "92e55f9a4d7e4ff9",
+        "type": "serial in",
+        "z": "4bc72a1112cb448c",
+        "g": "41f6bf7d5f4ab75c",
+        "name": "UBS0",
+        "serial": "9f6799af93da4e9b",
+        "x": 170,
+        "y": 920,
+        "wires": [
+            [
+                "d27d098a886db556"
+            ]
+        ]
+    },
+    {
+        "id": "345396b74f5a76d0",
+        "type": "serial in",
+        "z": "4bc72a1112cb448c",
+        "g": "41f6bf7d5f4ab75c",
+        "name": "UBS1",
+        "serial": "08e1aee81f87840a",
+        "x": 170,
+        "y": 980,
+        "wires": [
+            [
+                "d27d098a886db556"
+            ]
+        ]
+    },
+    {
+        "id": "57d2ff6245be77d1",
+        "type": "serial in",
+        "z": "4bc72a1112cb448c",
+        "g": "41f6bf7d5f4ab75c",
+        "name": "UBS2",
+        "serial": "fd1aaf0ecae5bfb5",
+        "x": 170,
+        "y": 1040,
+        "wires": [
+            [
+                "d27d098a886db556"
+            ]
+        ]
+    },
+    {
+        "id": "c937040cbfaaac18",
+        "type": "serial in",
+        "z": "4bc72a1112cb448c",
+        "g": "41f6bf7d5f4ab75c",
+        "name": "UBS3",
+        "serial": "90afe585d3016433",
+        "x": 170,
+        "y": 1100,
+        "wires": [
+            [
+                "d27d098a886db556"
             ]
         ]
     }
