@@ -471,7 +471,7 @@
         "group": "8d032322dc675ac9",
         "name": "spacer",
         "tooltip": "",
-        "order": 3,
+        "order": 5,
         "width": "6",
         "height": 1,
         "className": ""
@@ -567,7 +567,7 @@
         "group": "8d032322dc675ac9",
         "name": "spacer",
         "tooltip": "",
-        "order": 4,
+        "order": 10,
         "width": "6",
         "height": 1,
         "className": ""
@@ -1849,7 +1849,7 @@
         "z": "3f247e8940433129",
         "g": "41f6bf7d5f4ab75c",
         "name": "parse",
-        "func": "// get descriptions\nlet describe = global.get('describe', 'default');\n\n// Remove dirty code\nlet lines = msg.payload.toString().replace(\"\\u0002\\n\",\"\").replace(\"\\r\\u0003\",\"\");\nmsg.payload = {};\n\n// Split message by line\nlines = lines.split(\"\\r\\n\");\nfor (const line in lines) {\n\n\t// Prepare checksum\n\tlet i;\n\tlet checksum = 32;\n\tlet myline = lines[line].toString().replace(\"  \",\" s\").split(\" \");\n\n\t// Split current message\n\tlet check = myline.pop();\n\tlet value = myline.pop();\n\tlet label = myline.pop();\n\n\t// Regain checksum\n\tif (check == \"s\") check = \" \";\n\n\t// Calcul checksum\n\tfor (i = 0; i < label.length; i++) checksum += label.charCodeAt(i);\n\tfor (i = 0; i < value.length; i++) checksum += value.charCodeAt(i);\n\tchecksum = ((checksum%256) & 63) + 32;\n\tchecksum = String.fromCharCode(checksum);\n\n\t// Checksum is not ok\n\tif (checksum != check ) {\n\t\tlet error = {\n\t\t\t'topic':'',\n\t\t\t'payload': 'Bad Checksum \"' + checksum + '\" for label \"' + label + '\".'\n\t\t};\n\t\treturn [null, error];\n\t}\n\n\t// Parse message\n\tlet full = value;\n\tlet trans = value;\n\tlet name = label;\n\n\t// get readbale label\n\tif (typeof describe.names[label] == 'string') {\n\t\tname = describe.names[label];\n\t}\n\n\t// Convert numeric value to number\n\tif (!isNaN(trans) && isFinite(Number(trans))) trans = Number(trans);\n\n\t// OPTARIF : chars, length 4\n\tif (label == \"OPTARIF\") {\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\n\t\tfull = typeof describe.optarif[value] === 'string' ? describe.optarif[value] : '';\n\t}\n\t// HHPHC : char, length 1\n\telse if (label == \"HHPHC\") {\n\t\t//trans = full = value.charCodeAt();\n\t}\n\t// PTEC : chars, length 4\n\telse if (label == \"PTEC\") {\n\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\n\t\tfull = typeof describe.ptec[value] === 'string' ? describe.ptec[value] : '';\n\t}\n\n\t// Add to output\n\tmsg.payload[label] ={\n\t\t'raw': value,\n\t\t'value': trans,\n\t\t'full': full,\n\t\t'name': name\n\t};\n}\n\nlet unit = global.get('units[\"' + msg.port + '\"]', 'default');\nif (typeof unit === 'object') {\n\tmsg.payload['NAME'] = {\n\t\t'raw': unit['name'],\n\t\t'value': unit['name'],\n\t\t'full': unit['name'],\n\t\t'name': 'Nom'\n\t};\n\tmsg.payload['LOCATION'] = {\n\t\t'raw': unit['location'],\n\t\t'value': unit['location'],\n\t\t'full': unit['location'],\n\t\t'name': 'Emplacement'\n\t};\n\tmsg.payload['PORT'] = {\n\t\t'raw': unit['port'],\n\t\t'value': unit['port'],\n\t\t'full': unit['port'],\n\t\t'name': 'Port de communication'\n\t};\n}\n\nlet controls = global.get('controls', 'default')||{};\ncontrols[msg.port] = msg.payload;\nglobal.set('controls', controls, 'default');\n\nreturn [msg, null];",
+        "func": "// get descriptions\nlet describe = global.get('describe', 'memoryOnly');\n\n// Remove dirty code\nlet lines = msg.payload.toString().replace(\"\\u0002\\n\",\"\").replace(\"\\r\\u0003\",\"\");\nmsg.payload = {};\n\n// Split message by line\nlines = lines.split(\"\\r\\n\");\nfor (const line in lines) {\n\n\t// Prepare checksum\n\tlet i;\n\tlet checksum = 32;\n\tlet myline = lines[line].toString().replace(\"  \",\" s\").split(\" \");\n\n\t// Split current message\n\tlet check = myline.pop();\n\tlet value = myline.pop();\n\tlet label = myline.pop();\n\n\t// Regain checksum\n\tif (check == \"s\") check = \" \";\n\n\t// Calcul checksum\n\tfor (i = 0; i < label.length; i++) checksum += label.charCodeAt(i);\n\tfor (i = 0; i < value.length; i++) checksum += value.charCodeAt(i);\n\tchecksum = ((checksum%256) & 63) + 32;\n\tchecksum = String.fromCharCode(checksum);\n\n\t// Checksum is not ok\n\tif (checksum != check ) {\n\t\tlet error = {\n\t\t\t'topic':'',\n\t\t\t'payload': 'Bad Checksum \"' + checksum + '\" for label \"' + label + '\".'\n\t\t};\n\t\treturn [null, error];\n\t}\n\n\t// Parse message\n\tlet full = value;\n\tlet trans = value;\n\tlet name = label;\n\n\t// get readbale label\n\tif (typeof describe.names[label] == 'string') {\n\t\tname = describe.names[label];\n\t}\n\n\t// Convert numeric value to number\n\tif (!isNaN(trans) && isFinite(Number(trans))) trans = Number(trans);\n\n\t// OPTARIF : chars, length 4\n\tif (label == \"OPTARIF\") {\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\n\t\tfull = typeof describe.optarif[value] === 'string' ? describe.optarif[value] : '';\n\t}\n\t// HHPHC : char, length 1\n\telse if (label == \"HHPHC\") {\n\t\t//trans = full = value.charCodeAt();\n\t}\n\t// PTEC : chars, length 4\n\telse if (label == \"PTEC\") {\n\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\n\t\tfull = typeof describe.ptec[value] === 'string' ? describe.ptec[value] : '';\n\t}\n\n\t// Add to output\n\tmsg.payload[label] ={\n\t\t'raw': value,\n\t\t'value': trans,\n\t\t'full': full,\n\t\t'name': name\n\t};\n}\n\nlet unit = global.get('units[\"' + msg.port + '\"]', 'default');\nif (typeof unit === 'object') {\n\tmsg.payload['NAME'] = {\n\t\t'raw': unit['name'],\n\t\t'value': unit['name'],\n\t\t'full': unit['name'],\n\t\t'name': 'Nom'\n\t};\n\tmsg.payload['LOCATION'] = {\n\t\t'raw': unit['location'],\n\t\t'value': unit['location'],\n\t\t'full': unit['location'],\n\t\t'name': 'Emplacement'\n\t};\n\tmsg.payload['PORT'] = {\n\t\t'raw': unit['port'],\n\t\t'value': unit['port'],\n\t\t'full': unit['port'],\n\t\t'name': 'Port de communication'\n\t};\n}\n\nlet controls = global.get('controls', 'memoryOnly')||{};\ncontrols[msg.port] = msg.payload;\nglobal.set('controls', controls, 'memoryOnly');\n\nreturn [msg, null];",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -2104,7 +2104,7 @@
         "g": "4a03c4c9cfd20732",
         "name": "custom - detail - iiinst",
         "group": "8d032322dc675ac9",
-        "order": 6,
+        "order": 4,
         "value": "payload",
         "valueType": "msg",
         "width": "3",
@@ -2189,7 +2189,7 @@
         "g": "4a03c4c9cfd20732",
         "name": "custom - detail - papp",
         "group": "8d032322dc675ac9",
-        "order": 5,
+        "order": 3,
         "value": "payload",
         "valueType": "msg",
         "width": "3",
@@ -2302,7 +2302,7 @@
         "group": "8d032322dc675ac9",
         "name": "custom - detail - tariff",
         "label": "Abonnement :",
-        "order": 7,
+        "order": 6,
         "width": "3",
         "height": "1",
         "maxrows": 0,
@@ -2368,7 +2368,7 @@
         "group": "8d032322dc675ac9",
         "name": "custom - detail - hchp",
         "label": "Heures :",
-        "order": 8,
+        "order": 7,
         "width": "3",
         "height": "1",
         "maxrows": 0,
@@ -2413,7 +2413,7 @@
         "group": "8d032322dc675ac9",
         "name": "custom - detail - ejp",
         "label": "Jour de pointe :",
-        "order": 9,
+        "order": 8,
         "width": "3",
         "height": "1",
         "maxrows": 0,
@@ -2500,7 +2500,7 @@
         "group": "8d032322dc675ac9",
         "name": "custom - detail - bbr",
         "label": "Tempo :",
-        "order": 10,
+        "order": 9,
         "width": "3",
         "height": "1",
         "maxrows": 0,
@@ -2543,7 +2543,7 @@
         "z": "3f247e8940433129",
         "g": "4a03c4c9cfd20732",
         "name": "get names",
-        "func": "flow.set('current_tic', '', 'default');\n\nmsg.payload = '';\nmsg.class = '';\nmsg.enabled = true;\nmsg.options = [{\n    'label':'',\n    'value':'',\n    'dropdown':'name'\n}];\n\nlet i = 1;\nlet units = global.get('units', 'default');\nif (typeof units === 'object') {\n    for(const port in units) {\n        msg.options[i++] = {\n            'label': units[port]['name'] + ' - ' + units[port]['location'] + '  - ' + port,\n            'value': port,\n            'dropdown': 'name'\n        }\n    }\n}\n\nif (i == 1) {\n    node.send([null, null]);\n}\nelse if (i == 2) {\n    msg.payload = msg.options[1]['value'];\n    node.send([msg, null]);\n    msg.class = 'remove';\n    msg.enlabed = false;\n    node.send([null, msg]);\n}\nelse {\n    node.send([null, msg]);\n}\n\nreturn;",
+        "func": "flow.set('current_unit', '', 'memoryOnly');\n\nmsg.payload = '';\nmsg.class = '';\nmsg.enabled = true;\nmsg.options = [{\n    'label':'',\n    'value':'',\n    'dropdown':'name'\n}];\n\nlet i = 1;\nlet units = global.get('units', 'default');\nif (typeof units === 'object') {\n    for(const port in units) {\n        msg.options[i++] = {\n            'label': units[port]['name'] + ' - ' + units[port]['location'] + '  - ' + port,\n            'value': port,\n            'dropdown': 'name'\n        }\n    }\n}\n\nif (i == 1) {\n    node.send([null, null]);\n}\nelse if (i == 2) {\n    msg.payload = msg.options[1]['value'];\n    node.send([msg, null]);\n    msg.class = 'remove';\n    msg.enlabed = false;\n    node.send([null, msg]);\n}\nelse {\n    node.send([null, msg]);\n}\n\nreturn;",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -2654,7 +2654,7 @@
         "z": "3f247e8940433129",
         "g": "4a03c4c9cfd20732",
         "name": "exists",
-        "property": "controls",
+        "property": "#:(memoryOnly)::controls",
         "propertyType": "global",
         "rules": [
             {
@@ -2689,7 +2689,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "current_tic",
+                "p": "#:(memoryOnly)::current_unit",
                 "pt": "flow",
                 "to": "payload",
                 "tot": "msg"
@@ -2698,7 +2698,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "controls[msg.payload]",
+                "to": "#:(memoryOnly)::controls[msg.payload]",
                 "tot": "global"
             },
             {
@@ -2742,7 +2742,7 @@
         "z": "3f247e8940433129",
         "g": "4a03c4c9cfd20732",
         "name": "current",
-        "property": "current_tic",
+        "property": "#:(memoryOnly)::current_unit",
         "propertyType": "flow",
         "rules": [
             {
@@ -2793,13 +2793,13 @@
         "type": "change",
         "z": "3f247e8940433129",
         "g": "4a03c4c9cfd20732",
-        "name": "tic",
+        "name": "unit",
         "rules": [
             {
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "current_tic",
+                "to": "#:(memoryOnly)::current_unit",
                 "tot": "flow"
             }
         ],
@@ -2827,7 +2827,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "current_tic",
+                "to": "#:(memoryOnly)::current_unit",
                 "tot": "flow"
             },
             {
@@ -2837,7 +2837,7 @@
             },
             {
                 "t": "delete",
-                "p": "controls[msg.payload]",
+                "p": "#:(memoryOnly)::controls[msg.payload]",
                 "pt": "global"
             }
         ],
