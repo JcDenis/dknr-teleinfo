@@ -69,16 +69,16 @@
             "label": true
         },
         "nodes": [
-            "e6bfbb5b3dea007a",
             "605eca9c3e3f3561",
             "ca6bb13cefa4a732",
             "3bc2a58fc596c187",
             "cb1df53c54f13e38",
-            "792ebb13855d873a"
+            "792ebb13855d873a",
+            "a61e338a90e40454"
         ],
         "x": 84,
         "y": 939,
-        "w": 932,
+        "w": 912,
         "h": 82
     },
     {
@@ -235,7 +235,7 @@
             "5d415007badd7b01"
         ],
         "x": 84,
-        "y": 639,
+        "y": 819,
         "w": 872,
         "h": 142
     },
@@ -261,7 +261,8 @@
             "92e55f9a4d7e4ff9",
             "345396b74f5a76d0",
             "57d2ff6245be77d1",
-            "c937040cbfaaac18"
+            "c937040cbfaaac18",
+            "2845feb882489a18"
         ],
         "x": 94,
         "y": 279,
@@ -307,9 +308,32 @@
             "58dc2b8d870ecad6"
         ],
         "x": 84,
-        "y": 819,
+        "y": 999,
         "w": 1832,
         "h": 562
+    },
+    {
+        "id": "c2a4c908aa1cf2e9",
+        "type": "group",
+        "z": "3f247e8940433129",
+        "name": "custom - discovery",
+        "style": {
+            "fill": "#ff0000",
+            "fill-opacity": "0.05",
+            "label": true
+        },
+        "nodes": [
+            "b66aceda104390c6",
+            "e10ce118e77873bd",
+            "0ee0b69136e9646f",
+            "6bbab610c03dcbda",
+            "6326830faa9d7246",
+            "ace85f776ce24777"
+        ],
+        "x": 94,
+        "y": 639,
+        "w": 522,
+        "h": 142
     },
     {
         "id": "df7710b4b2c4e55b",
@@ -704,7 +728,8 @@
         "name": "common - mqtt - send",
         "links": [
             "11a311cff80fcfb0",
-            "f4b715c1321c6848"
+            "f4b715c1321c6848",
+            "6326830faa9d7246"
         ],
         "x": 125,
         "y": 500,
@@ -782,34 +807,6 @@
         "wires": []
     },
     {
-        "id": "e6bfbb5b3dea007a",
-        "type": "change",
-        "z": "80d735b541c47847",
-        "g": "55c32eac6f750705",
-        "name": "read",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "mqtt",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 250,
-        "y": 980,
-        "wires": [
-            [
-                "3bc2a58fc596c187"
-            ]
-        ]
-    },
-    {
         "id": "605eca9c3e3f3561",
         "type": "change",
         "z": "80d735b541c47847",
@@ -829,7 +826,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 690,
+        "x": 670,
         "y": 980,
         "wires": [
             [
@@ -855,7 +852,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 850,
+        "x": 830,
         "y": 980,
         "wires": [
             [
@@ -936,6 +933,13 @@
                 "rows": null
             },
             {
+                "label": "Home Assistant Discovery topic",
+                "key": "discovery",
+                "type": "text",
+                "required": false,
+                "rows": null
+            },
+            {
                 "label": "Activation",
                 "key": "enabled",
                 "type": "checkbox",
@@ -949,6 +953,7 @@
             "topic": "",
             "username": "",
             "password": "",
+            "discovery": "",
             "enabled": false
         },
         "payload": "",
@@ -984,7 +989,7 @@
         "y": 980,
         "wires": [
             [
-                "e6bfbb5b3dea007a"
+                "a61e338a90e40454"
             ]
         ]
     },
@@ -997,9 +1002,10 @@
         "mode": "link",
         "links": [
             "4b8d0f25be2de5b4",
-            "cb1df53c54f13e38"
+            "cb1df53c54f13e38",
+            "b66aceda104390c6"
         ],
-        "x": 975,
+        "x": 955,
         "y": 980,
         "wires": []
     },
@@ -1539,6 +1545,27 @@
         "wires": []
     },
     {
+        "id": "a61e338a90e40454",
+        "type": "function",
+        "z": "80d735b541c47847",
+        "g": "55c32eac6f750705",
+        "name": "read",
+        "func": "msg.payload = global.get('mqtt', 'default') || {}\n\nif (typeof msg.payload.discovery !== 'string' || msg.payload.discorevy == '') {\n    msg.payload.discovery = 'homeassistant';\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 980,
+        "wires": [
+            [
+                "3bc2a58fc596c187"
+            ]
+        ]
+    },
+    {
         "id": "a9dd62ce5b3ef224",
         "type": "link in",
         "z": "3f247e8940433129",
@@ -1571,7 +1598,7 @@
         "z": "3f247e8940433129",
         "g": "f18e924e31835e04",
         "name": "custom - describe",
-        "func": "msg.payload.project = 'dknr-teleinfo';\n\nmsg.payload.hmi = {\n    'detail': 'Surveiller',\n    'add': 'Ajouter',\n    'mqtt': 'Configurer'\n};\n\nmsg.payload.optarif = {\n    'BASE': 'Option Base',\n    'HC..': 'Option Heures Creuses',\n    'EJP.': 'Option Effacement Jour de Pointe',\n    'BBR.': 'Option Tempo'\n};\n\nmsg.payload.ptec = {\n    'TH..': \"Toutes les Heures\",\n    'HC..': \"Heures Creuses\",\n    'HP..': \"Heures Pleines\",\n    'HN..': \"Heures Normales\",\n    'PM..': \"Heures de Pointe Mobile\",\n    'HCJB': \"Heures Creuses Jours Bleus\",\n    'HCJW': \"Heures Creuses Jours Blancs\",\n    'HCJR': \"Heures Creuses Jours Rouges\",\n    'HPJB': \"Heures Pleines Jours Bleus\",\n    'HPJW': \"Heures Pleines Jours Blancs\",\n    'HPJR': \"Heures Pleines Jours Rouges\"\n};\n\nmsg.payload.names = {\n    'ADCO': 'Addresse de compteur',\n    'OPTARIF': 'Option tarifaire',\n    'ISOUSC': 'Intensité souscrite',\n    'BASE': 'Index de base',\n    'HCHC': 'Heures creuses',\n    'HCHP': 'Heures pleines',\n    'EJPHN': 'Heures normales',\n    'EJPHPM': 'Heures de point mobile',\n    'BBRHCJB': 'Heures creuses jours bleus',\n    'BBRHPJB': 'Herues pleines jours bleus',\n    'BBRHCJW': 'Heures creuses jours blancs',\n    'BBRHPJW': 'Heures peines jours blancs',\n    'BBRHCJR': 'Heures creuses jours rouges',\n    'BBRHPJR': 'Heures pleines jours rouges',\n    'PEJP': 'Préavis debuté EJP',\n    'PTEC': 'Période tarifaire en cours',\n    'DEMAIN': 'Couleur du lendemain',\n    'IINST': 'Intensité instantanée',\n    'PAPP': 'Puissance apparente',\n    'HHPHC': 'Groupe horaire'\n};\n\nreturn msg;",
+        "func": "msg.payload.project = 'dknr-teleinfo';\n\nmsg.payload.hmi = {\n    'detail': 'Surveiller',\n    'add': 'Ajouter',\n    'mqtt': 'Configurer'\n};\n\nmsg.payload.optarif = {\n    'BASE': 'Option Base',\n    'HC..': 'Option Heures Creuses',\n    'EJP.': 'Option Effacement Jour de Pointe',\n    'BBR.': 'Option Tempo'\n};\n\nmsg.payload.ptec = {\n    'TH..': \"Toutes les Heures\",\n    'HC..': \"Heures Creuses\",\n    'HP..': \"Heures Pleines\",\n    'HN..': \"Heures Normales\",\n    'PM..': \"Heures de Pointe Mobile\",\n    'HCJB': \"Heures Creuses Jours Bleus\",\n    'HCJW': \"Heures Creuses Jours Blancs\",\n    'HCJR': \"Heures Creuses Jours Rouges\",\n    'HPJB': \"Heures Pleines Jours Bleus\",\n    'HPJW': \"Heures Pleines Jours Blancs\",\n    'HPJR': \"Heures Pleines Jours Rouges\"\n};\n\nmsg.payload.names = {\n    'ADCO': 'Addresse de compteur',\n    'OPTARIF': 'Option tarifaire',\n    'ISOUSC': 'Intensité souscrite',\n    'BASE': 'Index de base',\n    'HCHC': 'Heures creuses',\n    'HCHP': 'Heures pleines',\n    'EJPHN': 'Heures normales',\n    'EJPHPM': 'Heures de point mobile',\n    'BBRHCJB': 'Heures creuses jours bleus',\n    'BBRHPJB': 'Herues pleines jours bleus',\n    'BBRHCJW': 'Heures creuses jours blancs',\n    'BBRHPJW': 'Heures peines jours blancs',\n    'BBRHCJR': 'Heures creuses jours rouges',\n    'BBRHPJR': 'Heures pleines jours rouges',\n    'PEJP': 'Préavis debuté EJP',\n    'PTEC': 'Période tarifaire en cours',\n    'DEMAIN': 'Couleur du lendemain',\n    'IINST': 'Intensité instantanée',\n    'IINST1': 'Intensité instantanée phase 1',\n    'IINST2': 'Intensité instantanée phase 2',\n    'IINST3': 'Intensité instantanée phase 3',\n    'IMAX': 'Intensité maximum',\n    'IMAX1': 'Intensité maximum phase 1',\n    'IMAX2': 'Intensité maximum phase 2',\n    'IMAX3': 'Intensité maximum phase 3',\n    'ADPS': 'Dépassement de puissance', // monophasé\n    'ADIR1': \"Dépassement d'intensité phase 1\",\n    'ADIR2': \"Dépassement d'intensité phase 2\",\n    'ADIR3': \"Dépassement d'intensité phase 3\",\n    'PAPP': 'Puissance apparente',\n    'PMAX': 'Puissance maximum', // triphasé j-1\n    'PPOT': 'Présence des potentiels',\n    'HHPHC': 'Groupe horaire'\n};\n\nmsg.payload.units = {\n    'ADCO': '',\n    'OPTARIF': '',\n    'ISOUSC': 'A',\n    'BASE': 'Wh',\n    'HCHC': 'Wh',\n    'HCHP': 'Wh',\n    'EJPHN': 'Wh',\n    'EJPHPM': 'Wh',\n    'BBRHCJB': 'Wh',\n    'BBRHPJB': 'Wh',\n    'BBRHCJW': 'Wh',\n    'BBRHPJW': 'Wh',\n    'BBRHCJR': 'Wh',\n    'BBRHPJR': 'Wh',\n    'PEJP': 'min',\n    'PTEC': '',\n    'DEMAIN': '',\n    'IINST': 'A',\n    'IINST1': 'A',\n    'IINST2': 'A',\n    'IINST3': 'A',\n    'IMAX': 'A',\n    'IMAX1': 'A',\n    'IMAX2': 'A',\n    'IMAX3': 'A',\n    'ADPS': '',\n    'ADIR1': '',\n    'ADIR2': '',\n    'ADIR3': '',\n    'PAPP': 'VA',\n    'PMAX': 'W',\n    'PPOT': '',\n    'HHPHC': 'Wh'\n};\n\nmsg.payload.discovery_state_class = {\n    'ADCO': '',\n    'OPTARIF': '',\n    'ISOUSC': '',\n    'BASE': 'total_increasing',\n    'HCHC': 'total_increasing',\n    'HCHP': 'total_increasing',\n    'EJPHN': 'total_increasing',\n    'EJPHPM': 'total_increasing',\n    'BBRHCJB': 'total_increasing',\n    'BBRHPJB': 'total_increasing',\n    'BBRHCJW': 'total_increasing',\n    'BBRHPJW': 'total_increasing',\n    'BBRHCJR': 'total_increasing',\n    'BBRHPJR': 'total_increasing',\n    'PEJP': '',\n    'PTEC': '',\n    'DEMAIN': '',\n    'IINST': 'measurement',\n    'IINST1': 'measurement',\n    'IINST2': 'measurement',\n    'IINST3': 'measurement',\n    'IMAX': '',\n    'IMAX1': '',\n    'IMAX2': '',\n    'IMAX3': '',\n    'ADPS': '',\n    'ADIR1': '',\n    'ADIR2': '',\n    'ADIR3': '',\n    'PAPP': 'measurement',\n    'PMAX': '',\n    'PPOT': '',\n    'HHPHC': 'total_increasing'\n};\n\nmsg.payload.discovery_device_class = {\n    'ADCO': '',\n    'OPTARIF': '',\n    'ISOUSC': 'current',\n    'BASE': 'energy',\n    'HCHC': 'energy',\n    'HCHP': 'energy',\n    'EJPHN': 'energy',\n    'EJPHPM': 'energy',\n    'BBRHCJB': 'energy',\n    'BBRHPJB': 'energy',\n    'BBRHCJW': 'energy',\n    'BBRHPJW': 'energy',\n    'BBRHCJR': 'energy',\n    'BBRHPJR': 'energy',\n    'PEJP': '',\n    'PTEC': '',\n    'DEMAIN': '',\n    'IINST': 'current',\n    'IINST1': 'current',\n    'IINST2': 'current',\n    'IINST3': 'current',\n    'IMAX': 'current',\n    'IMAX1': 'current',\n    'IMAX2': 'current',\n    'IMAX3': 'current',\n    'ADPS': 'current',\n    'ADIR1': 'current',\n    'ADIR2': 'current',\n    'ADIR3': 'current',\n    'PAPP': 'apparent_power',\n    'PMAX': 'power',\n    'PPOT': '',\n    'HHPHC': 'energy'\n};\n\nmsg.payload.discovery_value_template = {\n    'ADCO': \"{% if 'ADCO' in value_json %}{{ value_json.ADCO.raw }}{% endif %}\",\n    'OPTARIF': \"{% if 'OPTARIF' in value_json %}{{ value_json.OPTARIF.value }}{% endif %}\",\n    'ISOUSC': \"{% if 'ISOUSC' in value_json %}{{ value_json.ISOUSC.value }}{% endif %}\",\n    'BASE': \"{% if 'BASE' in value_json %}{{ value_json.BASE.value }}{% endif %}\",\n    'HCHC': \"{% if 'HCHC' in value_json %}{{ value_json.HCHC.value }}{% endif %}\",\n    'HCHP': \"{% if 'HCHP' in value_json %}{{ value_json.HCHP.value }}{% endif %}\",\n    'EJPHN': \"{% if 'EJPHN' in value_json %}{{ value_json.EJPHN.value }}{% endif %}\",\n    'EJPHPM': \"{% if 'EJPHPM' in value_json %}{{ value_json.EJPHPM.value }}{% endif %}\",\n    'BBRHCJB': \"{% if 'BBRHCJB' in value_json %}{{ value_json.BBRHCJB.value }}{% endif %}\",\n    'BBRHPJB': \"{% if 'BBRHPJB' in value_json %}{{ value_json.BBRHPJB.value }}{% endif %}\",\n    'BBRHCJW': \"{% if 'BBRHCJW' in value_json %}{{ value_json.BBRHCJW.value }}{% endif %}\",\n    'BBRHPJW': \"{% if 'BBRHPJW' in value_json %}{{ value_json.BBRHPJW.value }}{% endif %}\",\n    'BBRHCJR': \"{% if 'BBRHCJR' in value_json %}{{ value_json.BBRHCJR.value }}{% endif %}\",\n    'BBRHPJR': \"{% if 'BBRHPJR' in value_json %}{{ value_json.BBRHPJR.value }}{% endif %}\",\n    'PEJP': \"{% if 'PEJP' in value_json %}{{ value_json.PEJP.value }}{% endif %}\",\n    'PTEC': \"{% if 'PTEC' in value_json %}{{ value_json.PTEC.value }}{% endif %}\",\n    'DEMAIN': \"{% if 'DEMAIN' in value_json %}{{ value_json.DEMAIN.value }}{% endif %}\",\n    'IINST': \"{% if 'IINST' in value_json %}{{ value_json.IINST.value }}{% endif %}\",\n    'IINST1': \"{% if 'IINST1' in value_json %}{{ value_json.IINST1.value }}{% endif %}\",\n    'IINST2': \"{% if 'IINST2' in value_json %}{{ value_json.IINST2.value }}{% endif %}\",\n    'IINST3': \"{% if 'IINST3' in value_json %}{{ value_json.IINST3.value }}{% endif %}\",\n    'IMAX': \"{% if 'IMAX' in value_json %}{{ value_json.IMAX.value }}{% endif %}\",\n    'IMAX1': \"{% if 'IMAX1' in value_json %}{{ value_json.IMAX1.value }}{% endif %}\",\n    'IMAX2': \"{% if 'IMAX2' in value_json %}{{ value_json.IMAX2.value }}{% endif %}\",\n    'IMAX3': \"{% if 'IMAX3' in value_json %}{{ value_json.IMAX3.value }}{% endif %}\",\n    'ADPS': \"{% if 'ADPS' in value_json %}{{ value_json.ADPS.value }}{% endif %}\",\n    'ADIR1': \"{% if 'ADIR1' in value_json %}{{ value_json.ADIR1.value }}{% endif %}\",\n    'ADIR2': \"{% if 'ADIR2' in value_json %}{{ value_json.ADIR2.value }}{% endif %}\",\n    'ADIR3': \"{% if 'ADIR3' in value_json %}{{ value_json.ADIR3.value }}{% endif %}\",\n    'PAPP': \"{% if 'PAPP' in value_json %}{{ value_json.PAPP.value }}{% endif %}\",\n    'PMAX': \"{% if 'PMAX' in value_json %}{{ value_json.PMAX.value }}{% endif %}\",\n    'PPOT': \"{% if 'PPOT' in value_json %}{{ value_json.PPOT.raw }}{% endif %}\",\n    'HHPHC': \"{% if 'HHPHC' in value_json %}{{ value_json.HHPHC.value }}{% endif %}\"\n};\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1657,7 +1684,7 @@
             "d3c87c171686d25f"
         ],
         "x": 125,
-        "y": 680,
+        "y": 860,
         "wires": [
             [
                 "e15a1f4c9b2ebe8f"
@@ -1735,7 +1762,7 @@
             }
         ],
         "x": 450,
-        "y": 680,
+        "y": 860,
         "wires": [
             [
                 "efbab03f220791d4"
@@ -1756,7 +1783,7 @@
         "finalize": "",
         "libs": [],
         "x": 630,
-        "y": 680,
+        "y": 860,
         "wires": [
             [
                 "8b6c63c260b32840"
@@ -1777,7 +1804,7 @@
             "c581c108f77cb31c"
         ],
         "x": 915,
-        "y": 680,
+        "y": 860,
         "wires": []
     },
     {
@@ -1799,7 +1826,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 790,
-        "y": 680,
+        "y": 860,
         "wires": [
             [
                 "d3c87c171686d25f"
@@ -1820,7 +1847,7 @@
         "finalize": "",
         "libs": [],
         "x": 250,
-        "y": 680,
+        "y": 860,
         "wires": [
             [
                 "f5a76abe96cbf5fe"
@@ -1840,7 +1867,7 @@
             "f4a2353e5f92576c"
         ],
         "x": 755,
-        "y": 740,
+        "y": 920,
         "wires": []
     },
     {
@@ -2048,7 +2075,8 @@
         "y": 320,
         "wires": [
             [
-                "d27d098a886db556"
+                "d27d098a886db556",
+                "2845feb882489a18"
             ]
         ]
     },
@@ -2135,7 +2163,7 @@
         "styleGlow": false,
         "className": "",
         "x": 1380,
-        "y": 860,
+        "y": 1040,
         "wires": [
             []
         ]
@@ -2154,7 +2182,7 @@
         "finalize": "",
         "libs": [],
         "x": 1170,
-        "y": 860,
+        "y": 1040,
         "wires": [
             [
                 "d14fef6d3072a1f9"
@@ -2175,7 +2203,7 @@
         "finalize": "",
         "libs": [],
         "x": 1170,
-        "y": 920,
+        "y": 1100,
         "wires": [
             [
                 "8d40dcb9d821536a"
@@ -2220,7 +2248,7 @@
         "styleGlow": false,
         "className": "",
         "x": 1380,
-        "y": 920,
+        "y": 1100,
         "wires": [
             []
         ]
@@ -2260,7 +2288,7 @@
         "to": "",
         "reg": false,
         "x": 1170,
-        "y": 1340,
+        "y": 1520,
         "wires": [
             [
                 "d14fef6d3072a1f9",
@@ -2287,7 +2315,7 @@
         "finalize": "",
         "libs": [],
         "x": 1170,
-        "y": 980,
+        "y": 1160,
         "wires": [
             [
                 "60237f01f465974f"
@@ -2334,7 +2362,7 @@
         "action": "replace",
         "className": "",
         "x": 1380,
-        "y": 980,
+        "y": 1160,
         "wires": [
             []
         ]
@@ -2353,7 +2381,7 @@
         "finalize": "",
         "libs": [],
         "x": 1170,
-        "y": 1040,
+        "y": 1220,
         "wires": [
             [
                 "ce85a3986bf50f1a"
@@ -2400,7 +2428,7 @@
         "action": "replace",
         "className": "",
         "x": 1380,
-        "y": 1040,
+        "y": 1220,
         "wires": [
             []
         ]
@@ -2445,7 +2473,7 @@
         "action": "replace",
         "className": "",
         "x": 1370,
-        "y": 1100,
+        "y": 1280,
         "wires": [
             []
         ]
@@ -2464,7 +2492,7 @@
         "finalize": "",
         "libs": [],
         "x": 1170,
-        "y": 1100,
+        "y": 1280,
         "wires": [
             [
                 "d47e0f6925c0b2f5"
@@ -2485,7 +2513,7 @@
         "finalize": "",
         "libs": [],
         "x": 1170,
-        "y": 1160,
+        "y": 1340,
         "wires": [
             [
                 "d7c4af217d645455"
@@ -2532,7 +2560,7 @@
         "action": "replace",
         "className": "",
         "x": 1380,
-        "y": 1160,
+        "y": 1340,
         "wires": [
             []
         ]
@@ -2551,7 +2579,7 @@
         "finalize": "",
         "libs": [],
         "x": 270,
-        "y": 1220,
+        "y": 1400,
         "wires": [
             [
                 "2cd010eee2da8e29"
@@ -2573,7 +2601,7 @@
             "f2ba5712ec8cd4b1"
         ],
         "x": 125,
-        "y": 1340,
+        "y": 1520,
         "wires": [
             [
                 "46d41095c9cd81bb",
@@ -2611,7 +2639,7 @@
         "typeIsComboBox": false,
         "msgTrigger": "onChange",
         "x": 490,
-        "y": 1280,
+        "y": 1460,
         "wires": [
             [
                 "cf1550b97074514c"
@@ -2638,7 +2666,7 @@
         "repair": false,
         "outputs": 2,
         "x": 690,
-        "y": 1280,
+        "y": 1460,
         "wires": [
             [
                 "2cd010eee2da8e29"
@@ -2670,7 +2698,7 @@
         "repair": false,
         "outputs": 2,
         "x": 850,
-        "y": 1220,
+        "y": 1400,
         "wires": [
             [
                 "c158788b3b968b34"
@@ -2722,7 +2750,7 @@
         "to": "",
         "reg": false,
         "x": 1010,
-        "y": 1220,
+        "y": 1400,
         "wires": [
             [
                 "be9df446e8994af5",
@@ -2755,7 +2783,7 @@
         "repair": false,
         "outputs": 1,
         "x": 840,
-        "y": 1160,
+        "y": 1340,
         "wires": [
             [
                 "c158788b3b968b34"
@@ -2781,7 +2809,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 670,
-        "y": 1160,
+        "y": 1340,
         "wires": [
             [
                 "c03d7fe0c37957cf"
@@ -2809,7 +2837,7 @@
         "to": "",
         "reg": false,
         "x": 510,
-        "y": 1160,
+        "y": 1340,
         "wires": [
             [
                 "bc17c08e18a403b2"
@@ -2847,7 +2875,7 @@
         "to": "",
         "reg": false,
         "x": 1590,
-        "y": 1220,
+        "y": 1400,
         "wires": [
             [
                 "01346f67f027524a"
@@ -2873,7 +2901,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 1750,
-        "y": 1220,
+        "y": 1400,
         "wires": [
             [
                 "f2ba5712ec8cd4b1"
@@ -2891,7 +2919,7 @@
             "92b3657e3f795d51"
         ],
         "x": 1875,
-        "y": 1220,
+        "y": 1400,
         "wires": []
     },
     {
@@ -2927,10 +2955,155 @@
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
         "x": 1380,
-        "y": 1220,
+        "y": 1400,
         "wires": [
             [
                 "91dbd54711396594"
+            ]
+        ]
+    },
+    {
+        "id": "b66aceda104390c6",
+        "type": "link in",
+        "z": "3f247e8940433129",
+        "g": "c2a4c908aa1cf2e9",
+        "name": "custom - discovery",
+        "links": [
+            "792ebb13855d873a"
+        ],
+        "x": 135,
+        "y": 680,
+        "wires": [
+            [
+                "0ee0b69136e9646f"
+            ]
+        ]
+    },
+    {
+        "id": "e10ce118e77873bd",
+        "type": "debug",
+        "z": "3f247e8940433129",
+        "g": "c2a4c908aa1cf2e9",
+        "name": "custom - discovery",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "0ee0b69136e9646f",
+        "type": "function",
+        "z": "3f247e8940433129",
+        "g": "c2a4c908aa1cf2e9",
+        "name": "discovery",
+        "func": "let enabled = global.get('mqtt.enabled', 'default') || false;\nlet discovery = global.get('mqtt.discovery', 'default') || '';\nlet topic = global.get('mqtt.topic', 'default') || '';\n\nif (enabled && discovery.length > 0) {\n    let describe = global.get('describe', 'memoryOnly') || {};\n    let tics = global.get('controls', 'memoryOnly') || {};\n    for (const port in tics) {\n        let id = tics[port]['ADCO']['raw'];\n        for (const k in describe.discovery_value_template) {\n            msg.topic = discovery + '/sensor/teleinfo' + '/' + id + '_' + k + '/config';\n            msg.payload = {\n                \"unique_id\": k,\n                \"name\": describe.names[k],\n                \"state_topic\": topic + \"/\" + id,\n                \"value_template\": describe.discovery_value_template[k],\n                \"state_class\": describe.discovery_state_class[k],\n                \"device_class\": describe.discovery_device_class[k],\n                \"unit_of_measurement\": describe.units[k],\n                \"device\": {\n                    \"identifiers\": [\n                        id\n                    ],\n                    \"manufacturer\": \"Enedis\",\n                    \"model\": \"teleinfo_\" + id,\n                    \"name\": \"Teleinfo \" + id\n                }\n            };\n            node.send(msg);\n        }\n    }\n}\n\nreturn;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 680,
+        "wires": [
+            [
+                "e10ce118e77873bd",
+                "ace85f776ce24777"
+            ]
+        ]
+    },
+    {
+        "id": "2845feb882489a18",
+        "type": "debug",
+        "z": "3f247e8940433129",
+        "g": "41f6bf7d5f4ab75c",
+        "name": "kernel - TiC - undec",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 370,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "6bbab610c03dcbda",
+        "type": "inject",
+        "z": "3f247e8940433129",
+        "g": "c2a4c908aa1cf2e9",
+        "name": "custom - discovery",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 240,
+        "y": 740,
+        "wires": [
+            [
+                "0ee0b69136e9646f"
+            ]
+        ]
+    },
+    {
+        "id": "6326830faa9d7246",
+        "type": "link out",
+        "z": "3f247e8940433129",
+        "g": "c2a4c908aa1cf2e9",
+        "name": "custom_discovery",
+        "mode": "link",
+        "links": [
+            "903b30464ff4dd7b"
+        ],
+        "x": 555,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "ace85f776ce24777",
+        "type": "delay",
+        "z": "3f247e8940433129",
+        "g": "c2a4c908aa1cf2e9",
+        "name": "20ms",
+        "pauseType": "delay",
+        "timeout": "20",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 440,
+        "y": 680,
+        "wires": [
+            [
+                "6326830faa9d7246"
             ]
         ]
     }
