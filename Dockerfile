@@ -5,6 +5,9 @@ FROM nodered/node-red:5.0
 # Switch to root user
 USER root
 
+# Update packages
+RUN apk -U upgrade
+
 # Install usermod
 RUN apk add shadow
 
