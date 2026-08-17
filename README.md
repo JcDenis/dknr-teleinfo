@@ -22,6 +22,7 @@ Il permet de collecter les informations transmises par la sortie Téléinformati
 - **Prise en charge des données énergétiques** telles que les index, la puissance et l'intensité.
 - **Exploitation locale des mesures** pour le suivi de la consommation.
 - **Intégration possible** dans une installation domotique ou un outil de supervision.
+- **Supporte Home-Assistant Discovery** pour les messages MQTT.
 
 
 ## Matériel requis
@@ -46,9 +47,8 @@ Utilisez le fichier docker-compose.yaml à la racine du dépôt en fournissant l
 
 ## A faire
 
-* **Support triphasé**.
+* **Support triphasé** (UI).
 * **Support multicompteur** et support multi port série/USB.
-* **Support Home-Assistant** pour les messages MQTT.
 * **Rétention de données** local ou configurateur pour une base distante.
 
 
