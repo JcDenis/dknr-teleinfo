@@ -29,7 +29,7 @@
             "22f0d428ab50481a",
             "ed195d9c24c95a83"
         ],
-        "x": 94,
+        "x": 114,
         "y": 159,
         "w": 332,
         "h": 82
@@ -53,7 +53,7 @@
             "8fd532ac3d210f45",
             "c4721d94f7dc98f2"
         ],
-        "x": 94,
+        "x": 114,
         "y": 39,
         "w": 1182,
         "h": 82
@@ -76,7 +76,7 @@
             "792ebb13855d873a",
             "a61e338a90e40454"
         ],
-        "x": 84,
+        "x": 104,
         "y": 939,
         "w": 912,
         "h": 82
@@ -99,7 +99,7 @@
             "e99f87f127a299df",
             "2b7045a6e1bc256b"
         ],
-        "x": 84,
+        "x": 104,
         "y": 399,
         "w": 502,
         "h": 142
@@ -119,7 +119,7 @@
             "c45b681b80523f65",
             "045d089363763a65"
         ],
-        "x": 84,
+        "x": 104,
         "y": 579,
         "w": 462,
         "h": 82
@@ -146,7 +146,7 @@
             "54ad1c24cb97b40f",
             "1aa23b9535bfc10f"
         ],
-        "x": 84,
+        "x": 104,
         "y": 699,
         "w": 1092,
         "h": 202
@@ -168,7 +168,7 @@
             "8b5466c6a7454a0f",
             "8e490c780525d201"
         ],
-        "x": 94,
+        "x": 114,
         "y": 279,
         "w": 852,
         "h": 82
@@ -189,7 +189,7 @@
             "7660aed1164ae259",
             "273b18ea5877cc02"
         ],
-        "x": 84,
+        "x": 104,
         "y": 39,
         "w": 412,
         "h": 82
@@ -210,7 +210,7 @@
             "aa3296b3d27527e8",
             "7888c26f5a121939"
         ],
-        "x": 84,
+        "x": 104,
         "y": 159,
         "w": 392,
         "h": 82
@@ -234,7 +234,7 @@
             "e15a1f4c9b2ebe8f",
             "5d415007badd7b01"
         ],
-        "x": 84,
+        "x": 104,
         "y": 819,
         "w": 872,
         "h": 142
@@ -264,7 +264,7 @@
             "c937040cbfaaac18",
             "2845feb882489a18"
         ],
-        "x": 94,
+        "x": 114,
         "y": 279,
         "w": 562,
         "h": 322
@@ -307,7 +307,7 @@
             "f2ba5712ec8cd4b1",
             "58dc2b8d870ecad6"
         ],
-        "x": 84,
+        "x": 104,
         "y": 999,
         "w": 1832,
         "h": 562
@@ -330,7 +330,7 @@
             "6326830faa9d7246",
             "ace85f776ce24777"
         ],
-        "x": 94,
+        "x": 104,
         "y": 639,
         "w": 522,
         "h": 142
@@ -678,7 +678,7 @@
         "headers": {
             "Location": "/dashboard"
         },
-        "x": 340,
+        "x": 360,
         "y": 200,
         "wires": []
     },
@@ -693,7 +693,7 @@
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 170,
+        "x": 190,
         "y": 200,
         "wires": [
             [
@@ -716,7 +716,7 @@
         "correl": "",
         "expiry": "",
         "broker": "2c5e094fee5ae877",
-        "x": 430,
+        "x": 450,
         "y": 440,
         "wires": []
     },
@@ -731,7 +731,7 @@
             "f4b715c1321c6848",
             "6326830faa9d7246"
         ],
-        "x": 125,
+        "x": 145,
         "y": 500,
         "wires": [
             [
@@ -750,7 +750,7 @@
             "9bc2bfbb3a19f726",
             "f4b715c1321c6848"
         ],
-        "x": 125,
+        "x": 145,
         "y": 620,
         "wires": [
             [
@@ -780,7 +780,7 @@
         "topic": "",
         "payload": "{}",
         "payloadType": "jsonata",
-        "x": 190,
+        "x": 210,
         "y": 80,
         "wires": [
             [
@@ -802,7 +802,7 @@
             "c581c108f77cb31c",
             "92b3657e3f795d51"
         ],
-        "x": 1235,
+        "x": 1255,
         "y": 80,
         "wires": []
     },
@@ -826,7 +826,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 670,
+        "x": 690,
         "y": 980,
         "wires": [
             [
@@ -852,7 +852,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 830,
+        "x": 850,
         "y": 980,
         "wires": [
             [
@@ -876,7 +876,7 @@
         "checkall": "false",
         "repair": false,
         "outputs": 1,
-        "x": 260,
+        "x": 280,
         "y": 500,
         "wires": [
             [
@@ -966,7 +966,7 @@
         "className": "",
         "passthru": false,
         "dropdownOptions": [],
-        "x": 460,
+        "x": 480,
         "y": 980,
         "wires": [
             [
@@ -985,7 +985,7 @@
             "7c8ca45d292975fb",
             "9bc2bfbb3a19f726"
         ],
-        "x": 125,
+        "x": 145,
         "y": 980,
         "wires": [
             [
@@ -1005,7 +1005,7 @@
             "cb1df53c54f13e38",
             "b66aceda104390c6"
         ],
-        "x": 955,
+        "x": 975,
         "y": 980,
         "wires": []
     },
@@ -1019,7 +1019,7 @@
             "9bc2bfbb3a19f726",
             "792ebb13855d873a"
         ],
-        "x": 125,
+        "x": 145,
         "y": 440,
         "wires": [
             [
@@ -1040,7 +1040,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 250,
+        "x": 270,
         "y": 440,
         "wires": [
             [
@@ -1056,7 +1056,7 @@
         "name": "common - ui - control",
         "ui": "df7710b4b2c4e55b",
         "events": "all",
-        "x": 300,
+        "x": 320,
         "y": 860,
         "wires": [
             [
@@ -1075,7 +1075,7 @@
             "cb1df53c54f13e38",
             "c581c108f77cb31c"
         ],
-        "x": 1135,
+        "x": 1155,
         "y": 860,
         "wires": []
     },
@@ -1086,7 +1086,7 @@
         "g": "206ed108827e731f",
         "name": "common - ui - control",
         "links": [],
-        "x": 125,
+        "x": 145,
         "y": 860,
         "wires": [
             [
@@ -1113,7 +1113,7 @@
         "raw": false,
         "className": "",
         "name": "common - error",
-        "x": 440,
+        "x": 460,
         "y": 620,
         "wires": [
             []
@@ -1135,7 +1135,7 @@
         "checkall": "false",
         "repair": false,
         "outputs": 1,
-        "x": 250,
+        "x": 270,
         "y": 620,
         "wires": [
             [
@@ -1156,7 +1156,7 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 770,
+        "x": 790,
         "y": 80,
         "wires": [
             [
@@ -1173,7 +1173,7 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 950,
+        "x": 970,
         "y": 80,
         "wires": [
             [
@@ -1187,14 +1187,14 @@
         "z": "80d735b541c47847",
         "g": "9d1da43b0436ef48",
         "name": "app",
-        "func": "delete msg.filename;\n\nif (typeof msg.payload === 'object') {\n    let describe = global.get('describe', 'memoryOnly') || {};\n    describe.app = {\n        'title': msg.payload.description,\n        'version' : msg.payload.version,\n        'git': msg.payload.name\n    };\n    global.set('describe', describe, 'memoryOnly');\n}\nreturn msg;",
+        "func": "delete msg.filename;\n\nif (typeof msg.payload === 'object') {\n    let describe = global.get('describe', 'memoryOnly') || {};\n    describe.app = {\n        'title': msg.payload.description.slice(5), // remove \"DKNR \"\n        'version' : msg.payload.version,\n        'git': msg.payload.name\n    };\n    global.set('describe', describe, 'memoryOnly');\n}\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1110,
+        "x": 1130,
         "y": 80,
         "wires": [
             [
@@ -1215,7 +1215,7 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 530,
+        "x": 550,
         "y": 320,
         "wires": [
             [
@@ -1234,7 +1234,7 @@
         "upload": false,
         "skipBodyParsing": false,
         "swaggerDoc": "",
-        "x": 190,
+        "x": 210,
         "y": 320,
         "wires": [
             [
@@ -1262,7 +1262,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
+        "x": 390,
         "y": 320,
         "wires": [
             [
@@ -1309,7 +1309,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 700,
+        "x": 720,
         "y": 320,
         "wires": [
             [
@@ -1325,7 +1325,7 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 870,
+        "x": 890,
         "y": 320,
         "wires": []
     },
@@ -1342,7 +1342,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 690,
+        "x": 710,
         "y": 800,
         "wires": [
             [
@@ -1363,7 +1363,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 850,
+        "x": 870,
         "y": 860,
         "wires": [
             [
@@ -1394,7 +1394,7 @@
         "resendOnRefresh": true,
         "templateScope": "site:style",
         "className": "",
-        "x": 290,
+        "x": 310,
         "y": 740,
         "wires": [
             []
@@ -1418,7 +1418,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 1010,
+        "x": 1030,
         "y": 860,
         "wires": [
             [
@@ -1437,7 +1437,7 @@
         ],
         "linkType": "static",
         "timeout": "30",
-        "x": 390,
+        "x": 410,
         "y": 80,
         "wires": [
             [
@@ -1458,7 +1458,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
+        "x": 610,
         "y": 80,
         "wires": [
             [
@@ -1476,7 +1476,7 @@
         "links": [
             "c9500555b854ee63"
         ],
-        "x": 975,
+        "x": 995,
         "y": 800,
         "wires": []
     },
@@ -1489,7 +1489,7 @@
         "links": [
             "aa3296b3d27527e8"
         ],
-        "x": 125,
+        "x": 145,
         "y": 800,
         "wires": [
             [
@@ -1518,7 +1518,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 520,
+        "x": 540,
         "y": 860,
         "wires": [
             [
@@ -1540,7 +1540,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 460,
+        "x": 480,
         "y": 500,
         "wires": []
     },
@@ -1557,7 +1557,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 250,
+        "x": 270,
         "y": 980,
         "wires": [
             [
@@ -1572,7 +1572,7 @@
         "g": "f18e924e31835e04",
         "name": "custom - describe",
         "links": [],
-        "x": 125,
+        "x": 145,
         "y": 80,
         "wires": [
             [
@@ -1588,7 +1588,7 @@
         "name": "custom - describe",
         "mode": "return",
         "links": [],
-        "x": 455,
+        "x": 475,
         "y": 80,
         "wires": []
     },
@@ -1598,14 +1598,14 @@
         "z": "3f247e8940433129",
         "g": "f18e924e31835e04",
         "name": "custom - describe",
-        "func": "msg.payload.project = 'dknr-teleinfo';\n\nmsg.payload.hmi = {\n    'detail': 'Surveiller',\n    'add': 'Ajouter',\n    'mqtt': 'Configurer'\n};\n\nmsg.payload.optarif = {\n    'BASE': 'Option Base',\n    'HC..': 'Option Heures Creuses',\n    'EJP.': 'Option Effacement Jour de Pointe',\n    'BBR.': 'Option Tempo'\n};\n\nmsg.payload.ptec = {\n    'TH..': \"Toutes les Heures\",\n    'HC..': \"Heures Creuses\",\n    'HP..': \"Heures Pleines\",\n    'HN..': \"Heures Normales\",\n    'PM..': \"Heures de Pointe Mobile\",\n    'HCJB': \"Heures Creuses Jours Bleus\",\n    'HCJW': \"Heures Creuses Jours Blancs\",\n    'HCJR': \"Heures Creuses Jours Rouges\",\n    'HPJB': \"Heures Pleines Jours Bleus\",\n    'HPJW': \"Heures Pleines Jours Blancs\",\n    'HPJR': \"Heures Pleines Jours Rouges\"\n};\n\nmsg.payload.names = {\n    'ADCO': 'Addresse de compteur',\n    'OPTARIF': 'Option tarifaire',\n    'ISOUSC': 'Intensité souscrite',\n    'BASE': 'Index de base',\n    'HCHC': 'Heures creuses',\n    'HCHP': 'Heures pleines',\n    'EJPHN': 'Heures normales',\n    'EJPHPM': 'Heures de point mobile',\n    'BBRHCJB': 'Heures creuses jours bleus',\n    'BBRHPJB': 'Herues pleines jours bleus',\n    'BBRHCJW': 'Heures creuses jours blancs',\n    'BBRHPJW': 'Heures peines jours blancs',\n    'BBRHCJR': 'Heures creuses jours rouges',\n    'BBRHPJR': 'Heures pleines jours rouges',\n    'PEJP': 'Préavis debuté EJP',\n    'PTEC': 'Période tarifaire en cours',\n    'DEMAIN': 'Couleur du lendemain',\n    'IINST': 'Intensité instantanée',\n    'IINST1': 'Intensité instantanée phase 1',\n    'IINST2': 'Intensité instantanée phase 2',\n    'IINST3': 'Intensité instantanée phase 3',\n    'IMAX': 'Intensité maximum',\n    'IMAX1': 'Intensité maximum phase 1',\n    'IMAX2': 'Intensité maximum phase 2',\n    'IMAX3': 'Intensité maximum phase 3',\n    'ADPS': 'Dépassement de puissance', // monophasé\n    'ADIR1': \"Dépassement d'intensité phase 1\",\n    'ADIR2': \"Dépassement d'intensité phase 2\",\n    'ADIR3': \"Dépassement d'intensité phase 3\",\n    'PAPP': 'Puissance apparente',\n    'PMAX': 'Puissance maximum', // triphasé j-1\n    'PPOT': 'Présence des potentiels',\n    'HHPHC': 'Groupe horaire',\n    'HCHT': 'Heures totales' // custom\n};\n\nmsg.payload.units = {\n    'ADCO': '',\n    'OPTARIF': '',\n    'ISOUSC': 'A',\n    'BASE': 'Wh',\n    'HCHC': 'Wh',\n    'HCHP': 'Wh',\n    'EJPHN': 'Wh',\n    'EJPHPM': 'Wh',\n    'BBRHCJB': 'Wh',\n    'BBRHPJB': 'Wh',\n    'BBRHCJW': 'Wh',\n    'BBRHPJW': 'Wh',\n    'BBRHCJR': 'Wh',\n    'BBRHPJR': 'Wh',\n    'PEJP': 'min',\n    'PTEC': '',\n    'DEMAIN': '',\n    'IINST': 'A',\n    'IINST1': 'A',\n    'IINST2': 'A',\n    'IINST3': 'A',\n    'IMAX': 'A',\n    'IMAX1': 'A',\n    'IMAX2': 'A',\n    'IMAX3': 'A',\n    'ADPS': '',\n    'ADIR1': '',\n    'ADIR2': '',\n    'ADIR3': '',\n    'PAPP': 'W', // VA but home assistant requires W\n    'PMAX': 'W',\n    'PPOT': '',\n    'HHPHC': '',\n    'HCHT': 'Wh' // custom\n};\n\nmsg.payload.discovery_state_class = {\n    'ADCO': '',\n    'OPTARIF': '',\n    'ISOUSC': '',\n    'BASE': 'total_increasing',\n    'HCHC': 'total_increasing',\n    'HCHP': 'total_increasing',\n    'EJPHN': 'total_increasing',\n    'EJPHPM': 'total_increasing',\n    'BBRHCJB': 'total_increasing',\n    'BBRHPJB': 'total_increasing',\n    'BBRHCJW': 'total_increasing',\n    'BBRHPJW': 'total_increasing',\n    'BBRHCJR': 'total_increasing',\n    'BBRHPJR': 'total_increasing',\n    'PEJP': '',\n    'PTEC': '',\n    'DEMAIN': '',\n    'IINST': 'measurement',\n    'IINST1': 'measurement',\n    'IINST2': 'measurement',\n    'IINST3': 'measurement',\n    'IMAX': '',\n    'IMAX1': '',\n    'IMAX2': '',\n    'IMAX3': '',\n    'ADPS': '',\n    'ADIR1': '',\n    'ADIR2': '',\n    'ADIR3': '',\n    'PAPP': 'measurement',\n    'PMAX': '',\n    'PPOT': '',\n    'HHPHC': '',\n    'HCHT': 'total_increasing' // custom\n};\n\nmsg.payload.discovery_device_class = {\n    'ADCO': '',\n    'OPTARIF': '',\n    'ISOUSC': 'current',\n    'BASE': 'energy',\n    'HCHC': 'energy',\n    'HCHP': 'energy',\n    'EJPHN': 'energy',\n    'EJPHPM': 'energy',\n    'BBRHCJB': 'energy',\n    'BBRHPJB': 'energy',\n    'BBRHCJW': 'energy',\n    'BBRHPJW': 'energy',\n    'BBRHCJR': 'energy',\n    'BBRHPJR': 'energy',\n    'PEJP': '',\n    'PTEC': '',\n    'DEMAIN': '',\n    'IINST': 'current',\n    'IINST1': 'current',\n    'IINST2': 'current',\n    'IINST3': 'current',\n    'IMAX': 'current',\n    'IMAX1': 'current',\n    'IMAX2': 'current',\n    'IMAX3': 'current',\n    'ADPS': 'current',\n    'ADIR1': 'current',\n    'ADIR2': 'current',\n    'ADIR3': 'current',\n    'PAPP': 'power',\n    'PMAX': 'power',\n    'PPOT': '',\n    'HHPHC': '',\n    'HCHT': 'energy' // custom\n};\n\nmsg.payload.discovery_value_template = {\n    'ADCO': \"{% if 'ADCO' in value_json %}{{ value_json.ADCO.raw }}{% endif %}\",\n    'OPTARIF': \"{% if 'OPTARIF' in value_json %}{{ value_json.OPTARIF.value }}{% endif %}\",\n    'ISOUSC': \"{% if 'ISOUSC' in value_json %}{{ value_json.ISOUSC.value }}{% endif %}\",\n    'BASE': \"{% if 'BASE' in value_json %}{{ value_json.BASE.value }}{% endif %}\",\n    'HCHC': \"{% if 'HCHC' in value_json %}{{ value_json.HCHC.value }}{% endif %}\",\n    'HCHP': \"{% if 'HCHP' in value_json %}{{ value_json.HCHP.value }}{% endif %}\",\n    'EJPHN': \"{% if 'EJPHN' in value_json %}{{ value_json.EJPHN.value }}{% endif %}\",\n    'EJPHPM': \"{% if 'EJPHPM' in value_json %}{{ value_json.EJPHPM.value }}{% endif %}\",\n    'BBRHCJB': \"{% if 'BBRHCJB' in value_json %}{{ value_json.BBRHCJB.value }}{% endif %}\",\n    'BBRHPJB': \"{% if 'BBRHPJB' in value_json %}{{ value_json.BBRHPJB.value }}{% endif %}\",\n    'BBRHCJW': \"{% if 'BBRHCJW' in value_json %}{{ value_json.BBRHCJW.value }}{% endif %}\",\n    'BBRHPJW': \"{% if 'BBRHPJW' in value_json %}{{ value_json.BBRHPJW.value }}{% endif %}\",\n    'BBRHCJR': \"{% if 'BBRHCJR' in value_json %}{{ value_json.BBRHCJR.value }}{% endif %}\",\n    'BBRHPJR': \"{% if 'BBRHPJR' in value_json %}{{ value_json.BBRHPJR.value }}{% endif %}\",\n    'PEJP': \"{% if 'PEJP' in value_json %}{{ value_json.PEJP.value }}{% endif %}\",\n    'PTEC': \"{% if 'PTEC' in value_json %}{{ value_json.PTEC.value }}{% endif %}\",\n    'DEMAIN': \"{% if 'DEMAIN' in value_json %}{{ value_json.DEMAIN.value }}{% endif %}\",\n    'IINST': \"{% if 'IINST' in value_json %}{{ value_json.IINST.value }}{% endif %}\",\n    'IINST1': \"{% if 'IINST1' in value_json %}{{ value_json.IINST1.value }}{% endif %}\",\n    'IINST2': \"{% if 'IINST2' in value_json %}{{ value_json.IINST2.value }}{% endif %}\",\n    'IINST3': \"{% if 'IINST3' in value_json %}{{ value_json.IINST3.value }}{% endif %}\",\n    'IMAX': \"{% if 'IMAX' in value_json %}{{ value_json.IMAX.value }}{% endif %}\",\n    'IMAX1': \"{% if 'IMAX1' in value_json %}{{ value_json.IMAX1.value }}{% endif %}\",\n    'IMAX2': \"{% if 'IMAX2' in value_json %}{{ value_json.IMAX2.value }}{% endif %}\",\n    'IMAX3': \"{% if 'IMAX3' in value_json %}{{ value_json.IMAX3.value }}{% endif %}\",\n    'ADPS': \"{% if 'ADPS' in value_json %}{{ value_json.ADPS.value }}{% endif %}\",\n    'ADIR1': \"{% if 'ADIR1' in value_json %}{{ value_json.ADIR1.value }}{% endif %}\",\n    'ADIR2': \"{% if 'ADIR2' in value_json %}{{ value_json.ADIR2.value }}{% endif %}\",\n    'ADIR3': \"{% if 'ADIR3' in value_json %}{{ value_json.ADIR3.value }}{% endif %}\",\n    'PAPP': \"{% if 'PAPP' in value_json %}{{ value_json.PAPP.value }}{% endif %}\",\n    'PMAX': \"{% if 'PMAX' in value_json %}{{ value_json.PMAX.value }}{% endif %}\",\n    'PPOT': \"{% if 'PPOT' in value_json %}{{ value_json.PPOT.raw }}{% endif %}\",\n    'HHPHC': \"{% if 'HHPHC' in value_json %}{{ value_json.HHPHC.value }}{% endif %}\",\n    'HCHT': \"{% if 'HCHT' in value_json %}{{ value_json.HCHT.value }}{% endif %}\" // custom\n};\n\nreturn msg;",
+        "func": "msg.payload.project = 'dknr-teleinfo';\n\nmsg.payload.hmi = {\n    'detail': 'Surveiller',\n    'add': 'Ajouter',\n    'mqtt': 'Configurer'\n};\n\nmsg.payload.optarif = {\n    'BASE': 'Option Base',\n    'HC..': 'Option Heures Creuses',\n    'EJP.': 'Option Effacement Jour de Pointe',\n    'BBR.': 'Option Tempo'\n};\n\nmsg.payload.ptec = {\n    'TH..': \"Toutes les Heures\",\n    'HC..': \"Heures Creuses\",\n    'HP..': \"Heures Pleines\",\n    'HN..': \"Heures Normales\",\n    'PM..': \"Heures de Pointe Mobile\",\n    'HCJB': \"Heures Creuses Jours Bleus\",\n    'HCJW': \"Heures Creuses Jours Blancs\",\n    'HCJR': \"Heures Creuses Jours Rouges\",\n    'HPJB': \"Heures Pleines Jours Bleus\",\n    'HPJW': \"Heures Pleines Jours Blancs\",\n    'HPJR': \"Heures Pleines Jours Rouges\"\n};\n\nmsg.payload.names = {\n    'ADCO': 'Addresse de compteur',\n    'OPTARIF': 'Option tarifaire',\n    'ISOUSC': 'Intensité souscrite',\n    'BASE': 'Index de base',\n    'HCHC': 'Heures creuses',\n    'HCHP': 'Heures pleines',\n    'EJPHN': 'Heures normales',\n    'EJPHPM': 'Heures de point mobile',\n    'BBRHCJB': 'Heures creuses jours bleus',\n    'BBRHPJB': 'Herues pleines jours bleus',\n    'BBRHCJW': 'Heures creuses jours blancs',\n    'BBRHPJW': 'Heures peines jours blancs',\n    'BBRHCJR': 'Heures creuses jours rouges',\n    'BBRHPJR': 'Heures pleines jours rouges',\n    'PEJP': 'Préavis debuté EJP',\n    'PTEC': 'Période tarifaire en cours',\n    'DEMAIN': 'Couleur du lendemain',\n    'IINST': 'Intensité instantanée',\n    'IINST1': 'Intensité instantanée phase 1',\n    'IINST2': 'Intensité instantanée phase 2',\n    'IINST3': 'Intensité instantanée phase 3',\n    'IMAX': 'Intensité maximum',\n    'IMAX1': 'Intensité maximum phase 1',\n    'IMAX2': 'Intensité maximum phase 2',\n    'IMAX3': 'Intensité maximum phase 3',\n    'ADPS': 'Dépassement de puissance', // monophasé\n    'ADIR1': \"Dépassement d'intensité phase 1\",\n    'ADIR2': \"Dépassement d'intensité phase 2\",\n    'ADIR3': \"Dépassement d'intensité phase 3\",\n    'PAPP': 'Puissance apparente',\n    'PMAX': 'Puissance maximum', // triphasé j-1\n    'PPOT': 'Présence des potentiels',\n    'HHPHC': 'Groupe horaire',\n    'HCHT': 'Heures totales' // custom\n};\n\nmsg.payload.units = {\n    'ADCO': '',\n    'OPTARIF': '',\n    'ISOUSC': 'A',\n    'BASE': 'Wh',\n    'HCHC': 'Wh',\n    'HCHP': 'Wh',\n    'EJPHN': 'Wh',\n    'EJPHPM': 'Wh',\n    'BBRHCJB': 'Wh',\n    'BBRHPJB': 'Wh',\n    'BBRHCJW': 'Wh',\n    'BBRHPJW': 'Wh',\n    'BBRHCJR': 'Wh',\n    'BBRHPJR': 'Wh',\n    'PEJP': 'min',\n    'PTEC': '',\n    'DEMAIN': '',\n    'IINST': 'A',\n    'IINST1': 'A',\n    'IINST2': 'A',\n    'IINST3': 'A',\n    'IMAX': 'A',\n    'IMAX1': 'A',\n    'IMAX2': 'A',\n    'IMAX3': 'A',\n    'ADPS': '',\n    'ADIR1': '',\n    'ADIR2': '',\n    'ADIR3': '',\n    'PAPP': 'W', // VA but home assistant requires W\n    'PMAX': 'W',\n    'PPOT': '',\n    'HHPHC': '',\n    'HCHT': 'Wh' // custom\n};\n\nmsg.payload.units = {\n    'ADCO': '',\n    'OPTARIF': '',\n    'ISOUSC': 'A',\n    'BASE': 'Wh',\n    'HCHC': 'Wh',\n    'HCHP': 'Wh',\n    'EJPHN': 'Wh',\n    'EJPHPM': 'Wh',\n    'BBRHCJB': 'Wh',\n    'BBRHPJB': 'Wh',\n    'BBRHCJW': 'Wh',\n    'BBRHPJW': 'Wh',\n    'BBRHCJR': 'Wh',\n    'BBRHPJR': 'Wh',\n    'PEJP': 'min',\n    'PTEC': '',\n    'DEMAIN': '',\n    'IINST': 'A',\n    'IINST1': 'A',\n    'IINST2': 'A',\n    'IINST3': 'A',\n    'IMAX': 'A',\n    'IMAX1': 'A',\n    'IMAX2': 'A',\n    'IMAX3': 'A',\n    'ADPS': '',\n    'ADIR1': '',\n    'ADIR2': '',\n    'ADIR3': '',\n    'PAPP': 'W', // VA but home assistant requires W\n    'PMAX': 'W',\n    'PPOT': '',\n    'HHPHC': '',\n    'HCHT': 'Wh' // custom\n};\n\nmsg.payload.type = {\n    'ADCO': 'text',\n    'OPTARIF': 'text',\n    'ISOUSC': 'text',\n    'BASE': 'sensor',\n    'HCHC': 'sensor',\n    'HCHP': 'sensor',\n    'EJPHN': 'sensor',\n    'EJPHPM': 'sensor',\n    'BBRHCJB': 'sensor',\n    'BBRHPJB': 'sensor',\n    'BBRHCJW': 'sensor',\n    'BBRHPJW': 'sensor',\n    'BBRHCJR': 'sensor',\n    'BBRHPJR': 'sensor',\n    'PEJP': 'sensor',\n    'PTEC': 'text',\n    'DEMAIN': 'text',\n    'IINST': 'sensor',\n    'IINST1': 'sensor',\n    'IINST2': 'sensor',\n    'IINST3': 'sensor',\n    'IMAX': 'sensor',\n    'IMAX1': 'sensor',\n    'IMAX2': 'sensor',\n    'IMAX3': 'sensor',\n    'ADPS': 'text',\n    'ADIR1': 'text',\n    'ADIR2': 'text',\n    'ADIR3': 'text',\n    'PAPP': 'sensor',\n    'PMAX': 'sensor',\n    'PPOT': 'text',\n    'HHPHC': 'text',\n    'HCHT': 'sensor' // custom\n};\n\nmsg.payload.discovery_state_class = {\n    'ADCO': '',\n    'OPTARIF': '',\n    'ISOUSC': '',\n    'BASE': 'total_increasing',\n    'HCHC': 'total_increasing',\n    'HCHP': 'total_increasing',\n    'EJPHN': 'total_increasing',\n    'EJPHPM': 'total_increasing',\n    'BBRHCJB': 'total_increasing',\n    'BBRHPJB': 'total_increasing',\n    'BBRHCJW': 'total_increasing',\n    'BBRHPJW': 'total_increasing',\n    'BBRHCJR': 'total_increasing',\n    'BBRHPJR': 'total_increasing',\n    'PEJP': '',\n    'PTEC': '',\n    'DEMAIN': '',\n    'IINST': 'measurement',\n    'IINST1': 'measurement',\n    'IINST2': 'measurement',\n    'IINST3': 'measurement',\n    'IMAX': '',\n    'IMAX1': '',\n    'IMAX2': '',\n    'IMAX3': '',\n    'ADPS': '',\n    'ADIR1': '',\n    'ADIR2': '',\n    'ADIR3': '',\n    'PAPP': 'measurement',\n    'PMAX': '',\n    'PPOT': '',\n    'HHPHC': '',\n    'HCHT': 'total_increasing' // custom\n};\n\nmsg.payload.discovery_device_class = {\n    'ADCO': '',\n    'OPTARIF': '',\n    'ISOUSC': 'current',\n    'BASE': 'energy',\n    'HCHC': 'energy',\n    'HCHP': 'energy',\n    'EJPHN': 'energy',\n    'EJPHPM': 'energy',\n    'BBRHCJB': 'energy',\n    'BBRHPJB': 'energy',\n    'BBRHCJW': 'energy',\n    'BBRHPJW': 'energy',\n    'BBRHCJR': 'energy',\n    'BBRHPJR': 'energy',\n    'PEJP': '',\n    'PTEC': '',\n    'DEMAIN': '',\n    'IINST': 'current',\n    'IINST1': 'current',\n    'IINST2': 'current',\n    'IINST3': 'current',\n    'IMAX': 'current',\n    'IMAX1': 'current',\n    'IMAX2': 'current',\n    'IMAX3': 'current',\n    'ADPS': 'current',\n    'ADIR1': 'current',\n    'ADIR2': 'current',\n    'ADIR3': 'current',\n    'PAPP': 'power',\n    'PMAX': 'power',\n    'PPOT': '',\n    'HHPHC': '',\n    'HCHT': 'energy' // custom\n};\n\nmsg.payload.discovery_value_template = {\n    'ADCO': \"{% if 'ADCO' in value_json %}{{ value_json.ADCO.raw }}{% endif %}\",\n    'OPTARIF': \"{% if 'OPTARIF' in value_json %}{{ value_json.OPTARIF.value }}{% endif %}\",\n    'ISOUSC': \"{% if 'ISOUSC' in value_json %}{{ value_json.ISOUSC.value }}{% endif %}\",\n    'BASE': \"{% if 'BASE' in value_json %}{{ value_json.BASE.value }}{% endif %}\",\n    'HCHC': \"{% if 'HCHC' in value_json %}{{ value_json.HCHC.value }}{% endif %}\",\n    'HCHP': \"{% if 'HCHP' in value_json %}{{ value_json.HCHP.value }}{% endif %}\",\n    'EJPHN': \"{% if 'EJPHN' in value_json %}{{ value_json.EJPHN.value }}{% endif %}\",\n    'EJPHPM': \"{% if 'EJPHPM' in value_json %}{{ value_json.EJPHPM.value }}{% endif %}\",\n    'BBRHCJB': \"{% if 'BBRHCJB' in value_json %}{{ value_json.BBRHCJB.value }}{% endif %}\",\n    'BBRHPJB': \"{% if 'BBRHPJB' in value_json %}{{ value_json.BBRHPJB.value }}{% endif %}\",\n    'BBRHCJW': \"{% if 'BBRHCJW' in value_json %}{{ value_json.BBRHCJW.value }}{% endif %}\",\n    'BBRHPJW': \"{% if 'BBRHPJW' in value_json %}{{ value_json.BBRHPJW.value }}{% endif %}\",\n    'BBRHCJR': \"{% if 'BBRHCJR' in value_json %}{{ value_json.BBRHCJR.value }}{% endif %}\",\n    'BBRHPJR': \"{% if 'BBRHPJR' in value_json %}{{ value_json.BBRHPJR.value }}{% endif %}\",\n    'PEJP': \"{% if 'PEJP' in value_json %}{{ value_json.PEJP.value }}{% endif %}\",\n    'PTEC': \"{% if 'PTEC' in value_json %}{{ value_json.PTEC.value }}{% endif %}\",\n    'DEMAIN': \"{% if 'DEMAIN' in value_json %}{{ value_json.DEMAIN.value }}{% endif %}\",\n    'IINST': \"{% if 'IINST' in value_json %}{{ value_json.IINST.value }}{% endif %}\",\n    'IINST1': \"{% if 'IINST1' in value_json %}{{ value_json.IINST1.value }}{% endif %}\",\n    'IINST2': \"{% if 'IINST2' in value_json %}{{ value_json.IINST2.value }}{% endif %}\",\n    'IINST3': \"{% if 'IINST3' in value_json %}{{ value_json.IINST3.value }}{% endif %}\",\n    'IMAX': \"{% if 'IMAX' in value_json %}{{ value_json.IMAX.value }}{% endif %}\",\n    'IMAX1': \"{% if 'IMAX1' in value_json %}{{ value_json.IMAX1.value }}{% endif %}\",\n    'IMAX2': \"{% if 'IMAX2' in value_json %}{{ value_json.IMAX2.value }}{% endif %}\",\n    'IMAX3': \"{% if 'IMAX3' in value_json %}{{ value_json.IMAX3.value }}{% endif %}\",\n    'ADPS': \"{% if 'ADPS' in value_json %}{{ value_json.ADPS.value }}{% endif %}\",\n    'ADIR1': \"{% if 'ADIR1' in value_json %}{{ value_json.ADIR1.value }}{% endif %}\",\n    'ADIR2': \"{% if 'ADIR2' in value_json %}{{ value_json.ADIR2.value }}{% endif %}\",\n    'ADIR3': \"{% if 'ADIR3' in value_json %}{{ value_json.ADIR3.value }}{% endif %}\",\n    'PAPP': \"{% if 'PAPP' in value_json %}{{ value_json.PAPP.value }}{% endif %}\",\n    'PMAX': \"{% if 'PMAX' in value_json %}{{ value_json.PMAX.value }}{% endif %}\",\n    'PPOT': \"{% if 'PPOT' in value_json %}{{ value_json.PPOT.raw }}{% endif %}\",\n    'HHPHC': \"{% if 'HHPHC' in value_json %}{{ value_json.HHPHC.value }}{% endif %}\",\n    'HCHT': \"{% if 'HCHT' in value_json %}{{ value_json.HCHT.value }}{% endif %}\" // custom\n};\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 290,
+        "x": 310,
         "y": 80,
         "wires": [
             [
@@ -1622,7 +1622,7 @@
         "links": [
             "6124315b89401c20"
         ],
-        "x": 125,
+        "x": 145,
         "y": 200,
         "wires": [
             [
@@ -1640,7 +1640,7 @@
         "links": [
             "54ad1c24cb97b40f"
         ],
-        "x": 435,
+        "x": 455,
         "y": 200,
         "wires": []
     },
@@ -1663,7 +1663,7 @@
         "resendOnRefresh": true,
         "templateScope": "widget:ui",
         "className": "",
-        "x": 280,
+        "x": 300,
         "y": 200,
         "wires": [
             [
@@ -1683,7 +1683,7 @@
             "9bc2bfbb3a19f726",
             "d3c87c171686d25f"
         ],
-        "x": 125,
+        "x": 145,
         "y": 860,
         "wires": [
             [
@@ -1761,7 +1761,7 @@
                 "label": "USB 3"
             }
         ],
-        "x": 450,
+        "x": 470,
         "y": 860,
         "wires": [
             [
@@ -1782,7 +1782,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
+        "x": 650,
         "y": 860,
         "wires": [
             [
@@ -1803,7 +1803,7 @@
         "links": [
             "c581c108f77cb31c"
         ],
-        "x": 915,
+        "x": 935,
         "y": 860,
         "wires": []
     },
@@ -1825,7 +1825,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 790,
+        "x": 810,
         "y": 860,
         "wires": [
             [
@@ -1846,7 +1846,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 250,
+        "x": 270,
         "y": 860,
         "wires": [
             [
@@ -1865,7 +1865,7 @@
             "2b40167cf7fb8532",
             "c581c108f77cb31c"
         ],
-        "x": 755,
+        "x": 775,
         "y": 920,
         "wires": []
     },
@@ -1882,7 +1882,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
+        "x": 350,
         "y": 500,
         "wires": [
             [
@@ -1920,7 +1920,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 490,
+        "x": 510,
         "y": 500,
         "wires": [
             [
@@ -1943,7 +1943,7 @@
             "c937040cbfaaac18"
         ],
         "uncaught": false,
-        "x": 170,
+        "x": 190,
         "y": 560,
         "wires": [
             [
@@ -1971,7 +1971,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 330,
+        "x": 350,
         "y": 560,
         "wires": [
             [
@@ -2006,7 +2006,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 490,
+        "x": 510,
         "y": 560,
         "wires": [
             [
@@ -2024,7 +2024,7 @@
         "links": [
             "903b30464ff4dd7b"
         ],
-        "x": 615,
+        "x": 635,
         "y": 500,
         "wires": []
     },
@@ -2039,7 +2039,7 @@
             "2b40167cf7fb8532",
             "903b30464ff4dd7b"
         ],
-        "x": 615,
+        "x": 635,
         "y": 560,
         "wires": []
     },
@@ -2057,7 +2057,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 510,
+        "x": 530,
         "y": 440,
         "wires": []
     },
@@ -2068,7 +2068,7 @@
         "g": "41f6bf7d5f4ab75c",
         "name": "UBS0",
         "serial": "9f6799af93da4e9b",
-        "x": 170,
+        "x": 190,
         "y": 320,
         "wires": [
             [
@@ -2084,7 +2084,7 @@
         "g": "41f6bf7d5f4ab75c",
         "name": "UBS1",
         "serial": "08e1aee81f87840a",
-        "x": 170,
+        "x": 190,
         "y": 380,
         "wires": [
             [
@@ -2099,7 +2099,7 @@
         "g": "41f6bf7d5f4ab75c",
         "name": "UBS2",
         "serial": "fd1aaf0ecae5bfb5",
-        "x": 170,
+        "x": 190,
         "y": 440,
         "wires": [
             [
@@ -2114,7 +2114,7 @@
         "g": "41f6bf7d5f4ab75c",
         "name": "UBS3",
         "serial": "90afe585d3016433",
-        "x": 170,
+        "x": 190,
         "y": 500,
         "wires": [
             [
@@ -2159,7 +2159,7 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 1380,
+        "x": 1400,
         "y": 1040,
         "wires": [
             []
@@ -2178,7 +2178,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1170,
+        "x": 1190,
         "y": 1040,
         "wires": [
             [
@@ -2199,7 +2199,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1170,
+        "x": 1190,
         "y": 1100,
         "wires": [
             [
@@ -2244,7 +2244,7 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 1380,
+        "x": 1400,
         "y": 1100,
         "wires": [
             []
@@ -2284,7 +2284,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1170,
+        "x": 1190,
         "y": 1520,
         "wires": [
             [
@@ -2311,7 +2311,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1170,
+        "x": 1190,
         "y": 1160,
         "wires": [
             [
@@ -2358,7 +2358,7 @@
         "mobileBreakpointType": "defaults",
         "action": "replace",
         "className": "",
-        "x": 1380,
+        "x": 1400,
         "y": 1160,
         "wires": [
             []
@@ -2377,7 +2377,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1170,
+        "x": 1190,
         "y": 1220,
         "wires": [
             [
@@ -2424,7 +2424,7 @@
         "mobileBreakpointType": "defaults",
         "action": "replace",
         "className": "",
-        "x": 1380,
+        "x": 1400,
         "y": 1220,
         "wires": [
             []
@@ -2469,7 +2469,7 @@
         "mobileBreakpointType": "defaults",
         "action": "replace",
         "className": "",
-        "x": 1370,
+        "x": 1390,
         "y": 1280,
         "wires": [
             []
@@ -2488,7 +2488,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1170,
+        "x": 1190,
         "y": 1280,
         "wires": [
             [
@@ -2509,7 +2509,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1170,
+        "x": 1190,
         "y": 1340,
         "wires": [
             [
@@ -2556,7 +2556,7 @@
         "mobileBreakpointType": "defaults",
         "action": "replace",
         "className": "",
-        "x": 1380,
+        "x": 1400,
         "y": 1340,
         "wires": [
             []
@@ -2575,7 +2575,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
+        "x": 290,
         "y": 1400,
         "wires": [
             [
@@ -2596,7 +2596,7 @@
             "9bc2bfbb3a19f726",
             "f2ba5712ec8cd4b1"
         ],
-        "x": 125,
+        "x": 145,
         "y": 1520,
         "wires": [
             [
@@ -2634,7 +2634,7 @@
         "className": "",
         "typeIsComboBox": false,
         "msgTrigger": "onChange",
-        "x": 490,
+        "x": 510,
         "y": 1460,
         "wires": [
             [
@@ -2661,7 +2661,7 @@
         "checkall": "false",
         "repair": false,
         "outputs": 2,
-        "x": 690,
+        "x": 710,
         "y": 1460,
         "wires": [
             [
@@ -2693,7 +2693,7 @@
         "checkall": "false",
         "repair": false,
         "outputs": 2,
-        "x": 850,
+        "x": 870,
         "y": 1400,
         "wires": [
             [
@@ -2745,7 +2745,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1010,
+        "x": 1030,
         "y": 1400,
         "wires": [
             [
@@ -2778,7 +2778,7 @@
         "checkall": "false",
         "repair": false,
         "outputs": 1,
-        "x": 840,
+        "x": 860,
         "y": 1340,
         "wires": [
             [
@@ -2804,7 +2804,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 670,
+        "x": 690,
         "y": 1340,
         "wires": [
             [
@@ -2832,7 +2832,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 510,
+        "x": 530,
         "y": 1340,
         "wires": [
             [
@@ -2870,7 +2870,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1590,
+        "x": 1610,
         "y": 1400,
         "wires": [
             [
@@ -2896,7 +2896,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 1750,
+        "x": 1770,
         "y": 1400,
         "wires": [
             [
@@ -2914,7 +2914,7 @@
         "links": [
             "92b3657e3f795d51"
         ],
-        "x": 1875,
+        "x": 1895,
         "y": 1400,
         "wires": []
     },
@@ -2950,7 +2950,7 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 1380,
+        "x": 1400,
         "y": 1400,
         "wires": [
             [
@@ -2967,7 +2967,7 @@
         "links": [
             "792ebb13855d873a"
         ],
-        "x": 135,
+        "x": 145,
         "y": 680,
         "wires": [
             [
@@ -2989,7 +2989,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 480,
+        "x": 490,
         "y": 740,
         "wires": []
     },
@@ -2999,14 +2999,14 @@
         "z": "3f247e8940433129",
         "g": "c2a4c908aa1cf2e9",
         "name": "discovery",
-        "func": "let enabled = global.get('mqtt.enabled', 'default') || false;\nlet discovery = global.get('mqtt.discovery', 'default') || '';\nlet topic = global.get('mqtt.topic', 'default') || '';\n\nif (enabled && discovery.length > 0) {\n    let describe = global.get('describe', 'memoryOnly') || {};\n    let tics = global.get('controls', 'memoryOnly') || {};\n    for (const port in tics) {\n        let id = tics[port]['ADCO']['raw'];\n        for (const k in describe.discovery_value_template) {\n            msg.topic = discovery + '/sensor/teleinfo' + '/' + id + '_' + k + '/config';\n            msg.payload = {\n                \"unique_id\": 'teleinfo_ ' + id + '_' + k,\n                \"name\": describe.names[k],\n                \"state_topic\": topic + \"/\" + id,\n                \"value_template\": describe.discovery_value_template[k],\n                \"state_class\": describe.discovery_state_class[k],\n                \"device_class\": describe.discovery_device_class[k],\n                \"unit_of_measurement\": describe.units[k],\n                \"device\": {\n                    \"identifiers\": [\n                        id\n                    ],\n                    \"manufacturer\": \"Enedis\",\n                    \"model\": \"teleinfo_\" + id,\n                    \"name\": \"Teleinfo \" + id\n                }\n            };\n            node.send(msg);\n        }\n    }\n}\n\nreturn;",
+        "func": "let enabled = global.get('mqtt.enabled', 'default') || false;\nlet discovery = global.get('mqtt.discovery', 'default') || '';\nlet topic = global.get('mqtt.topic', 'default') || '';\n\nif (enabled && discovery.length > 0) {\n    let describe = global.get('describe', 'memoryOnly') || {};\n    let tics = global.get('controls', 'memoryOnly') || {};\n    for (const port in tics) {\n        let id = tics[port]['ADCO']['raw'];\n        for (const k in describe.discovery_value_template) {\n            // !!! limit to sensor for now\n            if (describe.type[k] === 'sensor') {\n                msg.topic = discovery + '/' + describe.type[k] + '/teleinfo' + '/' + id + '_' + k + '/config';\n                msg.payload = {\n                    \"unique_id\": 'teleinfo_ ' + id + '_' + k,\n                    \"name\": describe.names[k],\n                    \"state_topic\": topic + \"/\" + id,\n                    \"value_template\": describe.discovery_value_template[k],\n                    \"state_class\": describe.discovery_state_class[k],\n                    \"device_class\": describe.discovery_device_class[k],\n                    \"unit_of_measurement\": describe.units[k],\n                    \"device\": {\n                        \"identifiers\": [\n                            id\n                        ],\n                        \"manufacturer\": \"Enedis\",\n                        \"model\": \"teleinfo_\" + id,\n                        \"name\": \"Teleinfo \" + id\n                    }\n                };\n                node.send(msg);\n            }\n        }\n    }\n}\n\nreturn;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 270,
+        "x": 280,
         "y": 680,
         "wires": [
             [
@@ -3029,7 +3029,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 370,
+        "x": 390,
         "y": 320,
         "wires": []
     },
@@ -3055,7 +3055,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "str",
-        "x": 240,
+        "x": 250,
         "y": 740,
         "wires": [
             [
@@ -3073,7 +3073,7 @@
         "links": [
             "903b30464ff4dd7b"
         ],
-        "x": 555,
+        "x": 565,
         "y": 680,
         "wires": []
     },
@@ -3095,7 +3095,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 440,
+        "x": 450,
         "y": 680,
         "wires": [
             [

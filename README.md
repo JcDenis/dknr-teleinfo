@@ -55,3 +55,10 @@ Utilisez le fichier docker-compose.yaml à la racine du dépôt en fournissant l
 ## Contribuer
 
 Ce projet est **open-source**, vous pouvez participer en créant des [tickets](https://github.com/JcDenis/dknr-teleinfo/issues) ou en proposant de [requêtes](https://github.com/JcDenis/dknr-teleinfo/pulls) sur le dépôt github du projet.
+
+
+## Voir aussi
+
+- [DKNR Teleinfo](https://github.com/JcDenis/dknr-teleinfo)
+- [DKNR APSystems](https://github.com/JcDenis/dknr-apsystems)
+- [DKNR Daikin](https://github.com/JcDenis/dknr-daikin)
