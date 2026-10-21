@@ -305,12 +305,13 @@
             "91dbd54711396594",
             "01346f67f027524a",
             "f2ba5712ec8cd4b1",
-            "58dc2b8d870ecad6"
+            "58dc2b8d870ecad6",
+            "03980521b441fef9"
         ],
-        "x": 104,
-        "y": 999,
-        "w": 1832,
-        "h": 562
+        "x": 164,
+        "y": 1119,
+        "w": 1992,
+        "h": 442
     },
     {
         "id": "c2a4c908aa1cf2e9",
@@ -1073,7 +1074,8 @@
         "mode": "link",
         "links": [
             "cb1df53c54f13e38",
-            "c581c108f77cb31c"
+            "c581c108f77cb31c",
+            "92b3657e3f795d51"
         ],
         "x": 1155,
         "y": 860,
@@ -1875,7 +1877,7 @@
         "z": "3f247e8940433129",
         "g": "41f6bf7d5f4ab75c",
         "name": "parse",
-        "func": "// get descriptions\nlet describe = global.get('describe', 'memoryOnly');\n\n// Remove dirty code\nlet lines = msg.payload.toString().replace(\"\\u0002\\n\",\"\").replace(\"\\r\\u0003\",\"\");\nmsg.payload = {};\n\n// Split message by line\nlines = lines.split(\"\\r\\n\");\nfor (const line in lines) {\n\n\t// Prepare checksum\n\tlet i;\n\tlet checksum = 32;\n\tlet myline = lines[line].toString().replace(\"  \",\" s\").split(\" \");\n\n\t// Split current message\n\tlet check = myline.pop();\n\tlet origin = myline.pop();\n\tlet label = myline.pop();\n\n\t// Regain checksum\n\tif (check == \"s\") check = \" \";\n\n\t// Calcul checksum\n\tfor (i = 0; i < label.length; i++) checksum += label.charCodeAt(i);\n\tfor (i = 0; i < origin.length; i++) checksum += origin.charCodeAt(i);\n\tchecksum = ((checksum%256) & 63) + 32;\n\tchecksum = String.fromCharCode(checksum);\n\n\t// Checksum is not ok\n\tif (checksum != check ) {\n\t\tlet error = {\n\t\t\t'topic':'',\n\t\t\t'payload': 'Bad Checksum \"' + checksum + '\" for label \"' + label + '\".'\n\t\t};\n\t\treturn [null, error];\n\t}\n\n\t// Parse message\n\tlet full = origin;\n\tlet trans = origin;\n\tlet name = label;\n\tlet unit = '';\n\tlet type = '';\n\n\t// get readbale label\n\tif (typeof describe.names[label] === 'string') {\n\t\tname = describe.names[label];\n\t}\n\n\t// get unit of measurement\n\tif (typeof describe.units[label] === 'string') {\n\t\tunit = describe.units[label];\n\t}\n\n\t// get type of measurement\n\tif (typeof describe.discovery_device_class[label] === 'string') {\n\t\ttype = describe.discovery_device_class[label];\n\t}\n\n\t// Convert numeric value to number\n\tif (!isNaN(trans) && isFinite(Number(trans))) trans = Number(trans);\n\n\t// set full value with unit\n\tif (unit !== '') {\n\t\tfull = trans.toString() + ' ' + unit;\n\t}\n\n\t// OPTARIF : chars, length 4\n\tif (label == \"OPTARIF\") {\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\n\t\tfull = typeof describe.optarif[origin] === 'string' ? describe.optarif[origin] : '';\n\t}\n\t// PTEC : chars, length 4\n\telse if (label == \"PTEC\") {\n\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\n\t\tfull = typeof describe.ptec[origin] === 'string' ? describe.ptec[origin] : '';\n\t}\n\n\t// Add to output\n\tmsg.payload[label] ={\n\t\t'raw': origin,\n\t\t'value': trans,\n\t\t'full': full,\n\t\t'name': name,\n\t\t'unit': unit,\n\t\t'type': type\n\t};\n}\n\n// Custom entity\nif (typeof msg.payload['HCHC'] === 'object' &&\n\ttypeof msg.payload['HCHP'] === 'object'\n) {\n\tlet total = msg.payload['HCHC']['value'] + msg.payload['HCHP']['value'];\n\tmsg.payload['HCHT'] = {\n\t\t'raw': total.toString(),\n\t\t'value': total,\n\t\t'full': total.toString() + ' ' + describe.units['HCHT'],\n\t\t'name': describe.names['HCHT'],\n\t\t'unit': describe.units['HCHT']\n\t};\n}\n\n// Other info\nlet unit = global.get('units[\"' + msg.port + '\"]', 'default');\nif (typeof unit === 'object') {\n\tmsg.payload['NAME'] = {\n\t\t'raw': unit['name'],\n\t\t'value': unit['name'],\n\t\t'full': unit['name'],\n\t\t'name': 'Nom'\n\t};\n\tmsg.payload['LOCATION'] = {\n\t\t'raw': unit['location'],\n\t\t'value': unit['location'],\n\t\t'full': unit['location'],\n\t\t'name': 'Emplacement'\n\t};\n\tmsg.payload['PORT'] = {\n\t\t'raw': unit['port'],\n\t\t'value': unit['port'],\n\t\t'full': unit['port'],\n\t\t'name': 'Port de communication'\n\t};\n}\n\n// Should not happen\nif (typeof msg.payload.ADCO !== 'object') {\n\tlet error = {\n\t\t'topic': '',\n\t\t'payload': 'Uncomplete message received.'\n\t};\n\treturn [null, error];\n}\n\n// Save in memory\nlet controls = global.get('controls', 'memoryOnly')||{};\ncontrols[msg.port] = msg.payload;\nglobal.set('controls', controls, 'memoryOnly');\n\n// Send to MQTT\nreturn [msg, null];",
+        "func": "// get descriptions\nlet describe = global.get('describe', 'memoryOnly');\n\n// Remove dirty code\nlet lines = msg.payload.toString().replace(\"\\u0002\\n\",\"\").replace(\"\\r\\u0003\",\"\");\nmsg.payload = {};\n\n// Split message by line\nlines = lines.split(\"\\r\\n\");\nfor (const line in lines) {\n\n\t// Prepare checksum\n\tlet i;\n\tlet checksum = 32;\n\tlet myline = lines[line].toString().replace(\"  \",\" s\").split(\" \");\n\n\t// Split current message\n\tlet check = myline.pop();\n\tlet origin = myline.pop();\n\tlet label = myline.pop();\n\n\t// Regain checksum\n\tif (check == \"s\") check = \" \";\n\n\t// Calcul checksum\n\tfor (i = 0; i < label.length; i++) checksum += label.charCodeAt(i);\n\tfor (i = 0; i < origin.length; i++) checksum += origin.charCodeAt(i);\n\tchecksum = ((checksum%256) & 63) + 32;\n\tchecksum = String.fromCharCode(checksum);\n\n\t// Checksum is not ok\n\tif (checksum != check ) {\n\t\tlet error = {\n\t\t\t'topic':'',\n\t\t\t'payload': 'Bad Checksum \"' + checksum + '\" for label \"' + label + '\".'\n\t\t};\n\t\treturn [null, error];\n\t}\n\n\t// Parse message\n\tlet full = origin;\n\tlet trans = origin;\n\tlet name = label;\n\tlet unit = '';\n\n\t// get readbale label\n\tif (typeof describe.names[label] === 'string') {\n\t\tname = describe.names[label];\n\t}\n\n\t// get unit of measurement\n\tif (typeof describe.units[label] === 'string') {\n\t\tunit = describe.units[label];\n\t}\n\n\t// Convert numeric value to number\n\tif (!isNaN(trans) && isFinite(Number(trans))) trans = Number(trans);\n\n\t// set full value with unit\n\tif (unit !== '') {\n\t\tfull = trans.toString() + ' ' + unit;\n\t}\n\n\t// OPTARIF : chars, length 4\n\tif (label == \"OPTARIF\") {\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\n\t\tfull = typeof describe.optarif[origin] === 'string' ? describe.optarif[origin] : '';\n\t}\n\t// PTEC : chars, length 4\n\telse if (label == \"PTEC\") {\n\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\t\tif (trans.substring(trans.length - 1) == '.') trans = trans.substring(0, trans.length -1);\n\n\t\tfull = typeof describe.ptec[origin] === 'string' ? describe.ptec[origin] : '';\n\t}\n\n\t// Add to output\n\tmsg.payload[label] ={\n\t\t'raw': origin,\n\t\t'value': trans,\n\t\t'full': full,\n\t\t'name': name,\n\t\t'unit': unit\n\t};\n}\n\n// Custom entity\nif (typeof msg.payload['HCHC'] === 'object' &&\n\ttypeof msg.payload['HCHP'] === 'object'\n) {\n\tlet total = msg.payload['HCHC']['value'] + msg.payload['HCHP']['value'];\n\tmsg.payload['HCHT'] = {\n\t\t'raw': total.toString(),\n\t\t'value': total,\n\t\t'full': total.toString() + ' ' + describe.units['HCHT'],\n\t\t'name': describe.names['HCHT'],\n\t\t'unit': describe.units['HCHT']\n\t};\n}\n\n// Other info\nlet unit = global.get('units[\"' + msg.port + '\"]', 'default');\nif (typeof unit === 'object') {\n\tmsg.payload['NAME'] = {\n\t\t'raw': unit['name'],\n\t\t'value': unit['name'],\n\t\t'full': unit['name'],\n\t\t'name': 'Nom'\n\t};\n\tmsg.payload['LOCATION'] = {\n\t\t'raw': unit['location'],\n\t\t'value': unit['location'],\n\t\t'full': unit['location'],\n\t\t'name': 'Emplacement'\n\t};\n\tmsg.payload['PORT'] = {\n\t\t'raw': unit['port'],\n\t\t'value': unit['port'],\n\t\t'full': unit['port'],\n\t\t'name': 'Port de communication'\n\t};\n}\n\n// Should not happen\nif (typeof msg.payload.ADCO !== 'object') {\n\tlet error = {\n\t\t'topic': '',\n\t\t'payload': 'Uncomplete message received.'\n\t};\n\treturn [null, error];\n}\n\n// Additional data. Preferred tariff period in progress\nif (typeof msg.payload.OPTARIF === 'object' && msg.payload.OPTARIF.value === 'HC') {\n\tlet preferred = msg.payload.PTEC.value === 'HC' ? 1 : 0;\n\tmsg.payload['PREFERRED'] = {\n\t\t'raw': preferred.toString(),\n\t\t'value': preferred,\n\t\t'full': preferred.toString(),\n\t\t'name': 'Période recommandée'\n\t};\n}\n\n// Save in memory\nlet controls = global.get('controls', 'memoryOnly')||{};\ncontrols[msg.port] = msg.payload;\nglobal.set('controls', controls, 'memoryOnly');\n\n// Send to MQTT\nreturn [msg, null];",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
@@ -2159,8 +2161,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 1400,
-        "y": 1040,
+        "x": 1620,
+        "y": 1160,
         "wires": [
             []
         ]
@@ -2178,8 +2180,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
-        "y": 1040,
+        "x": 1410,
+        "y": 1160,
         "wires": [
             [
                 "d14fef6d3072a1f9"
@@ -2199,8 +2201,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
-        "y": 1100,
+        "x": 1410,
+        "y": 1220,
         "wires": [
             [
                 "8d40dcb9d821536a"
@@ -2244,8 +2246,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 1400,
-        "y": 1100,
+        "x": 1620,
+        "y": 1220,
         "wires": [
             []
         ]
@@ -2284,7 +2286,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1190,
+        "x": 1410,
         "y": 1520,
         "wires": [
             [
@@ -2311,8 +2313,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
-        "y": 1160,
+        "x": 1410,
+        "y": 1280,
         "wires": [
             [
                 "60237f01f465974f"
@@ -2358,8 +2360,8 @@
         "mobileBreakpointType": "defaults",
         "action": "replace",
         "className": "",
-        "x": 1400,
-        "y": 1160,
+        "x": 1620,
+        "y": 1280,
         "wires": [
             []
         ]
@@ -2377,8 +2379,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
-        "y": 1220,
+        "x": 1410,
+        "y": 1340,
         "wires": [
             [
                 "ce85a3986bf50f1a"
@@ -2424,8 +2426,8 @@
         "mobileBreakpointType": "defaults",
         "action": "replace",
         "className": "",
-        "x": 1400,
-        "y": 1220,
+        "x": 1620,
+        "y": 1340,
         "wires": [
             []
         ]
@@ -2469,8 +2471,8 @@
         "mobileBreakpointType": "defaults",
         "action": "replace",
         "className": "",
-        "x": 1390,
-        "y": 1280,
+        "x": 1610,
+        "y": 1400,
         "wires": [
             []
         ]
@@ -2488,8 +2490,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
-        "y": 1280,
+        "x": 1410,
+        "y": 1400,
         "wires": [
             [
                 "d47e0f6925c0b2f5"
@@ -2509,8 +2511,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
-        "y": 1340,
+        "x": 1410,
+        "y": 1460,
         "wires": [
             [
                 "d7c4af217d645455"
@@ -2556,8 +2558,8 @@
         "mobileBreakpointType": "defaults",
         "action": "replace",
         "className": "",
-        "x": 1400,
-        "y": 1340,
+        "x": 1620,
+        "y": 1460,
         "wires": [
             []
         ]
@@ -2568,14 +2570,14 @@
         "z": "3f247e8940433129",
         "g": "4a03c4c9cfd20732",
         "name": "get names",
-        "func": "flow.set('current_unit', '', 'memoryOnly');\n\nmsg.payload = '';\nmsg.class = '';\nmsg.enabled = true;\nmsg.options = [{\n    'label':'',\n    'value':'',\n    'dropdown':'name'\n}];\n\nlet i = 1;\nlet units = global.get('units', 'default');\nif (typeof units === 'object') {\n    for(const port in units) {\n        msg.options[i++] = {\n            'label': units[port]['name'] + ' - ' + units[port]['location'] + '  - ' + port,\n            'value': port,\n            'dropdown': 'name'\n        }\n    }\n}\n\nif (i == 1) {\n    node.send([null, null]);\n}\nelse if (i == 2) {\n    msg.payload = msg.options[1]['value'];\n    node.send([msg, null]);\n    msg.class = 'remove';\n    msg.enlabed = false;\n    node.send([null, msg]);\n}\nelse {\n    node.send([null, msg]);\n}\n\nreturn;",
+        "func": "flow.set('current_unit', '', 'memoryOnly');\n\nmsg.payload = '';\nmsg.class = '';\nmsg.enabled = true;\nmsg.options = [{\n    'label':'',\n    'value':'',\n    'dropdown':'name'\n}];\n\nlet i = 1;\nlet units = global.get('units', 'default');\nif (typeof units === 'object') {\n    for(const port in units) {\n        msg.options[i++] = {\n            'label': units[port]['name'] + ' - ' + units[port]['location'] + '  - ' + port,\n            'value': port,\n            'dropdown': 'name'\n        }\n    }\n}\n\nif (i == 1) {\n    node.send([null, null]);\n}\nelse if (i == 2) {\n    msg.payload = msg.options[1]['value'];\n    node.send([msg, null]);\n\n    msg.class = 'remove';\n    msg.enlabed = false;\n    node.send([null, msg]);\n}\nelse {\n    node.send([null, msg]);\n}\n\nreturn;",
         "outputs": 2,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 290,
+        "x": 350,
         "y": 1400,
         "wires": [
             [
@@ -2593,10 +2595,11 @@
         "g": "4a03c4c9cfd20732",
         "name": "custom - detail",
         "links": [
+            "7c8ca45d292975fb",
             "9bc2bfbb3a19f726",
             "f2ba5712ec8cd4b1"
         ],
-        "x": 145,
+        "x": 205,
         "y": 1520,
         "wires": [
             [
@@ -2634,7 +2637,7 @@
         "className": "",
         "typeIsComboBox": false,
         "msgTrigger": "onChange",
-        "x": 510,
+        "x": 570,
         "y": 1460,
         "wires": [
             [
@@ -2661,7 +2664,7 @@
         "checkall": "false",
         "repair": false,
         "outputs": 2,
-        "x": 710,
+        "x": 770,
         "y": 1460,
         "wires": [
             [
@@ -2693,11 +2696,11 @@
         "checkall": "false",
         "repair": false,
         "outputs": 2,
-        "x": 870,
+        "x": 930,
         "y": 1400,
         "wires": [
             [
-                "c158788b3b968b34"
+                "03980521b441fef9"
             ],
             [
                 "a45b86ad6e679d2c"
@@ -2745,8 +2748,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1030,
-        "y": 1400,
+        "x": 1250,
+        "y": 1340,
         "wires": [
             [
                 "be9df446e8994af5",
@@ -2778,8 +2781,8 @@
         "checkall": "false",
         "repair": false,
         "outputs": 1,
-        "x": 860,
-        "y": 1340,
+        "x": 1080,
+        "y": 1280,
         "wires": [
             [
                 "c158788b3b968b34"
@@ -2804,8 +2807,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 690,
-        "y": 1340,
+        "x": 910,
+        "y": 1280,
         "wires": [
             [
                 "c03d7fe0c37957cf"
@@ -2832,8 +2835,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 530,
-        "y": 1340,
+        "x": 750,
+        "y": 1280,
         "wires": [
             [
                 "bc17c08e18a403b2"
@@ -2870,8 +2873,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1610,
-        "y": 1400,
+        "x": 1830,
+        "y": 1520,
         "wires": [
             [
                 "01346f67f027524a"
@@ -2896,8 +2899,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 1770,
-        "y": 1400,
+        "x": 1990,
+        "y": 1520,
         "wires": [
             [
                 "f2ba5712ec8cd4b1"
@@ -2914,8 +2917,8 @@
         "links": [
             "92b3657e3f795d51"
         ],
-        "x": 1895,
-        "y": 1400,
+        "x": 2115,
+        "y": 1520,
         "wires": []
     },
     {
@@ -2950,8 +2953,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 1400,
-        "y": 1400,
+        "x": 1620,
+        "y": 1520,
         "wires": [
             [
                 "91dbd54711396594"
@@ -2999,7 +3002,7 @@
         "z": "3f247e8940433129",
         "g": "c2a4c908aa1cf2e9",
         "name": "discovery",
-        "func": "let enabled = global.get('mqtt.enabled', 'default') || false;\nlet discovery = global.get('mqtt.discovery', 'default') || '';\nlet topic = global.get('mqtt.topic', 'default') || '';\n\nif (enabled && discovery.length > 0) {\n    let describe = global.get('describe', 'memoryOnly') || {};\n    let tics = global.get('controls', 'memoryOnly') || {};\n    for (const port in tics) {\n        let id = tics[port]['ADCO']['raw'];\n        for (const k in describe.discovery_value_template) {\n            // !!! limit to sensor for now\n            if (describe.type[k] === 'sensor') {\n                msg.topic = discovery + '/' + describe.type[k] + '/teleinfo' + '/' + id + '_' + k + '/config';\n                msg.payload = {\n                    \"unique_id\": 'teleinfo_ ' + id + '_' + k,\n                    \"name\": describe.names[k],\n                    \"state_topic\": topic + \"/\" + id,\n                    \"value_template\": describe.discovery_value_template[k],\n                    \"state_class\": describe.discovery_state_class[k],\n                    \"device_class\": describe.discovery_device_class[k],\n                    \"unit_of_measurement\": describe.units[k],\n                    \"device\": {\n                        \"identifiers\": [\n                            id\n                        ],\n                        \"manufacturer\": \"Enedis\",\n                        \"model\": \"teleinfo_\" + id,\n                        \"name\": \"Teleinfo \" + id\n                    }\n                };\n                node.send(msg);\n            }\n        }\n    }\n}\n\nreturn;",
+        "func": "let enabled = global.get('mqtt.enabled', 'default') || false;\nlet discovery = global.get('mqtt.discovery', 'default') || '';\nlet topic = global.get('mqtt.topic', 'default') || '';\n\nif (enabled && discovery.length > 0) {\n\n    msg.qos = 0;\n    msg.retain = true\n\n    let describe = global.get('describe', 'memoryOnly') || {};\n    let tics = global.get('controls', 'memoryOnly') || {};\n    for (const port in tics) {\n        let id = tics[port]['ADCO']['raw'];\n        for (const k in describe.discovery_value_template) {\n            // !!! limit to sensor for now\n            if (describe.type[k] === 'sensor') {\n                msg.topic = discovery + '/' + describe.type[k] + '/teleinfo' + '/' + id + '_' + k + '/config';\n                msg.payload = {\n                    \"unique_id\": 'teleinfo_ ' + id + '_' + k,\n                    \"name\": describe.names[k],\n                    \"state_topic\": topic + \"/\" + id,\n                    \"value_template\": describe.discovery_value_template[k],\n                    \"state_class\": describe.discovery_state_class[k],\n                    \"device_class\": describe.discovery_device_class[k],\n                    \"unit_of_measurement\": describe.units[k],\n                    \"device\": {\n                        \"identifiers\": [\n                            id\n                        ],\n                        \"manufacturer\": \"Enedis\",\n                        \"model\": \"teleinfo_\" + id,\n                        \"name\": \"Teleinfo \" + id\n                    }\n                };\n                node.send(msg);\n            }\n        }\n    }\n}\n\nreturn;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3100,6 +3103,32 @@
         "wires": [
             [
                 "6326830faa9d7246"
+            ]
+        ]
+    },
+    {
+        "id": "03980521b441fef9",
+        "type": "delay",
+        "z": "3f247e8940433129",
+        "g": "4a03c4c9cfd20732",
+        "name": "250ms",
+        "pauseType": "delay",
+        "timeout": "250",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1090,
+        "y": 1340,
+        "wires": [
+            [
+                "c158788b3b968b34"
             ]
         ]
     }
