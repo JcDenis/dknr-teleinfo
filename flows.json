@@ -69,12 +69,12 @@
             "label": true
         },
         "nodes": [
-            "605eca9c3e3f3561",
             "ca6bb13cefa4a732",
             "3bc2a58fc596c187",
             "cb1df53c54f13e38",
             "792ebb13855d873a",
-            "a61e338a90e40454"
+            "a61e338a90e40454",
+            "c297ed9921b099ac"
         ],
         "x": 104,
         "y": 939,
@@ -262,7 +262,8 @@
             "345396b74f5a76d0",
             "57d2ff6245be77d1",
             "c937040cbfaaac18",
-            "2845feb882489a18"
+            "2845feb882489a18",
+            "8895034b18c01f36"
         ],
         "x": 114,
         "y": 279,
@@ -808,34 +809,6 @@
         "wires": []
     },
     {
-        "id": "605eca9c3e3f3561",
-        "type": "change",
-        "z": "80d735b541c47847",
-        "g": "55c32eac6f750705",
-        "name": "write",
-        "rules": [
-            {
-                "t": "set",
-                "p": "mqtt",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 690,
-        "y": 980,
-        "wires": [
-            [
-                "ca6bb13cefa4a732"
-            ]
-        ]
-    },
-    {
         "id": "ca6bb13cefa4a732",
         "type": "delay",
         "z": "80d735b541c47847",
@@ -935,7 +908,14 @@
             },
             {
                 "label": "Home Assistant Discovery topic",
-                "key": "discovery",
+                "key": "homeassistant",
+                "type": "text",
+                "required": false,
+                "rows": null
+            },
+            {
+                "label": "Old topic",
+                "key": "old_topic",
                 "type": "text",
                 "required": false,
                 "rows": null
@@ -954,7 +934,8 @@
             "topic": "",
             "username": "",
             "password": "",
-            "discovery": "",
+            "homeassistant": "",
+            "old_topic": "",
             "enabled": false
         },
         "payload": "",
@@ -971,7 +952,7 @@
         "y": 980,
         "wires": [
             [
-                "605eca9c3e3f3561"
+                "c297ed9921b099ac"
             ]
         ]
     },
@@ -1189,7 +1170,7 @@
         "z": "80d735b541c47847",
         "g": "9d1da43b0436ef48",
         "name": "app",
-        "func": "delete msg.filename;\n\nif (typeof msg.payload === 'object') {\n    let describe = global.get('describe', 'memoryOnly') || {};\n    describe.app = {\n        'title': msg.payload.description.slice(5), // remove \"DKNR \"\n        'version' : msg.payload.version,\n        'git': msg.payload.name\n    };\n    global.set('describe', describe, 'memoryOnly');\n}\nreturn msg;",
+        "func": "delete msg.filename;\n\nif (typeof global.get('describe', 'memoryOnly') !== 'object') {\n    global.set('describe', {}, 'memoryOnly')\n}\n\nlet describe = global.get('describe', 'memoryOnly');\n\nif (typeof msg.payload === 'object') {\n    describe.app = {\n        'title': msg.payload.description.slice(5) || '', // remove \"DKNR \"\n        'version' : msg.payload.version || '',\n        'git': msg.payload.name || ''\n    };\n}\n\ndescribe.mqtt = {\n    'host': '',\n    'port': 1883,\n    'username': '',\n    'password': '',\n    'topic': 'dknr',\n    'enabled': false,\n    'homeassistant': 'homeassistant',\n    'old_topic': 'teleinfo'\n};\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1552,7 +1533,7 @@
         "z": "80d735b541c47847",
         "g": "55c32eac6f750705",
         "name": "read",
-        "func": "msg.payload = global.get('mqtt', 'default') || {}\n\nif (typeof msg.payload.discovery !== 'string' || msg.payload.discorevy == '') {\n    msg.payload.discovery = 'homeassistant';\n}\n\nreturn msg;",
+        "func": "msg.payload = { ...(global.get('describe.mqtt', 'memoryOnly') || {}), ...(global.get('mqtt', 'default') || {}) };\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1564,6 +1545,27 @@
         "wires": [
             [
                 "3bc2a58fc596c187"
+            ]
+        ]
+    },
+    {
+        "id": "c297ed9921b099ac",
+        "type": "function",
+        "z": "80d735b541c47847",
+        "g": "55c32eac6f750705",
+        "name": "data",
+        "func": "global.set('mqtt', msg.payload, 'default');\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 980,
+        "wires": [
+            [
+                "ca6bb13cefa4a732"
             ]
         ]
     },
@@ -1888,7 +1890,8 @@
         "y": 500,
         "wires": [
             [
-                "d5fbf57a0ee68499"
+                "d5fbf57a0ee68499",
+                "8895034b18c01f36"
             ],
             [
                 "57e3097bb0fb436d"
@@ -1906,7 +1909,7 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "mqtt.topic",
+                "to": "mqtt.old_topic",
                 "tot": "global"
             },
             {
@@ -1992,7 +1995,7 @@
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "mqtt.topic",
+                "to": "mqtt.old_topic",
                 "tot": "global"
             },
             {
@@ -2060,7 +2063,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 530,
-        "y": 440,
+        "y": 360,
         "wires": []
     },
     {
@@ -3002,7 +3005,7 @@
         "z": "3f247e8940433129",
         "g": "c2a4c908aa1cf2e9",
         "name": "discovery",
-        "func": "let enabled = global.get('mqtt.enabled', 'default') || false;\nlet discovery = global.get('mqtt.discovery', 'default') || '';\nlet topic = global.get('mqtt.topic', 'default') || '';\n\nif (enabled && discovery.length > 0) {\n\n    msg.qos = 0;\n    msg.retain = true\n\n    let describe = global.get('describe', 'memoryOnly') || {};\n    let tics = global.get('controls', 'memoryOnly') || {};\n    for (const port in tics) {\n        let id = tics[port]['ADCO']['raw'];\n        for (const k in describe.discovery_value_template) {\n            // !!! limit to sensor for now\n            if (describe.type[k] === 'sensor') {\n                msg.topic = discovery + '/' + describe.type[k] + '/teleinfo' + '/' + id + '_' + k + '/config';\n                msg.payload = {\n                    \"unique_id\": 'teleinfo_ ' + id + '_' + k,\n                    \"name\": describe.names[k],\n                    \"state_topic\": topic + \"/\" + id,\n                    \"value_template\": describe.discovery_value_template[k],\n                    \"state_class\": describe.discovery_state_class[k],\n                    \"device_class\": describe.discovery_device_class[k],\n                    \"unit_of_measurement\": describe.units[k],\n                    \"device\": {\n                        \"identifiers\": [\n                            id\n                        ],\n                        \"manufacturer\": \"Enedis\",\n                        \"model\": \"teleinfo_\" + id,\n                        \"name\": \"Teleinfo \" + id\n                    }\n                };\n                node.send(msg);\n            }\n        }\n    }\n}\n\nreturn;",
+        "func": "let enabled = global.get('mqtt.enabled', 'default') || false;\nlet discovery = global.get('mqtt.homeassistant', 'default') || '';\nlet topic = global.get('mqtt.topic', 'default') || '';\n\nif (enabled && topic !== '') {\n\n    let source = 'teleinfo';\n    let describe = global.get('describe', 'memoryOnly') || {};\n    let tics = global.get('controls', 'memoryOnly') || {};\n    for (const port in tics) {\n        let id = tics[port]['ADCO']['raw'];\n        for (const k in describe.discovery_value_template) {\n\n            if (id !== '') {\n                // topic as uid must be source _ id _ entry\n                let dknrMsg = {\n                    'topic': topic + '/discovery/' + [source, id, k].join('_'),\n                    'payload': {\n                        'source': source,\n                        'parent': id,\n                        'entry': k,\n                        'name': describe.names[k],\n                        'group': 'sensor',\n                        'type': describe.units[k] === '' ? 'text' : 'number',\n                        'unit': describe.units[k],\n                        'value': describe.units[k] === '' ? '' : 0,\n                        'options': {}\n                    },\n                    'qos': 0,\n                    'retain': true\n                };\n\n                node.send(dknrMsg);\n            }\n\n            // home assistant\n            if (discovery !== \"\" && describe.type[k] === 'sensor') {\n                let haMsg = {\n                    'topic': discovery + '/' + describe.type[k] + '/' + source + '/' + id + '_' + k + '/config',\n                    'payload': {\n                        \"unique_id\": ['dknr', source, id, k].join('_'),\n                        \"name\": describe.names[k],\n                        \"state_topic\": topic + '/entity/' + [source, id, k].join('_'),\n                        //\"value_template\": describe.discovery_value_template[k],\n                        \"state_class\": describe.discovery_state_class[k],\n                        \"device_class\": describe.discovery_device_class[k],\n                        \"unit_of_measurement\": describe.units[k],\n                        \"device\": {\n                            \"identifiers\": [\n                                id\n                            ],\n                            \"manufacturer\": \"Enedis\",\n                            \"model\": \"teleinfo_\" + id,\n                            \"name\": \"Teleinfo \" + id\n                        }\n                    }\n                };\n\n                node.send(haMsg);\n            }\n        }\n    }\n}\n\nreturn;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3129,6 +3132,27 @@
         "wires": [
             [
                 "c158788b3b968b34"
+            ]
+        ]
+    },
+    {
+        "id": "8895034b18c01f36",
+        "type": "function",
+        "z": "3f247e8940433129",
+        "g": "41f6bf7d5f4ab75c",
+        "name": "data",
+        "func": "const topic = global.get('mqtt.topic', 'default') || '';\nconst sn = msg.payload.ADCO.raw || '';\n\nif (topic === '' || sn === '') {\n\n    return;\n}\n\nfor (const k in msg.payload) {\n    if (flow.get('last[\"' + sn + '_' + k + '\"]', 'memoryOnly') !== msg.payload[k]['raw']) {\n        flow.set('last[\"' + sn + '_' + k + '\"]', msg.payload[k]['raw'], 'memoryOnly');\n        let newMsg = {\n            'topic': topic + '/entity/' + ['teleinfo', sn, k].join('_'),\n            'payload': msg.payload[k]['raw']\n        };\n\n        node.send([newMsg]);\n    }\n}\n\nreturn;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 440,
+        "wires": [
+            [
+                "11a311cff80fcfb0"
             ]
         ]
     }
