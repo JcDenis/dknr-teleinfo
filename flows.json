@@ -338,6 +338,25 @@
         "h": 142
     },
     {
+        "id": "e28c6dafcd3de09d",
+        "type": "group",
+        "z": "3f247e8940433129",
+        "name": "reset",
+        "style": {
+            "fill": "#ff0000",
+            "fill-opacity": "0.05",
+            "label": true
+        },
+        "nodes": [
+            "025916ad75d760ec",
+            "ba456fafe595af98"
+        ],
+        "x": 574,
+        "y": 159,
+        "w": 332,
+        "h": 82
+    },
+    {
         "id": "df7710b4b2c4e55b",
         "type": "ui-base",
         "name": "Tableau de bord",
@@ -3155,5 +3174,52 @@
                 "11a311cff80fcfb0"
             ]
         ]
+    },
+    {
+        "id": "025916ad75d760ec",
+        "type": "inject",
+        "z": "3f247e8940433129",
+        "g": "e28c6dafcd3de09d",
+        "name": "reset",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "00 03 * * *",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 670,
+        "y": 200,
+        "wires": [
+            [
+                "ba456fafe595af98"
+            ]
+        ]
+    },
+    {
+        "id": "ba456fafe595af98",
+        "type": "function",
+        "z": "3f247e8940433129",
+        "g": "e28c6dafcd3de09d",
+        "name": "data",
+        "func": "flow.set('last', { }, 'memoryOnly');\n\nreturn;",
+        "outputs": 0,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 200,
+        "wires": []
     }
 ]
