@@ -3044,7 +3044,7 @@
         "type": "inject",
         "z": "3f247e8940433129",
         "g": "c2a4c908aa1cf2e9",
-        "name": "custom - discovery",
+        "name": "discovery",
         "props": [
             {
                 "p": "payload"
@@ -3055,13 +3055,13 @@
             }
         ],
         "repeat": "",
-        "crontab": "",
+        "crontab": "00 03 * * *",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "str",
-        "x": 250,
+        "x": 270,
         "y": 740,
         "wires": [
             [
