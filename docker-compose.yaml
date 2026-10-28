@@ -1,15 +1,19 @@
 # Required the following environement variables:
 # - DKNR_USERNAME
-# - DKNR_PASSWORD
+# - DKNR_PASSWORD (also used for InfluxDB web UI, 8 characters minimum)
 # - DKNR_SECRET
+# - DKNR_INFLUX_TOKEN (InfluxDB API token, a long random string)
 #
 name: DKNRTeleinfo
 
-services: 
+services:
   dknr_teleinfo:
     container_name: dknr_teleinfo
     image: jcpd/dknr-teleinfo:latest
     restart: unless-stopped
+    depends_on:
+      dknr_teleinfo_influxdb:
+        condition: service_healthy
     deploy:
       resources:
         limits:
@@ -20,6 +24,10 @@ services:
       DKNR_USERNAME: ${DKNR_USERNAME}
       DKNR_PASSWORD: ${DKNR_PASSWORD}
       DKNR_SECRET: ${DKNR_SECRET}
+      DKNR_INFLUX_URL: http://dknr_teleinfo_influxdb:8086
+      DKNR_INFLUX_TOKEN: ${DKNR_INFLUX_TOKEN}
+      DKNR_INFLUX_ORG: dknr
+      DKNR_INFLUX_BUCKET: teleinfo
     ports:
       - 1880:1880
     devices:
@@ -31,11 +39,49 @@ services:
       interval: 10s
       timeout: 5s
       retries: 3
-      start_period: 90s 
+      start_period: 90s
     logging:
       driver: "json-file"
       options:
         max-size: "20m"
         max-file: "5"
+
+  dknr_teleinfo_influxdb:
+    container_name: dknr_teleinfo_influxdb
+    image: influxdb:2.7
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+    environment:
+      TZ: Europe/Paris
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: ${DKNR_USERNAME}
+      DOCKER_INFLUXDB_INIT_PASSWORD: ${DKNR_PASSWORD}
+      DOCKER_INFLUXDB_INIT_ORG: dknr
+      DOCKER_INFLUXDB_INIT_BUCKET: teleinfo
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: ${DKNR_INFLUX_TOKEN}
+    # Uncomment to reach InfluxDB web UI from your network
+    # ports:
+    #   - 8086:8086
+    volumes:
+      - dknr_teleinfo_influxdb:/var/lib/influxdb2
+      - dknr_teleinfo_influxdb_config:/etc/influxdb2
+    healthcheck:
+      test: influx ping || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "5"
+
 volumes:
   dknr_teleinfo:
+  dknr_teleinfo_influxdb:
+  dknr_teleinfo_influxdb_config:

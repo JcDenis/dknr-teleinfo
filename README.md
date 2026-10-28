@@ -23,6 +23,7 @@ Il permet de collecter les informations transmises par la sortie Téléinformati
 - **Exploitation locale des mesures** pour le suivi de la consommation.
 - **Intégration possible** dans une installation domotique ou un outil de supervision.
 - **Supporte Home-Assistant Discovery** pour les messages MQTT.
+- **Historique de consommation** enregistré dans InfluxDB : énergie par heure (24 dernières heures), par jour (7 derniers jours), par mois (12 derniers mois) et par an, détaillée par période tarifaire.
 
 
 ## Matériel requis
@@ -43,13 +44,18 @@ Utilisez le fichier docker-compose.yaml à la racine du dépôt en fournissant l
 * **DKNR_USERNAME** : login de l'interface node-red.
 * **DKNR_PASSWORD** : mot de passe de l'interface node-red.
 * **DKNR_SECRET**   : un mot secret pour encrypter les credits.
+* **DKNR_INFLUX_TOKEN** : le jeton d'API InfluxDB, une longue chaîne aléatoire (par exemple `openssl rand -hex 32`).
+
+Le fichier docker-compose démarre aussi un conteneur **InfluxDB 2** qui conserve toutes les valeurs relevées (une mesure par minute et par compteur, sans limite de durée). Il est initialisé au premier démarrage avec l'utilisateur **DKNR_USERNAME** et le mot de passe **DKNR_PASSWORD** (8 caractères minimum), l'organisation `dknr` et le bucket `teleinfo`.
+
+Pour utiliser une base InfluxDB 2 existante, renseignez plutôt les variables **DKNR_INFLUX_URL**, **DKNR_INFLUX_TOKEN**, **DKNR_INFLUX_ORG** et **DKNR_INFLUX_BUCKET** du conteneur dknr_teleinfo. Sans URL ni jeton, l'historique est simplement désactivé.
 
 
 ## A faire
 
 * **Support triphasé** (UI).
 * **Support multicompteur** et support multi port série/USB.
-* **Rétention de données** local ou configurateur pour une base distante.
+* **Configurateur** de la base InfluxDB depuis l'interface.
 
 
 ## Contribuer

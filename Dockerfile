@@ -20,7 +20,11 @@ ENV DKNR_USERNAME=admin \
 	DKNR_SECRET=dkteleinfo \
     DKNR_REPOSITORY=https://github.com/JcDenis/dknr-teleinfo \
     NODE_RED_ENABLE_PROJECTS=true \
-	TZ=Europe\Paris
+    DKNR_INFLUX_URL= \
+    DKNR_INFLUX_TOKEN= \
+    DKNR_INFLUX_ORG=dknr \
+    DKNR_INFLUX_BUCKET=teleinfo \
+	TZ=Europe/Paris
 
 # Image label
 LABEL org.opencontainers.image.authors="Jean-Christian Paul Denis" \
