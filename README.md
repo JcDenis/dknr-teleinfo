@@ -44,11 +44,27 @@ Utilisez le fichier docker-compose.yaml à la racine du dépôt en fournissant l
 * **DKNR_USERNAME** : login de l'interface node-red.
 * **DKNR_PASSWORD** : mot de passe de l'interface node-red.
 * **DKNR_SECRET**   : un mot secret pour encrypter les credits.
-* **DKNR_INFLUX_TOKEN** : le jeton d'API InfluxDB, une longue chaîne aléatoire (par exemple `openssl rand -hex 32`).
 
-Le fichier docker-compose démarre aussi un conteneur **InfluxDB 2** qui conserve toutes les valeurs relevées (une mesure par minute et par compteur, sans limite de durée). Il est initialisé au premier démarrage avec l'utilisateur **DKNR_USERNAME** et le mot de passe **DKNR_PASSWORD** (8 caractères minimum), l'organisation `dknr` et le bucket `teleinfo`.
+### Historique de consommation (InfluxDB)
 
-Pour utiliser une base InfluxDB 2 existante, renseignez plutôt les variables **DKNR_INFLUX_URL**, **DKNR_INFLUX_TOKEN**, **DKNR_INFLUX_ORG** et **DKNR_INFLUX_BUCKET** du conteneur dknr_teleinfo. Sans URL ni jeton, l'historique est simplement désactivé.
+Le fichier docker-compose démarre aussi un conteneur **InfluxDB 2** (`dknr_teleinfo_influxdb`) qui conserve toutes les valeurs relevées : une mesure par minute et par compteur, sans limite de durée. La page **Historique** du tableau de bord affiche l'énergie consommée par heure (24 dernières heures), par jour (7 derniers jours), par mois (12 derniers mois) et par an.
+
+Aucune variable supplémentaire n'est obligatoire : par défaut, dknr-teleinfo utilise le conteneur InfluxDB du docker-compose. Les variables suivantes sont optionnelles :
+
+| Variable | Valeur par défaut | Rôle |
+|---|---|---|
+| **DKNR_INFLUX_TOKEN** | `dknr-teleinfo-influxdb-token` | jeton d'API InfluxDB |
+| **DKNR_INFLUX_URL** | `http://dknr_teleinfo_influxdb:8086` | adresse de la base InfluxDB |
+| **DKNR_INFLUX_ORG** | `dknr` | organisation InfluxDB |
+| **DKNR_INFLUX_BUCKET** | `teleinfo` | bucket InfluxDB |
+
+Au premier démarrage, InfluxDB est initialisé avec l'utilisateur **DKNR_USERNAME** et le mot de passe **DKNR_PASSWORD**, qui doit faire **8 caractères minimum**.
+
+Quelques remarques :
+
+* Le jeton par défaut convient tant qu'InfluxDB reste sur le réseau interne de docker. Si vous exposez le port 8086 (lignes commentées dans le docker-compose), définissez votre propre **DKNR_INFLUX_TOKEN**, par exemple généré avec `openssl rand -hex 32`.
+* Le jeton, l'organisation et le bucket ne sont appliqués par InfluxDB qu'à sa **première** initialisation. Pour les changer ensuite, il faut supprimer le volume `dknr_teleinfo_influxdb` (et donc l'historique) ou les modifier dans l'interface d'InfluxDB.
+* Pour utiliser une base InfluxDB 2 existante, renseignez ces quatre variables pour le conteneur dknr_teleinfo ; le conteneur InfluxDB du docker-compose (et le `depends_on` qui y fait référence) peut alors être retiré.
 
 
 ## A faire

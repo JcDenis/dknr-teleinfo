@@ -2,7 +2,12 @@
 # - DKNR_USERNAME
 # - DKNR_PASSWORD (also used for InfluxDB web UI, 8 characters minimum)
 # - DKNR_SECRET
-# - DKNR_INFLUX_TOKEN (InfluxDB API token, a long random string)
+#
+# Optional environement variables (defaults use the InfluxDB container below):
+# - DKNR_INFLUX_TOKEN (InfluxDB API token, a long random string, recommended)
+# - DKNR_INFLUX_URL (default: http://dknr_teleinfo_influxdb:8086)
+# - DKNR_INFLUX_ORG (default: dknr)
+# - DKNR_INFLUX_BUCKET (default: teleinfo)
 #
 name: DKNRTeleinfo
 
@@ -24,10 +29,10 @@ services:
       DKNR_USERNAME: ${DKNR_USERNAME}
       DKNR_PASSWORD: ${DKNR_PASSWORD}
       DKNR_SECRET: ${DKNR_SECRET}
-      DKNR_INFLUX_URL: http://dknr_teleinfo_influxdb:8086
-      DKNR_INFLUX_TOKEN: ${DKNR_INFLUX_TOKEN}
-      DKNR_INFLUX_ORG: dknr
-      DKNR_INFLUX_BUCKET: teleinfo
+      DKNR_INFLUX_URL: ${DKNR_INFLUX_URL:-http://dknr_teleinfo_influxdb:8086}
+      DKNR_INFLUX_TOKEN: ${DKNR_INFLUX_TOKEN:-dknr-teleinfo-influxdb-token}
+      DKNR_INFLUX_ORG: ${DKNR_INFLUX_ORG:-dknr}
+      DKNR_INFLUX_BUCKET: ${DKNR_INFLUX_BUCKET:-teleinfo}
     ports:
       - 1880:1880
     devices:
@@ -60,9 +65,9 @@ services:
       DOCKER_INFLUXDB_INIT_MODE: setup
       DOCKER_INFLUXDB_INIT_USERNAME: ${DKNR_USERNAME}
       DOCKER_INFLUXDB_INIT_PASSWORD: ${DKNR_PASSWORD}
-      DOCKER_INFLUXDB_INIT_ORG: dknr
-      DOCKER_INFLUXDB_INIT_BUCKET: teleinfo
-      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: ${DKNR_INFLUX_TOKEN}
+      DOCKER_INFLUXDB_INIT_ORG: ${DKNR_INFLUX_ORG:-dknr}
+      DOCKER_INFLUXDB_INIT_BUCKET: ${DKNR_INFLUX_BUCKET:-teleinfo}
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: ${DKNR_INFLUX_TOKEN:-dknr-teleinfo-influxdb-token}
     # Uncomment to reach InfluxDB web UI from your network
     # ports:
     #   - 8086:8086
