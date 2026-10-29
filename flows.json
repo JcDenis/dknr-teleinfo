@@ -620,7 +620,7 @@
                 "cols": "12"
             }
         ],
-        "order": 2,
+        "order": 3,
         "className": "",
         "visible": "true",
         "disabled": "false"
@@ -656,7 +656,7 @@
                 "cols": "12"
             }
         ],
-        "order": 3,
+        "order": 4,
         "className": "",
         "visible": "true",
         "disabled": "false"
@@ -681,6 +681,56 @@
         "name": "Ajouter un compteur",
         "page": "d1c5994080434ba6",
         "width": "3",
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "4ce9b59740ae6201",
+        "type": "ui-page",
+        "name": "history",
+        "ui": "df7710b4b2c4e55b",
+        "path": "/history",
+        "icon": "chart-bar",
+        "layout": "notebook",
+        "theme": "877e716e64a22cf1",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 2,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "75d5635087950cc3",
+        "type": "ui-group",
+        "name": "Historique de consommation",
+        "page": "4ce9b59740ae6201",
+        "width": "12",
         "height": 1,
         "order": 1,
         "showTitle": true,
@@ -1075,7 +1125,8 @@
         "links": [
             "cb1df53c54f13e38",
             "c581c108f77cb31c",
-            "92b3657e3f795d51"
+            "92b3657e3f795d51",
+            "465e4a52566f101f"
         ],
         "x": 1155,
         "y": 860,
@@ -1621,7 +1672,7 @@
         "z": "3f247e8940433129",
         "g": "f18e924e31835e04",
         "name": "custom - describe",
-        "func": "msg.payload.project = 'dknr-teleinfo';\n\nmsg.payload.hmi = {\n    'detail': 'Surveiller',\n    'add': 'Ajouter',\n    'mqtt': 'Configurer'\n};\n\nmsg.payload.optarif = {\n    'BASE': 'Option Base',\n    'HC..': 'Option Heures Creuses',\n    'EJP.': 'Option Effacement Jour de Pointe',\n    'BBR.': 'Option Tempo'\n};\n\nmsg.payload.ptec = {\n    'TH..': \"Toutes les Heures\",\n    'HC..': \"Heures Creuses\",\n    'HP..': \"Heures Pleines\",\n    'HN..': \"Heures Normales\",\n    'PM..': \"Heures de Pointe Mobile\",\n    'HCJB': \"Heures Creuses Jours Bleus\",\n    'HCJW': \"Heures Creuses Jours Blancs\",\n    'HCJR': \"Heures Creuses Jours Rouges\",\n    'HPJB': \"Heures Pleines Jours Bleus\",\n    'HPJW': \"Heures Pleines Jours Blancs\",\n    'HPJR': \"Heures Pleines Jours Rouges\"\n};\n\nmsg.payload.names = {\n    'ADCO': 'Addresse de compteur',\n    'OPTARIF': 'Option tarifaire',\n    'ISOUSC': 'Intensité souscrite',\n    'BASE': 'Index de base',\n    'HCHC': 'Heures creuses',\n    'HCHP': 'Heures pleines',\n    'EJPHN': 'Heures normales',\n    'EJPHPM': 'Heures de point mobile',\n    'BBRHCJB': 'Heures creuses jours bleus',\n    'BBRHPJB': 'Herues pleines jours bleus',\n    'BBRHCJW': 'Heures creuses jours blancs',\n    'BBRHPJW': 'Heures peines jours blancs',\n    'BBRHCJR': 'Heures creuses jours rouges',\n    'BBRHPJR': 'Heures pleines jours rouges',\n    'PEJP': 'Préavis debuté EJP',\n    'PTEC': 'Période tarifaire en cours',\n    'DEMAIN': 'Couleur du lendemain',\n    'IINST': 'Intensité instantanée',\n    'IINST1': 'Intensité instantanée phase 1',\n    'IINST2': 'Intensité instantanée phase 2',\n    'IINST3': 'Intensité instantanée phase 3',\n    'IMAX': 'Intensité maximum',\n    'IMAX1': 'Intensité maximum phase 1',\n    'IMAX2': 'Intensité maximum phase 2',\n    'IMAX3': 'Intensité maximum phase 3',\n    'ADPS': 'Dépassement de puissance', // monophasé\n    'ADIR1': \"Dépassement d'intensité phase 1\",\n    'ADIR2': \"Dépassement d'intensité phase 2\",\n    'ADIR3': \"Dépassement d'intensité phase 3\",\n    'PAPP': 'Puissance apparente',\n    'PMAX': 'Puissance maximum', // triphasé j-1\n    'PPOT': 'Présence des potentiels',\n    'HHPHC': 'Groupe horaire',\n    'HCHT': 'Heures totales' // custom\n};\n\nmsg.payload.units = {\n    'ADCO': '',\n    'OPTARIF': '',\n    'ISOUSC': 'A',\n    'BASE': 'Wh',\n    'HCHC': 'Wh',\n    'HCHP': 'Wh',\n    'EJPHN': 'Wh',\n    'EJPHPM': 'Wh',\n    'BBRHCJB': 'Wh',\n    'BBRHPJB': 'Wh',\n    'BBRHCJW': 'Wh',\n    'BBRHPJW': 'Wh',\n    'BBRHCJR': 'Wh',\n    'BBRHPJR': 'Wh',\n    'PEJP': 'min',\n    'PTEC': '',\n    'DEMAIN': '',\n    'IINST': 'A',\n    'IINST1': 'A',\n    'IINST2': 'A',\n    'IINST3': 'A',\n    'IMAX': 'A',\n    'IMAX1': 'A',\n    'IMAX2': 'A',\n    'IMAX3': 'A',\n    'ADPS': '',\n    'ADIR1': '',\n    'ADIR2': '',\n    'ADIR3': '',\n    'PAPP': 'W', // VA but home assistant requires W\n    'PMAX': 'W',\n    'PPOT': '',\n    'HHPHC': '',\n    'HCHT': 'Wh' // custom\n};\n\nmsg.payload.units = {\n    'ADCO': '',\n    'OPTARIF': '',\n    'ISOUSC': 'A',\n    'BASE': 'Wh',\n    'HCHC': 'Wh',\n    'HCHP': 'Wh',\n    'EJPHN': 'Wh',\n    'EJPHPM': 'Wh',\n    'BBRHCJB': 'Wh',\n    'BBRHPJB': 'Wh',\n    'BBRHCJW': 'Wh',\n    'BBRHPJW': 'Wh',\n    'BBRHCJR': 'Wh',\n    'BBRHPJR': 'Wh',\n    'PEJP': 'min',\n    'PTEC': '',\n    'DEMAIN': '',\n    'IINST': 'A',\n    'IINST1': 'A',\n    'IINST2': 'A',\n    'IINST3': 'A',\n    'IMAX': 'A',\n    'IMAX1': 'A',\n    'IMAX2': 'A',\n    'IMAX3': 'A',\n    'ADPS': '',\n    'ADIR1': '',\n    'ADIR2': '',\n    'ADIR3': '',\n    'PAPP': 'W', // VA but home assistant requires W\n    'PMAX': 'W',\n    'PPOT': '',\n    'HHPHC': '',\n    'HCHT': 'Wh' // custom\n};\n\nmsg.payload.type = {\n    'ADCO': 'text',\n    'OPTARIF': 'text',\n    'ISOUSC': 'text',\n    'BASE': 'sensor',\n    'HCHC': 'sensor',\n    'HCHP': 'sensor',\n    'EJPHN': 'sensor',\n    'EJPHPM': 'sensor',\n    'BBRHCJB': 'sensor',\n    'BBRHPJB': 'sensor',\n    'BBRHCJW': 'sensor',\n    'BBRHPJW': 'sensor',\n    'BBRHCJR': 'sensor',\n    'BBRHPJR': 'sensor',\n    'PEJP': 'sensor',\n    'PTEC': 'text',\n    'DEMAIN': 'text',\n    'IINST': 'sensor',\n    'IINST1': 'sensor',\n    'IINST2': 'sensor',\n    'IINST3': 'sensor',\n    'IMAX': 'sensor',\n    'IMAX1': 'sensor',\n    'IMAX2': 'sensor',\n    'IMAX3': 'sensor',\n    'ADPS': 'text',\n    'ADIR1': 'text',\n    'ADIR2': 'text',\n    'ADIR3': 'text',\n    'PAPP': 'sensor',\n    'PMAX': 'sensor',\n    'PPOT': 'text',\n    'HHPHC': 'text',\n    'HCHT': 'sensor' // custom\n};\n\nmsg.payload.discovery_state_class = {\n    'ADCO': '',\n    'OPTARIF': '',\n    'ISOUSC': '',\n    'BASE': 'total_increasing',\n    'HCHC': 'total_increasing',\n    'HCHP': 'total_increasing',\n    'EJPHN': 'total_increasing',\n    'EJPHPM': 'total_increasing',\n    'BBRHCJB': 'total_increasing',\n    'BBRHPJB': 'total_increasing',\n    'BBRHCJW': 'total_increasing',\n    'BBRHPJW': 'total_increasing',\n    'BBRHCJR': 'total_increasing',\n    'BBRHPJR': 'total_increasing',\n    'PEJP': '',\n    'PTEC': '',\n    'DEMAIN': '',\n    'IINST': 'measurement',\n    'IINST1': 'measurement',\n    'IINST2': 'measurement',\n    'IINST3': 'measurement',\n    'IMAX': '',\n    'IMAX1': '',\n    'IMAX2': '',\n    'IMAX3': '',\n    'ADPS': '',\n    'ADIR1': '',\n    'ADIR2': '',\n    'ADIR3': '',\n    'PAPP': 'measurement',\n    'PMAX': '',\n    'PPOT': '',\n    'HHPHC': '',\n    'HCHT': 'total_increasing' // custom\n};\n\nmsg.payload.discovery_device_class = {\n    'ADCO': '',\n    'OPTARIF': '',\n    'ISOUSC': 'current',\n    'BASE': 'energy',\n    'HCHC': 'energy',\n    'HCHP': 'energy',\n    'EJPHN': 'energy',\n    'EJPHPM': 'energy',\n    'BBRHCJB': 'energy',\n    'BBRHPJB': 'energy',\n    'BBRHCJW': 'energy',\n    'BBRHPJW': 'energy',\n    'BBRHCJR': 'energy',\n    'BBRHPJR': 'energy',\n    'PEJP': '',\n    'PTEC': '',\n    'DEMAIN': '',\n    'IINST': 'current',\n    'IINST1': 'current',\n    'IINST2': 'current',\n    'IINST3': 'current',\n    'IMAX': 'current',\n    'IMAX1': 'current',\n    'IMAX2': 'current',\n    'IMAX3': 'current',\n    'ADPS': 'current',\n    'ADIR1': 'current',\n    'ADIR2': 'current',\n    'ADIR3': 'current',\n    'PAPP': 'power',\n    'PMAX': 'power',\n    'PPOT': '',\n    'HHPHC': '',\n    'HCHT': 'energy' // custom\n};\n\nmsg.payload.discovery_value_template = {\n    'ADCO': \"{% if 'ADCO' in value_json %}{{ value_json.ADCO.raw }}{% endif %}\",\n    'OPTARIF': \"{% if 'OPTARIF' in value_json %}{{ value_json.OPTARIF.value }}{% endif %}\",\n    'ISOUSC': \"{% if 'ISOUSC' in value_json %}{{ value_json.ISOUSC.value }}{% endif %}\",\n    'BASE': \"{% if 'BASE' in value_json %}{{ value_json.BASE.value }}{% endif %}\",\n    'HCHC': \"{% if 'HCHC' in value_json %}{{ value_json.HCHC.value }}{% endif %}\",\n    'HCHP': \"{% if 'HCHP' in value_json %}{{ value_json.HCHP.value }}{% endif %}\",\n    'EJPHN': \"{% if 'EJPHN' in value_json %}{{ value_json.EJPHN.value }}{% endif %}\",\n    'EJPHPM': \"{% if 'EJPHPM' in value_json %}{{ value_json.EJPHPM.value }}{% endif %}\",\n    'BBRHCJB': \"{% if 'BBRHCJB' in value_json %}{{ value_json.BBRHCJB.value }}{% endif %}\",\n    'BBRHPJB': \"{% if 'BBRHPJB' in value_json %}{{ value_json.BBRHPJB.value }}{% endif %}\",\n    'BBRHCJW': \"{% if 'BBRHCJW' in value_json %}{{ value_json.BBRHCJW.value }}{% endif %}\",\n    'BBRHPJW': \"{% if 'BBRHPJW' in value_json %}{{ value_json.BBRHPJW.value }}{% endif %}\",\n    'BBRHCJR': \"{% if 'BBRHCJR' in value_json %}{{ value_json.BBRHCJR.value }}{% endif %}\",\n    'BBRHPJR': \"{% if 'BBRHPJR' in value_json %}{{ value_json.BBRHPJR.value }}{% endif %}\",\n    'PEJP': \"{% if 'PEJP' in value_json %}{{ value_json.PEJP.value }}{% endif %}\",\n    'PTEC': \"{% if 'PTEC' in value_json %}{{ value_json.PTEC.value }}{% endif %}\",\n    'DEMAIN': \"{% if 'DEMAIN' in value_json %}{{ value_json.DEMAIN.value }}{% endif %}\",\n    'IINST': \"{% if 'IINST' in value_json %}{{ value_json.IINST.value }}{% endif %}\",\n    'IINST1': \"{% if 'IINST1' in value_json %}{{ value_json.IINST1.value }}{% endif %}\",\n    'IINST2': \"{% if 'IINST2' in value_json %}{{ value_json.IINST2.value }}{% endif %}\",\n    'IINST3': \"{% if 'IINST3' in value_json %}{{ value_json.IINST3.value }}{% endif %}\",\n    'IMAX': \"{% if 'IMAX' in value_json %}{{ value_json.IMAX.value }}{% endif %}\",\n    'IMAX1': \"{% if 'IMAX1' in value_json %}{{ value_json.IMAX1.value }}{% endif %}\",\n    'IMAX2': \"{% if 'IMAX2' in value_json %}{{ value_json.IMAX2.value }}{% endif %}\",\n    'IMAX3': \"{% if 'IMAX3' in value_json %}{{ value_json.IMAX3.value }}{% endif %}\",\n    'ADPS': \"{% if 'ADPS' in value_json %}{{ value_json.ADPS.value }}{% endif %}\",\n    'ADIR1': \"{% if 'ADIR1' in value_json %}{{ value_json.ADIR1.value }}{% endif %}\",\n    'ADIR2': \"{% if 'ADIR2' in value_json %}{{ value_json.ADIR2.value }}{% endif %}\",\n    'ADIR3': \"{% if 'ADIR3' in value_json %}{{ value_json.ADIR3.value }}{% endif %}\",\n    'PAPP': \"{% if 'PAPP' in value_json %}{{ value_json.PAPP.value }}{% endif %}\",\n    'PMAX': \"{% if 'PMAX' in value_json %}{{ value_json.PMAX.value }}{% endif %}\",\n    'PPOT': \"{% if 'PPOT' in value_json %}{{ value_json.PPOT.raw }}{% endif %}\",\n    'HHPHC': \"{% if 'HHPHC' in value_json %}{{ value_json.HHPHC.value }}{% endif %}\",\n    'HCHT': \"{% if 'HCHT' in value_json %}{{ value_json.HCHT.value }}{% endif %}\" // custom\n};\n\nreturn msg;",
+        "func": "msg.payload.project = 'dknr-teleinfo';\n\nmsg.payload.hmi = {\n    'detail': 'Surveiller',\n    'history': 'Historique',\n    'add': 'Ajouter',\n    'mqtt': 'Configurer'\n};\n\nmsg.payload.optarif = {\n    'BASE': 'Option Base',\n    'HC..': 'Option Heures Creuses',\n    'EJP.': 'Option Effacement Jour de Pointe',\n    'BBR.': 'Option Tempo'\n};\n\nmsg.payload.ptec = {\n    'TH..': \"Toutes les Heures\",\n    'HC..': \"Heures Creuses\",\n    'HP..': \"Heures Pleines\",\n    'HN..': \"Heures Normales\",\n    'PM..': \"Heures de Pointe Mobile\",\n    'HCJB': \"Heures Creuses Jours Bleus\",\n    'HCJW': \"Heures Creuses Jours Blancs\",\n    'HCJR': \"Heures Creuses Jours Rouges\",\n    'HPJB': \"Heures Pleines Jours Bleus\",\n    'HPJW': \"Heures Pleines Jours Blancs\",\n    'HPJR': \"Heures Pleines Jours Rouges\"\n};\n\nmsg.payload.names = {\n    'ADCO': 'Addresse de compteur',\n    'OPTARIF': 'Option tarifaire',\n    'ISOUSC': 'Intensité souscrite',\n    'BASE': 'Index de base',\n    'HCHC': 'Heures creuses',\n    'HCHP': 'Heures pleines',\n    'EJPHN': 'Heures normales',\n    'EJPHPM': 'Heures de point mobile',\n    'BBRHCJB': 'Heures creuses jours bleus',\n    'BBRHPJB': 'Herues pleines jours bleus',\n    'BBRHCJW': 'Heures creuses jours blancs',\n    'BBRHPJW': 'Heures peines jours blancs',\n    'BBRHCJR': 'Heures creuses jours rouges',\n    'BBRHPJR': 'Heures pleines jours rouges',\n    'PEJP': 'Préavis debuté EJP',\n    'PTEC': 'Période tarifaire en cours',\n    'DEMAIN': 'Couleur du lendemain',\n    'IINST': 'Intensité instantanée',\n    'IINST1': 'Intensité instantanée phase 1',\n    'IINST2': 'Intensité instantanée phase 2',\n    'IINST3': 'Intensité instantanée phase 3',\n    'IMAX': 'Intensité maximum',\n    'IMAX1': 'Intensité maximum phase 1',\n    'IMAX2': 'Intensité maximum phase 2',\n    'IMAX3': 'Intensité maximum phase 3',\n    'ADPS': 'Dépassement de puissance', // monophasé\n    'ADIR1': \"Dépassement d'intensité phase 1\",\n    'ADIR2': \"Dépassement d'intensité phase 2\",\n    'ADIR3': \"Dépassement d'intensité phase 3\",\n    'PAPP': 'Puissance apparente',\n    'PMAX': 'Puissance maximum', // triphasé j-1\n    'PPOT': 'Présence des potentiels',\n    'HHPHC': 'Groupe horaire',\n    'HCHT': 'Heures totales' // custom\n};\n\nmsg.payload.units = {\n    'ADCO': '',\n    'OPTARIF': '',\n    'ISOUSC': 'A',\n    'BASE': 'Wh',\n    'HCHC': 'Wh',\n    'HCHP': 'Wh',\n    'EJPHN': 'Wh',\n    'EJPHPM': 'Wh',\n    'BBRHCJB': 'Wh',\n    'BBRHPJB': 'Wh',\n    'BBRHCJW': 'Wh',\n    'BBRHPJW': 'Wh',\n    'BBRHCJR': 'Wh',\n    'BBRHPJR': 'Wh',\n    'PEJP': 'min',\n    'PTEC': '',\n    'DEMAIN': '',\n    'IINST': 'A',\n    'IINST1': 'A',\n    'IINST2': 'A',\n    'IINST3': 'A',\n    'IMAX': 'A',\n    'IMAX1': 'A',\n    'IMAX2': 'A',\n    'IMAX3': 'A',\n    'ADPS': '',\n    'ADIR1': '',\n    'ADIR2': '',\n    'ADIR3': '',\n    'PAPP': 'W', // VA but home assistant requires W\n    'PMAX': 'W',\n    'PPOT': '',\n    'HHPHC': '',\n    'HCHT': 'Wh' // custom\n};\n\nmsg.payload.units = {\n    'ADCO': '',\n    'OPTARIF': '',\n    'ISOUSC': 'A',\n    'BASE': 'Wh',\n    'HCHC': 'Wh',\n    'HCHP': 'Wh',\n    'EJPHN': 'Wh',\n    'EJPHPM': 'Wh',\n    'BBRHCJB': 'Wh',\n    'BBRHPJB': 'Wh',\n    'BBRHCJW': 'Wh',\n    'BBRHPJW': 'Wh',\n    'BBRHCJR': 'Wh',\n    'BBRHPJR': 'Wh',\n    'PEJP': 'min',\n    'PTEC': '',\n    'DEMAIN': '',\n    'IINST': 'A',\n    'IINST1': 'A',\n    'IINST2': 'A',\n    'IINST3': 'A',\n    'IMAX': 'A',\n    'IMAX1': 'A',\n    'IMAX2': 'A',\n    'IMAX3': 'A',\n    'ADPS': '',\n    'ADIR1': '',\n    'ADIR2': '',\n    'ADIR3': '',\n    'PAPP': 'W', // VA but home assistant requires W\n    'PMAX': 'W',\n    'PPOT': '',\n    'HHPHC': '',\n    'HCHT': 'Wh' // custom\n};\n\nmsg.payload.type = {\n    'ADCO': 'text',\n    'OPTARIF': 'text',\n    'ISOUSC': 'text',\n    'BASE': 'sensor',\n    'HCHC': 'sensor',\n    'HCHP': 'sensor',\n    'EJPHN': 'sensor',\n    'EJPHPM': 'sensor',\n    'BBRHCJB': 'sensor',\n    'BBRHPJB': 'sensor',\n    'BBRHCJW': 'sensor',\n    'BBRHPJW': 'sensor',\n    'BBRHCJR': 'sensor',\n    'BBRHPJR': 'sensor',\n    'PEJP': 'sensor',\n    'PTEC': 'text',\n    'DEMAIN': 'text',\n    'IINST': 'sensor',\n    'IINST1': 'sensor',\n    'IINST2': 'sensor',\n    'IINST3': 'sensor',\n    'IMAX': 'sensor',\n    'IMAX1': 'sensor',\n    'IMAX2': 'sensor',\n    'IMAX3': 'sensor',\n    'ADPS': 'text',\n    'ADIR1': 'text',\n    'ADIR2': 'text',\n    'ADIR3': 'text',\n    'PAPP': 'sensor',\n    'PMAX': 'sensor',\n    'PPOT': 'text',\n    'HHPHC': 'text',\n    'HCHT': 'sensor' // custom\n};\n\nmsg.payload.discovery_state_class = {\n    'ADCO': '',\n    'OPTARIF': '',\n    'ISOUSC': '',\n    'BASE': 'total_increasing',\n    'HCHC': 'total_increasing',\n    'HCHP': 'total_increasing',\n    'EJPHN': 'total_increasing',\n    'EJPHPM': 'total_increasing',\n    'BBRHCJB': 'total_increasing',\n    'BBRHPJB': 'total_increasing',\n    'BBRHCJW': 'total_increasing',\n    'BBRHPJW': 'total_increasing',\n    'BBRHCJR': 'total_increasing',\n    'BBRHPJR': 'total_increasing',\n    'PEJP': '',\n    'PTEC': '',\n    'DEMAIN': '',\n    'IINST': 'measurement',\n    'IINST1': 'measurement',\n    'IINST2': 'measurement',\n    'IINST3': 'measurement',\n    'IMAX': '',\n    'IMAX1': '',\n    'IMAX2': '',\n    'IMAX3': '',\n    'ADPS': '',\n    'ADIR1': '',\n    'ADIR2': '',\n    'ADIR3': '',\n    'PAPP': 'measurement',\n    'PMAX': '',\n    'PPOT': '',\n    'HHPHC': '',\n    'HCHT': 'total_increasing' // custom\n};\n\nmsg.payload.discovery_device_class = {\n    'ADCO': '',\n    'OPTARIF': '',\n    'ISOUSC': 'current',\n    'BASE': 'energy',\n    'HCHC': 'energy',\n    'HCHP': 'energy',\n    'EJPHN': 'energy',\n    'EJPHPM': 'energy',\n    'BBRHCJB': 'energy',\n    'BBRHPJB': 'energy',\n    'BBRHCJW': 'energy',\n    'BBRHPJW': 'energy',\n    'BBRHCJR': 'energy',\n    'BBRHPJR': 'energy',\n    'PEJP': '',\n    'PTEC': '',\n    'DEMAIN': '',\n    'IINST': 'current',\n    'IINST1': 'current',\n    'IINST2': 'current',\n    'IINST3': 'current',\n    'IMAX': 'current',\n    'IMAX1': 'current',\n    'IMAX2': 'current',\n    'IMAX3': 'current',\n    'ADPS': 'current',\n    'ADIR1': 'current',\n    'ADIR2': 'current',\n    'ADIR3': 'current',\n    'PAPP': 'power',\n    'PMAX': 'power',\n    'PPOT': '',\n    'HHPHC': '',\n    'HCHT': 'energy' // custom\n};\n\nmsg.payload.discovery_value_template = {\n    'ADCO': \"{% if 'ADCO' in value_json %}{{ value_json.ADCO.raw }}{% endif %}\",\n    'OPTARIF': \"{% if 'OPTARIF' in value_json %}{{ value_json.OPTARIF.value }}{% endif %}\",\n    'ISOUSC': \"{% if 'ISOUSC' in value_json %}{{ value_json.ISOUSC.value }}{% endif %}\",\n    'BASE': \"{% if 'BASE' in value_json %}{{ value_json.BASE.value }}{% endif %}\",\n    'HCHC': \"{% if 'HCHC' in value_json %}{{ value_json.HCHC.value }}{% endif %}\",\n    'HCHP': \"{% if 'HCHP' in value_json %}{{ value_json.HCHP.value }}{% endif %}\",\n    'EJPHN': \"{% if 'EJPHN' in value_json %}{{ value_json.EJPHN.value }}{% endif %}\",\n    'EJPHPM': \"{% if 'EJPHPM' in value_json %}{{ value_json.EJPHPM.value }}{% endif %}\",\n    'BBRHCJB': \"{% if 'BBRHCJB' in value_json %}{{ value_json.BBRHCJB.value }}{% endif %}\",\n    'BBRHPJB': \"{% if 'BBRHPJB' in value_json %}{{ value_json.BBRHPJB.value }}{% endif %}\",\n    'BBRHCJW': \"{% if 'BBRHCJW' in value_json %}{{ value_json.BBRHCJW.value }}{% endif %}\",\n    'BBRHPJW': \"{% if 'BBRHPJW' in value_json %}{{ value_json.BBRHPJW.value }}{% endif %}\",\n    'BBRHCJR': \"{% if 'BBRHCJR' in value_json %}{{ value_json.BBRHCJR.value }}{% endif %}\",\n    'BBRHPJR': \"{% if 'BBRHPJR' in value_json %}{{ value_json.BBRHPJR.value }}{% endif %}\",\n    'PEJP': \"{% if 'PEJP' in value_json %}{{ value_json.PEJP.value }}{% endif %}\",\n    'PTEC': \"{% if 'PTEC' in value_json %}{{ value_json.PTEC.value }}{% endif %}\",\n    'DEMAIN': \"{% if 'DEMAIN' in value_json %}{{ value_json.DEMAIN.value }}{% endif %}\",\n    'IINST': \"{% if 'IINST' in value_json %}{{ value_json.IINST.value }}{% endif %}\",\n    'IINST1': \"{% if 'IINST1' in value_json %}{{ value_json.IINST1.value }}{% endif %}\",\n    'IINST2': \"{% if 'IINST2' in value_json %}{{ value_json.IINST2.value }}{% endif %}\",\n    'IINST3': \"{% if 'IINST3' in value_json %}{{ value_json.IINST3.value }}{% endif %}\",\n    'IMAX': \"{% if 'IMAX' in value_json %}{{ value_json.IMAX.value }}{% endif %}\",\n    'IMAX1': \"{% if 'IMAX1' in value_json %}{{ value_json.IMAX1.value }}{% endif %}\",\n    'IMAX2': \"{% if 'IMAX2' in value_json %}{{ value_json.IMAX2.value }}{% endif %}\",\n    'IMAX3': \"{% if 'IMAX3' in value_json %}{{ value_json.IMAX3.value }}{% endif %}\",\n    'ADPS': \"{% if 'ADPS' in value_json %}{{ value_json.ADPS.value }}{% endif %}\",\n    'ADIR1': \"{% if 'ADIR1' in value_json %}{{ value_json.ADIR1.value }}{% endif %}\",\n    'ADIR2': \"{% if 'ADIR2' in value_json %}{{ value_json.ADIR2.value }}{% endif %}\",\n    'ADIR3': \"{% if 'ADIR3' in value_json %}{{ value_json.ADIR3.value }}{% endif %}\",\n    'PAPP': \"{% if 'PAPP' in value_json %}{{ value_json.PAPP.value }}{% endif %}\",\n    'PMAX': \"{% if 'PMAX' in value_json %}{{ value_json.PMAX.value }}{% endif %}\",\n    'PPOT': \"{% if 'PPOT' in value_json %}{{ value_json.PPOT.raw }}{% endif %}\",\n    'HHPHC': \"{% if 'HHPHC' in value_json %}{{ value_json.HHPHC.value }}{% endif %}\",\n    'HCHT': \"{% if 'HCHT' in value_json %}{{ value_json.HCHT.value }}{% endif %}\" // custom\n};\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -1680,7 +1731,7 @@
         "width": 0,
         "height": 0,
         "head": "",
-        "format": "<template>\n    <Teleport v-if=\"mounted\" to=\"#oe_header\">\n        <v-toolbar class=\"oe_nav\"> \n        <v-btn-group variant=\"outlined\" divided>\n            <v-btn v-if=\"oe_menus.detail\" @click=\"oe_nav('detail')\" :title=\"oe_titles.detail\" icon=\"mdi-eye\"></v-btn> \n            <v-btn v-if=\"oe_menus.add\" @click=\"oe_nav('add')\" :title=\"oe_titles.add\" icon=\"mdi-plus-thick\"></v-btn> \n            <v-btn v-if=\"oe_menus.mqtt\" @click=\"oe_nav('mqtt')\" :title=\"oe_titles.mqtt\" icon=\"mdi-cog\"></v-btn> \n        </v-btn-group>\n        <v-toolbar-title :text=\"msg.title\"></v-toolbar-title>\n        <v-btn :href=\"msg.git\"><img height=\"32px\" src=\"/icon.png\" :title=\"msg.full\"></img></v-btn>\n        </v-toolbar>\n    </Teleport>\n</template>\n\n<script>\n    export default {\n        data() {\n            return {\n                oe_menus: { detail: true, add: true, mqtt: true },\n                oe_titles: { detail: '', add: '', mqtt: '' },\n                mounted: false\n            }\n        },\n        mounted() {\n            let div = document.createElement(\"div\");\n            div.id=\"oe_header\";\n            const el = document.body.querySelector(\"#app\").prepend(div);\n            this.mounted = true;\n        },\n        methods: {\n            oe_nav: function (page) {\n                this.send(page)\n            }\n        },\n        watch: {\n            msg: function (msg) {\n                document.documentElement.setAttribute(\"lang\", msg.lang);\n                document.documentElement.setAttribute(\"translate\", \"no\");\n                document.title = msg.title;\n                this.oe_menus = msg.menus;\n                this.oe_titles = msg.titles;\n            }\n        }\n    }\n\n</script>",
+        "format": "<template>\n    <Teleport v-if=\"mounted\" to=\"#oe_header\">\n        <v-toolbar class=\"oe_nav\"> \n        <v-btn-group variant=\"outlined\" divided>\n            <v-btn v-if=\"oe_menus.detail\" @click=\"oe_nav('detail')\" :title=\"oe_titles.detail\" icon=\"mdi-eye\"></v-btn> \n            <v-btn v-if=\"oe_menus.history\" @click=\"oe_nav('history')\" :title=\"oe_titles.history\" icon=\"mdi-chart-bar\"></v-btn> \n            <v-btn v-if=\"oe_menus.add\" @click=\"oe_nav('add')\" :title=\"oe_titles.add\" icon=\"mdi-plus-thick\"></v-btn> \n            <v-btn v-if=\"oe_menus.mqtt\" @click=\"oe_nav('mqtt')\" :title=\"oe_titles.mqtt\" icon=\"mdi-cog\"></v-btn> \n        </v-btn-group>\n        <v-toolbar-title :text=\"msg.title\"></v-toolbar-title>\n        <v-btn :href=\"msg.git\"><img height=\"32px\" src=\"/icon.png\" :title=\"msg.full\"></img></v-btn>\n        </v-toolbar>\n    </Teleport>\n</template>\n\n<script>\n    export default {\n        data() {\n            return {\n                oe_menus: { detail: true, history: true, add: true, mqtt: true },\n                oe_titles: { detail: '', history: '', add: '', mqtt: '' },\n                mounted: false\n            }\n        },\n        mounted() {\n            let div = document.createElement(\"div\");\n            div.id=\"oe_header\";\n            const el = document.body.querySelector(\"#app\").prepend(div);\n            this.mounted = true;\n        },\n        methods: {\n            oe_nav: function (page) {\n                this.send(page)\n            }\n        },\n        watch: {\n            msg: function (msg) {\n                document.documentElement.setAttribute(\"lang\", msg.lang);\n                document.documentElement.setAttribute(\"translate\", \"no\");\n                document.title = msg.title;\n                this.oe_menus = msg.menus;\n                this.oe_titles = msg.titles;\n            }\n        }\n    }\n\n</script>",
         "storeOutMessages": true,
         "passthru": false,
         "resendOnRefresh": true,
@@ -1910,7 +1961,8 @@
         "wires": [
             [
                 "d5fbf57a0ee68499",
-                "8895034b18c01f36"
+                "8895034b18c01f36",
+                "a09ffe797d8b3f3c"
             ],
             [
                 "57e3097bb0fb436d"
@@ -3221,5 +3273,248 @@
         "x": 830,
         "y": 200,
         "wires": []
+    },
+    {
+        "id": "5af1c9c147f10dbe",
+        "type": "group",
+        "z": "3f247e8940433129",
+        "name": "custom - history",
+        "style": {
+            "fill": "#6f2fa0",
+            "fill-opacity": "0.05",
+            "label": true
+        },
+        "nodes": [
+            "1cc39b76a349ca18",
+            "a09ffe797d8b3f3c",
+            "c1f9ed138d7f03f1",
+            "c60fe518173f820c",
+            "465e4a52566f101f",
+            "cb88a612792dee7b",
+            "b8a63d8a172eb4c1",
+            "ae4407340baf704d",
+            "7ca69aa5062dc9eb",
+            "f4a5ab2dd62aa7f8"
+        ],
+        "x": 80,
+        "y": 1260,
+        "w": 1200,
+        "h": 300
+    },
+    {
+        "id": "1cc39b76a349ca18",
+        "type": "comment",
+        "z": "3f247e8940433129",
+        "g": "5af1c9c147f10dbe",
+        "name": "InfluxDB : DKNR_INFLUX_URL, DKNR_INFLUX_TOKEN, DKNR_INFLUX_ORG, DKNR_INFLUX_BUCKET",
+        "info": "Les valeurs de chaque compteur sont écrites une fois par minute dans la mesure `teleinfo` (tag `adco`).\nLes énergies sont calculées par InfluxDB : dernier index de chaque fenêtre moins dernier index de la fenêtre précédente.",
+        "x": 480,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "a09ffe797d8b3f3c",
+        "type": "function",
+        "z": "3f247e8940433129",
+        "g": "5af1c9c147f10dbe",
+        "name": "influxdb - write",
+        "func": "// Write teleinfo values to InfluxDB (one point per meter and per minute)\nconst url = (env.get('DKNR_INFLUX_URL') || 'http://dknr_teleinfo_influxdb:8086').replace(/\\/+$/, '');\nconst token = env.get('DKNR_INFLUX_TOKEN') || 'dknr-teleinfo-influxdb-token';\nconst org = env.get('DKNR_INFLUX_ORG') || 'dknr';\nconst bucket = env.get('DKNR_INFLUX_BUCKET') || 'teleinfo';\nconst interval = 60000;\n\nif (url === '' || token === '') {\n    node.status({ fill: 'grey', shape: 'ring', text: 'InfluxDB non configuré' });\n    return null;\n}\n\nconst p = msg.payload || {};\nconst adco = (p.ADCO && p.ADCO.raw) ? String(p.ADCO.raw).replace(/[^A-Za-z0-9]/g, '') : '';\nif (adco === '') {\n    return null;\n}\n\nconst now = Date.now();\nlet last = context.get('last', 'memoryOnly') || {};\nif (last[adco] && now - last[adco] < interval) {\n    return null;\n}\n\n// custom or descriptive entries are not stored\nconst skip = ['ADCO', 'HCHT', 'NAME', 'LOCATION', 'PORT', 'PREFERRED'];\nlet fields = [];\nfor (const k in p) {\n    if (skip.includes(k) || !/^[A-Z0-9]+$/.test(k) || typeof p[k] !== 'object') {\n        continue;\n    }\n    const v = p[k].value;\n    if (typeof v === 'number' && Number.isFinite(v)) {\n        fields.push(k + '=' + (Number.isInteger(v) ? v + 'i' : v));\n    } else if (typeof v === 'string' && v !== '') {\n        fields.push(k + '=\"' + v.replace(/\\\\/g, '\\\\\\\\').replace(/\"/g, '\\\\\"') + '\"');\n    }\n}\nif (fields.length === 0) {\n    return null;\n}\n\nlast[adco] = now;\ncontext.set('last', last, 'memoryOnly');\n\nreturn {\n    'method': 'POST',\n    'url': url + '/api/v2/write?org=' + encodeURIComponent(org) + '&bucket=' + encodeURIComponent(bucket) + '&precision=s',\n    'headers': {\n        'Authorization': 'Token ' + token,\n        'Content-Type': 'text/plain; charset=utf-8'\n    },\n    'payload': 'teleinfo,adco=' + adco + ' ' + fields.join(',') + ' ' + Math.floor(now / 1000),\n    'adco': adco\n};\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 1360,
+        "wires": [
+            [
+                "c1f9ed138d7f03f1"
+            ]
+        ]
+    },
+    {
+        "id": "c1f9ed138d7f03f1",
+        "type": "http request",
+        "z": "3f247e8940433129",
+        "g": "5af1c9c147f10dbe",
+        "name": "influxdb - write",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 520,
+        "y": 1360,
+        "wires": [
+            [
+                "c60fe518173f820c"
+            ]
+        ]
+    },
+    {
+        "id": "c60fe518173f820c",
+        "type": "function",
+        "z": "3f247e8940433129",
+        "g": "5af1c9c147f10dbe",
+        "name": "write status",
+        "func": "// warn only when the write state changes, not every minute\nconst ok = msg.statusCode === 204;\nlet error = '';\nif (!ok) {\n    error = String(msg.statusCode || msg.error || 'erreur');\n    try { error = JSON.parse(msg.payload).message || error; } catch (e) { }\n}\nif (ok) {\n    node.status({ fill: 'green', shape: 'dot', text: msg.adco + ' ' + new Date().toLocaleTimeString('fr-FR') });\n} else {\n    node.status({ fill: 'red', shape: 'ring', text: String(error).slice(0, 60) });\n}\nif (context.get('ok', 'memoryOnly') !== ok) {\n    context.set('ok', ok, 'memoryOnly');\n    if (ok) node.log('InfluxDB write ok');\n    else node.warn('InfluxDB write failed: ' + error);\n}\n\nreturn null;",
+        "outputs": 0,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "465e4a52566f101f",
+        "type": "link in",
+        "z": "3f247e8940433129",
+        "g": "5af1c9c147f10dbe",
+        "name": "custom - history",
+        "links": [
+            "7c8ca45d292975fb"
+        ],
+        "x": 185,
+        "y": 1440,
+        "wires": [
+            [
+                "b8a63d8a172eb4c1"
+            ]
+        ]
+    },
+    {
+        "id": "cb88a612792dee7b",
+        "type": "inject",
+        "z": "3f247e8940433129",
+        "g": "5af1c9c147f10dbe",
+        "name": "refresh 5 min",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "refresh",
+        "x": 220,
+        "y": 1480,
+        "wires": [
+            [
+                "b8a63d8a172eb4c1"
+            ]
+        ]
+    },
+    {
+        "id": "b8a63d8a172eb4c1",
+        "type": "function",
+        "z": "3f247e8940433129",
+        "g": "5af1c9c147f10dbe",
+        "name": "history - request",
+        "func": "// Start a history request: first ask InfluxDB which meters it knows\nconst url = (env.get('DKNR_INFLUX_URL') || 'http://dknr_teleinfo_influxdb:8086').replace(/\\/+$/, '');\nconst token = env.get('DKNR_INFLUX_TOKEN') || 'dknr-teleinfo-influxdb-token';\nconst org = env.get('DKNR_INFLUX_ORG') || 'dknr';\nconst bucket = env.get('DKNR_INFLUX_BUCKET') || 'teleinfo';\n\n// a tab change to another page: nothing to do\nif (typeof msg.tab === 'string' && msg.tab !== 'history') {\n    return null;\n}\n\nif (msg.topic === 'select') {\n    flow.set('history_adco', String(msg.payload || '').replace(/[^A-Za-z0-9]/g, ''), 'memoryOnly');\n}\n\nif (url === '' || token === '') {\n    return [null, { 'payload': { 'error': \"InfluxDB n'est pas configuré.\", 'meters': [], 'periods': [], 'fields': [] } }];\n}\n\nconst reqid = (flow.get('history_req', 'memoryOnly') || 0) + 1;\nflow.set('history_req', reqid, 'memoryOnly');\nflow.set('history_parts', {}, 'memoryOnly');\n\nreturn [{\n    'method': 'POST',\n    'url': url + '/api/v2/query?org=' + encodeURIComponent(org),\n    'headers': {\n        'Authorization': 'Token ' + token,\n        'Content-Type': 'application/json',\n        'Accept': 'application/csv'\n    },\n    'payload': JSON.stringify({\n        'type': 'flux',\n        'query': 'import \"influxdata/influxdb/schema\"\\nschema.tagValues(bucket: \"' + bucket + '\", tag: \"adco\", start: 2000-01-01T00:00:00Z)',\n        'dialect': { 'header': true, 'annotations': [], 'delimiter': ',' }\n    }),\n    'reqid': reqid,\n    'part': 'meters'\n}, null];\n",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 1460,
+        "wires": [
+            [
+                "ae4407340baf704d"
+            ],
+            [
+                "f4a5ab2dd62aa7f8"
+            ]
+        ]
+    },
+    {
+        "id": "ae4407340baf704d",
+        "type": "http request",
+        "z": "3f247e8940433129",
+        "g": "5af1c9c147f10dbe",
+        "name": "influxdb - query",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 630,
+        "y": 1440,
+        "wires": [
+            [
+                "7ca69aa5062dc9eb"
+            ]
+        ]
+    },
+    {
+        "id": "7ca69aa5062dc9eb",
+        "type": "function",
+        "z": "3f247e8940433129",
+        "g": "5af1c9c147f10dbe",
+        "name": "history - energy",
+        "func": "// Collect InfluxDB answers and compute energy per hour, day, month and year\nconst url = (env.get('DKNR_INFLUX_URL') || 'http://dknr_teleinfo_influxdb:8086').replace(/\\/+$/, '');\nconst token = env.get('DKNR_INFLUX_TOKEN') || 'dknr-teleinfo-influxdb-token';\nconst org = env.get('DKNR_INFLUX_ORG') || 'dknr';\nconst bucket = env.get('DKNR_INFLUX_BUCKET') || 'teleinfo';\nconst tz = /^[A-Za-z_]+(\\/[A-Za-z0-9_+-]+)+$/.test(env.get('TZ') || '') ? env.get('TZ') : 'Europe/Paris';\n\n// energy indexes, in display order\nconst INDEXES = ['BASE', 'HCHC', 'HCHP', 'EJPHN', 'EJPHPM', 'BBRHCJB', 'BBRHPJB', 'BBRHCJW', 'BBRHPJW', 'BBRHCJR', 'BBRHPJR'];\nconst PERIODS = [\n    { 'key': 'hour', 'title': 'Par heure, 24 dernières heures', 'every': '1h', 'start': 'date.sub(d: 24h, from: date.truncate(t: now(), unit: 1h))' },\n    { 'key': 'day', 'title': 'Par jour, 7 derniers jours', 'every': '1d', 'start': 'date.sub(d: 7d, from: date.truncate(t: now(), unit: 1d))' },\n    { 'key': 'month', 'title': 'Par mois, 12 derniers mois', 'every': '1mo', 'start': 'date.sub(d: 12mo, from: date.truncate(t: now(), unit: 1mo))' },\n    { 'key': 'year', 'title': 'Par an', 'every': '1y', 'start': '2000-01-01T00:00:00Z' }\n];\nconst DAYS = ['dim.', 'lun.', 'mar.', 'mer.', 'jeu.', 'ven.', 'sam.'];\nconst DAYS_LONG = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];\nconst MONTHS = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];\nconst MONTHS_LONG = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];\n\nfunction pad(n) {\n    return String(n).padStart(2, '0');\n}\n\n// window key in local time (container TZ)\nfunction keyOf(period, d) {\n    switch (period) {\n        case 'hour': return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) + 'T' + pad(d.getHours());\n        case 'day': return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());\n        case 'month': return d.getFullYear() + '-' + pad(d.getMonth() + 1);\n        default: return String(d.getFullYear());\n    }\n}\n\n// expected bars, oldest first\nfunction buckets(period, now, firstYear) {\n    let res = [];\n    if (period === 'hour') {\n        let base = new Date(now);\n        base.setMinutes(0, 0, 0);\n        for (let i = 23; i >= 0; i--) {\n            const d = new Date(base.getTime() - i * 3600000);\n            const h = d.getHours();\n            res.push({ 'key': keyOf(period, d), 'label': h + 'h', 'title': pad(d.getDate()) + '/' + pad(d.getMonth() + 1) + ' de ' + h + 'h à ' + ((h + 1) % 24) + 'h' });\n        }\n    } else if (period === 'day') {\n        for (let i = 6; i >= 0; i--) {\n            const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() - i);\n            res.push({ 'key': keyOf(period, d), 'label': DAYS[d.getDay()] + ' ' + d.getDate(), 'title': DAYS_LONG[d.getDay()] + ' ' + d.getDate() + ' ' + MONTHS_LONG[d.getMonth()] });\n        }\n    } else if (period === 'month') {\n        for (let i = 11; i >= 0; i--) {\n            const d = new Date(now.getFullYear(), now.getMonth() - i, 1);\n            res.push({ 'key': keyOf(period, d), 'label': MONTHS[d.getMonth()] + (i === 11 || d.getMonth() === 0 ? ' ' + String(d.getFullYear()).slice(2) : ''), 'title': MONTHS_LONG[d.getMonth()] + ' ' + d.getFullYear() });\n        }\n    } else {\n        for (let y = Math.min(firstYear || now.getFullYear(), now.getFullYear()); y <= now.getFullYear(); y++) {\n            res.push({ 'key': String(y), 'label': String(y), 'title': 'Année ' + y });\n        }\n    }\n\n    return res;\n}\n\n// parse InfluxDB CSV (no annotations, one header per table)\nfunction parseCsv(text) {\n    let rows = [];\n    let header = null;\n    for (const raw of String(text || '').split(/\\r?\\n/)) {\n        const line = raw.trim();\n        if (line === '') {\n            header = null;\n            continue;\n        }\n        const cells = line.split(',');\n        if (header === null) {\n            header = cells;\n            continue;\n        }\n        let row = {};\n        header.forEach((h, i) => { if (h !== '') row[h] = cells[i]; });\n        rows.push(row);\n    }\n\n    return rows;\n}\n\n// energy per field and window: last index minus last index of previous window\nfunction energy(period, rows) {\n    let series = {};\n    for (const r of rows) {\n        const v = Number(r._value);\n        const t = new Date(r._time);\n        if (!INDEXES.includes(r._field) || !Number.isFinite(v) || isNaN(t.getTime())) {\n            continue;\n        }\n        series[r._field] = series[r._field] || {};\n        const k = keyOf(period, t);\n        series[r._field][k] = series[r._field][k] || { 't': t.getTime() };\n        series[r._field][k][r.agg === 'first' ? 'first' : 'last'] = v;\n    }\n\n    let res = {};\n    let firstYear = null;\n    for (const f in series) {\n        res[f] = {};\n        let prev = null;\n        const wins = Object.entries(series[f]).sort((a, b) => a[1].t - b[1].t);\n        for (const [k, w] of wins) {\n            const first = w.first !== undefined ? w.first : w.last;\n            const last = w.last !== undefined ? w.last : w.first;\n            let e = prev !== null ? last - prev : last - first;\n            if (e < 0) {\n                // meter replaced or index reset\n                e = Math.max(0, last - first);\n            }\n            res[f][k] = e;\n            prev = last;\n            const y = new Date(w.t).getFullYear();\n            firstYear = firstYear === null ? y : Math.min(firstYear, y);\n        }\n    }\n\n    return { 'values': res, 'firstYear': firstYear };\n}\n\nfunction failure(text) {\n    let error = String(msg.statusCode || msg.error || 'erreur');\n    try { error = JSON.parse(text).message || error; } catch (e) { }\n\n    return \"Erreur InfluxDB : \" + error;\n}\n\n// stale answer\nif (msg.reqid !== flow.get('history_req', 'memoryOnly')) {\n    return null;\n}\n\n// step 1: meters list, then query the four periods\nif (msg.part === 'meters') {\n    if (msg.statusCode !== 200) {\n        return [null, { 'payload': { 'error': failure(msg.payload), 'meters': [], 'periods': [], 'fields': [] } }];\n    }\n\n    // meters known by influxdb and meters currently read\n    let meters = new Map();\n    const units = global.get('units', 'default') || {};\n    const controls = global.get('controls', 'memoryOnly') || {};\n    for (const port in controls) {\n        const id = controls[port] && controls[port].ADCO ? String(controls[port].ADCO.raw) : '';\n        if (id !== '') {\n            meters.set(id, units[port] ? units[port].name + ' - ' + units[port].location + ' (' + id + ')' : 'Compteur ' + id);\n        }\n    }\n    for (const r of parseCsv(msg.payload)) {\n        if (r._value && !meters.has(r._value)) meters.set(r._value, 'Compteur ' + r._value);\n    }\n\n    let adco = flow.get('history_adco', 'memoryOnly') || '';\n    if (!meters.has(adco)) {\n        adco = meters.keys().next().value || '';\n        flow.set('history_adco', adco, 'memoryOnly');\n    }\n\n    flow.set('history_meters', Array.from(meters.entries()).map(([value, label]) => ({ 'value': value, 'label': label })), 'memoryOnly');\n\n    if (adco === '') {\n        return [null, { 'payload': { 'error': \"Aucune donnée enregistrée pour l'instant. Les premières valeurs apparaîtront une minute après la lecture d'un compteur.\", 'meters': [], 'periods': [], 'fields': [] } }];\n    }\n\n    let out = [];\n    for (const p of PERIODS) {\n        const query = [\n            'import \"date\"',\n            'import \"timezone\"',\n            'option location = timezone.location(name: \"' + tz + '\")',\n            'start = ' + p.start,\n            'data = from(bucket: \"' + bucket + '\")',\n            '  |> range(start: start)',\n            '  |> filter(fn: (r) => r._measurement == \"teleinfo\" and r.adco == \"' + adco + '\")',\n            '  |> filter(fn: (r) => r._field =~ /^(' + INDEXES.join('|') + ')$/)',\n            'w_first = data |> aggregateWindow(every: ' + p.every + ', fn: first, createEmpty: false, timeSrc: \"_start\") |> set(key: \"agg\", value: \"first\")',\n            'w_last = data |> aggregateWindow(every: ' + p.every + ', fn: last, createEmpty: false, timeSrc: \"_start\") |> set(key: \"agg\", value: \"last\")',\n            'union(tables: [w_first, w_last])',\n            '  |> keep(columns: [\"_time\", \"_field\", \"_value\", \"agg\"])'\n        ].join('\\n');\n        out.push({\n            'method': 'POST',\n            'url': url + '/api/v2/query?org=' + encodeURIComponent(org),\n            'headers': {\n                'Authorization': 'Token ' + token,\n                'Content-Type': 'application/json',\n                'Accept': 'application/csv'\n            },\n            'payload': JSON.stringify({ 'type': 'flux', 'query': query, 'dialect': { 'header': true, 'annotations': [], 'delimiter': ',' } }),\n            'reqid': msg.reqid,\n            'part': p.key,\n            'adco': adco\n        });\n    }\n    node.status({ fill: 'blue', shape: 'ring', text: 'requête ' + adco });\n\n    return [out, null];\n}\n\n// step 2: collect the four answers\nlet parts = flow.get('history_parts', 'memoryOnly') || {};\nparts[msg.part] = { 'status': msg.statusCode, 'payload': msg.payload };\nflow.set('history_parts', parts, 'memoryOnly');\nif (PERIODS.some(p => parts[p.key] === undefined)) {\n    return null;\n}\n\nconst now = new Date();\nconst names = global.get('describe.names', 'memoryOnly') || {};\nlet error = '';\nlet present = {};\nlet periods = [];\nfor (const p of PERIODS) {\n    const part = parts[p.key];\n    let computed = { 'values': {}, 'firstYear': null };\n    if (part.status === 200) {\n        computed = energy(p.key, parseCsv(part.payload));\n    } else if (error === '') {\n        msg.statusCode = part.status;\n        error = failure(part.payload);\n    }\n    let total = 0;\n    const bars = buckets(p.key, now, computed.firstYear).map(b => {\n        let values = {};\n        let sum = 0;\n        for (const f in computed.values) {\n            const v = computed.values[f][b.key];\n            if (v !== undefined) {\n                values[f] = v;\n                sum += v;\n                present[f] = true;\n            }\n        }\n        total += sum;\n        return { 'key': b.key, 'label': b.label, 'title': b.title, 'values': values, 'total': sum };\n    });\n    periods.push({ 'key': p.key, 'title': p.title, 'bars': bars, 'total': total });\n}\n\nconst fields = INDEXES.filter(f => present[f]).map((f, i) => ({ 'key': f, 'name': names[f] || f, 'slot': i + 1 }));\nnode.status({ fill: error === '' ? 'green' : 'red', shape: 'dot', text: msg.adco + ' ' + now.toLocaleTimeString('fr-FR') });\n\nreturn [null, {\n    'payload': {\n        'error': error,\n        'meters': flow.get('history_meters', 'memoryOnly') || [],\n        'selected': msg.adco,\n        'fields': fields,\n        'periods': periods,\n        'updated': now.toLocaleString('fr-FR')\n    }\n}];\n",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 1460,
+        "wires": [
+            [
+                "ae4407340baf704d"
+            ],
+            [
+                "f4a5ab2dd62aa7f8"
+            ]
+        ]
+    },
+    {
+        "id": "f4a5ab2dd62aa7f8",
+        "type": "ui-template",
+        "z": "3f247e8940433129",
+        "g": "5af1c9c147f10dbe",
+        "group": "75d5635087950cc3",
+        "page": "",
+        "ui": "",
+        "name": "custom - history - charts",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "head": "",
+        "format": "<template>\n    <div class=\"dkh\">\n        <div class=\"dkh-bar\">\n            <v-select v-if=\"meters.length > 1\" class=\"dkh-select\" density=\"compact\" variant=\"outlined\" hide-details\n                label=\"Compteur\" :items=\"meters\" item-title=\"label\" item-value=\"value\"\n                :model-value=\"d.selected\" @update:model-value=\"select\"></v-select>\n            <span v-else-if=\"meters.length === 1\" class=\"dkh-meter\">{{ meters[0].label }}</span>\n            <div class=\"dkh-legend\" v-if=\"fields.length > 1\">\n                <span v-for=\"f in fields\" :key=\"f.key\" class=\"dkh-key\"><i :style=\"{ background: color(f.slot) }\"></i>{{ f.name }}</span>\n            </div>\n            <span class=\"dkh-updated\" v-if=\"d.updated\">Mis à jour {{ d.updated }}</span>\n            <v-btn icon=\"mdi-refresh\" variant=\"text\" size=\"small\" title=\"Actualiser\" @click=\"refresh\"></v-btn>\n        </div>\n\n        <div v-if=\"d.error\" class=\"dkh-error\">{{ d.error }}</div>\n        <div v-else-if=\"periods.length === 0\" class=\"dkh-error\">Chargement…</div>\n\n        <div class=\"dkh-grid\">\n            <div v-for=\"p in periods\" :key=\"p.key\" class=\"dkh-card\">\n                <div class=\"dkh-head\">\n                    <span class=\"dkh-title\">{{ p.title }}</span>\n                    <span class=\"dkh-total\">{{ kwh(p.total) }} kWh</span>\n                </div>\n                <div class=\"dkh-plot\">\n                <svg v-if=\"W > 0\" :width=\"W\" :height=\"H\" class=\"dkh-svg\" role=\"img\" :aria-label=\"p.title\">\n                    <g v-for=\"t in geo(p).ticks\" :key=\"'t' + t.v\">\n                        <line :x1=\"PL\" :x2=\"W - PR\" :y1=\"t.y\" :y2=\"t.y\" class=\"dkh-grid-line\" :class=\"{ 'dkh-base': t.v === 0 }\"></line>\n                        <text :x=\"PL - 6\" :y=\"t.y + 4\" text-anchor=\"end\" class=\"dkh-tick\">{{ kwh(t.v, geo(p).dec) }}</text>\n                    </g>\n                    <g v-for=\"(b, i) in p.bars\" :key=\"b.key\" class=\"dkh-col\" :class=\"{ 'dkh-dim': isHover(p) && hover[p.key] !== i }\"\n                        @mouseenter=\"setHover(p, i)\" @mouseleave=\"setHover(p, null)\" @click=\"setHover(p, i)\">\n                        <rect :x=\"geo(p).x(i) - geo(p).gap / 2\" :y=\"PT\" :width=\"geo(p).slot\" :height=\"H - PT - PB\" class=\"dkh-hit\"></rect>\n                        <path v-for=\"s in segs(p, b, i)\" :key=\"s.k\" :d=\"s.d\" :fill=\"s.c\"></path>\n                        <text v-if=\"showLabel(p, i)\" :x=\"geo(p).x(i) + geo(p).bw / 2\" :y=\"H - 6\" text-anchor=\"middle\" class=\"dkh-tick\">{{ b.label }}</text>\n                    </g>\n                </svg>\n                </div>\n                <div class=\"dkh-detail\" v-html=\"detail(p)\"></div>\n            </div>\n        </div>\n    </div>\n</template>\n\n<script>\nexport default {\n    data() {\n        return {\n            W: 0, H: 230, PL: 46, PR: 8, PT: 10, PB: 24,\n            observer: null,\n            hover: {},\n            palette: ['#2a78d6', '#eb6834', '#1baf7a', '#eda100', '#e87ba4', '#008300', '#6250d6', '#e34948']\n        }\n    },\n    computed: {\n        d() { return (this.msg && this.msg.payload) || {}; },\n        meters() { return this.d.meters || []; },\n        fields() { return this.d.fields || []; },\n        periods() { return this.d.periods || []; }\n    },\n    mounted() {\n        // the dashboard lowercases svg attributes (viewBox is lost),\n        // so charts are drawn in pixels at the real width of the card\n        this.resize();\n        if (window.ResizeObserver) {\n            this.observer = new ResizeObserver(() => this.resize());\n            this.observer.observe(this.$el);\n        } else {\n            window.addEventListener('resize', this.resize);\n        }\n        this.send({ topic: 'load' });\n    },\n    updated() {\n        this.resize();\n    },\n    unmounted() {\n        if (this.observer) this.observer.disconnect();\n        window.removeEventListener('resize', this.resize);\n    },\n    methods: {\n        resize() {\n            const el = this.$el && this.$el.querySelector ? this.$el.querySelector('.dkh-plot') : null;\n            const w = el ? Math.floor(el.clientWidth) : 0;\n            if (w > 0 && w !== this.W) this.W = w;\n        },\n        select(v) { this.hover = {}; this.send({ topic: 'select', payload: v }); },\n        refresh() { this.send({ topic: 'refresh' }); },\n        color(slot) { return this.palette[(slot - 1) % this.palette.length]; },\n        isHover(p) { return this.hover[p.key] !== undefined && this.hover[p.key] !== null; },\n        setHover(p, i) { this.hover = { ...this.hover, [p.key]: i }; },\n        kwh(wh, fixed) {\n            const v = (wh || 0) / 1000;\n            if (v === 0) return '0';\n            const dec = fixed !== undefined ? fixed : (v === 0 ? 0 : (v < 10 ? 2 : (v < 100 ? 1 : 0)));\n            return v.toLocaleString('fr-FR', { minimumFractionDigits: dec, maximumFractionDigits: dec });\n        },\n        // geometry of a chart: nice y scale and bar positions\n        geo(p) {\n            const n = Math.max(1, p.bars.length);\n            const max = Math.max(0, ...p.bars.map(b => b.total));\n            let step = 1000;\n            if (max > 0) {\n                const raw = max / 4;\n                const mag = Math.pow(10, Math.floor(Math.log10(raw)));\n                step = [1, 2, 2.5, 5, 10].map(m => m * mag).find(s => s >= raw);\n            }\n            const top = Math.max(step, Math.ceil(max / step) * step);\n            const plotH = this.H - this.PT - this.PB;\n            const slot = (this.W - this.PL - this.PR) / n;\n            const bw = Math.min(40, slot * 0.7);\n            const y = v => this.PT + plotH - (v / top) * plotH;\n            let ticks = [];\n            for (let v = 0; v <= top + step / 2; v += step) ticks.push({ v: v, y: y(v) });\n            return {\n                slot: slot, bw: bw, gap: slot - bw, y: y, ticks: ticks,\n                dec: step >= 1000 ? 0 : (step >= 100 ? 1 : 2),\n                x: i => this.PL + i * slot + (slot - bw) / 2\n            };\n        },\n        // stacked segments, 2px surface gap, rounded top on the last one\n        segs(p, b, i) {\n            const g = this.geo(p);\n            const x = g.x(i);\n            const base = g.y(0);\n            const keys = this.fields.filter(f => b.values[f.key] > 0);\n            let acc = 0;\n            let res = [];\n            keys.forEach((f, j) => {\n                const y0 = g.y(acc);\n                acc += b.values[f.key];\n                let y1 = g.y(acc);\n                const last = j === keys.length - 1;\n                let bottom = y0 - (j > 0 ? 2 : 0);\n                if (bottom - y1 < 1) y1 = bottom - 1;\n                const h = bottom - y1;\n                const r = last ? Math.min(4, h, g.bw / 2) : 0;\n                const d = 'M' + x + ',' + bottom + 'V' + (y1 + r) + (r ? 'Q' + x + ',' + y1 + ' ' + (x + r) + ',' + y1 : '') +\n                    'H' + (x + g.bw - r) + (r ? 'Q' + (x + g.bw) + ',' + y1 + ' ' + (x + g.bw) + ',' + (y1 + r) : '') + 'V' + bottom + 'Z';\n                res.push({ k: f.key, d: d, c: this.color(f.slot) });\n            });\n            return res;\n        },\n        // skip labels when they do not fit, always keep the current period\n        showLabel(p, i) {\n            const n = p.bars.length;\n            const longest = Math.max(1, ...p.bars.map(b => String(b.label).length));\n            const every = Math.max(1, Math.ceil((longest * 6.5 + 6) / this.geo(p).slot));\n            return (n - 1 - i) % every === 0;\n        },\n        // detail line: hovered bar, current period by default\n        detail(p) {\n            if (p.bars.length === 0) return '';\n            const i = this.isHover(p) ? this.hover[p.key] : p.bars.length - 1;\n            const b = p.bars[i];\n            const parts = this.fields.filter(f => b.values[f.key] !== undefined)\n                .map(f => '<i style=\"background:' + this.color(f.slot) + '\"></i>' + f.name + ' ' + this.kwh(b.values[f.key]));\n            return '<b>' + b.title + (this.isHover(p) ? '' : ' (en cours)') + ' : ' + this.kwh(b.total) + ' kWh</b>' +\n                (parts.length > 1 ? '<span>' + parts.join('</span><span>') + '</span>' : '');\n        }\n    }\n}\n</script>\n\n<style>\n.dkh { width: 100%; color: #1f1f1e; }\n.dkh-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-bottom: 12px; }\n.dkh-select { max-width: 360px; min-width: 220px; }\n.dkh-meter { font-weight: 600; }\n.dkh-legend { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 0.85rem; color: #52514e; }\n.dkh-key i, .dkh-detail i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }\n.dkh-updated { margin-left: auto; font-size: 0.8rem; color: #7a7974; }\n.dkh-error { padding: 12px; border-radius: 4px; background: #f5f5f4; color: #52514e; margin-bottom: 12px; }\n.dkh-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 12px; }\n.dkh-card { border: 1px solid #e3e2de; border-radius: 4px; padding: 10px 12px 8px; background: #fff; min-width: 0; }\n.dkh-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }\n.dkh-title { font-weight: 600; color: #0094ce; }\n.dkh-total { font-size: 0.9rem; color: #52514e; white-space: nowrap; }\n.dkh-plot { width: 100%; min-height: 230px; margin-top: 6px; overflow: hidden; }\n.dkh-svg { display: block; touch-action: manipulation; }\n.dkh-grid-line { stroke: #ebeae6; stroke-width: 1; }\n.dkh-base { stroke: #b5b3ad; }\n.dkh-tick { font-size: 11px; fill: #7a7974; }\n.dkh-hit { fill: transparent; cursor: pointer; }\n.dkh-col path { transition: opacity 0.15s; }\n.dkh-dim path { opacity: 0.35; }\n.dkh-detail { min-height: 2.6em; font-size: 0.85rem; color: #52514e; display: flex; flex-wrap: wrap; gap: 2px 12px; }\n.dkh-detail b { width: 100%; color: #1f1f1e; font-weight: 600; }\n</style>\n",
+        "storeOutMessages": true,
+        "passthru": false,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1060,
+        "y": 1520,
+        "wires": [
+            [
+                "b8a63d8a172eb4c1"
+            ]
+        ]
     }
 ]
