@@ -309,8 +309,8 @@
             "58dc2b8d870ecad6",
             "03980521b441fef9"
         ],
-        "x": 164,
-        "y": 1119,
+        "x": 104,
+        "y": 999,
         "w": 1992,
         "h": 442
     },
@@ -355,6 +355,33 @@
         "y": 159,
         "w": 332,
         "h": 82
+    },
+    {
+        "id": "5af1c9c147f10dbe",
+        "type": "group",
+        "z": "3f247e8940433129",
+        "name": "custom - history",
+        "style": {
+            "fill": "#6f2fa0",
+            "fill-opacity": "0.05",
+            "label": true
+        },
+        "nodes": [
+            "1cc39b76a349ca18",
+            "a09ffe797d8b3f3c",
+            "c1f9ed138d7f03f1",
+            "c60fe518173f820c",
+            "465e4a52566f101f",
+            "cb88a612792dee7b",
+            "b8a63d8a172eb4c1",
+            "ae4407340baf704d",
+            "7ca69aa5062dc9eb",
+            "f4a5ab2dd62aa7f8"
+        ],
+        "x": 154,
+        "y": 1599,
+        "w": 1112,
+        "h": 302
     },
     {
         "id": "df7710b4b2c4e55b",
@@ -2235,8 +2262,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 1620,
-        "y": 1160,
+        "x": 1560,
+        "y": 1040,
         "wires": [
             []
         ]
@@ -2254,8 +2281,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1410,
-        "y": 1160,
+        "x": 1350,
+        "y": 1040,
         "wires": [
             [
                 "d14fef6d3072a1f9"
@@ -2275,8 +2302,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1410,
-        "y": 1220,
+        "x": 1350,
+        "y": 1100,
         "wires": [
             [
                 "8d40dcb9d821536a"
@@ -2320,8 +2347,8 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 1620,
-        "y": 1220,
+        "x": 1560,
+        "y": 1100,
         "wires": [
             []
         ]
@@ -2360,8 +2387,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1410,
-        "y": 1520,
+        "x": 1350,
+        "y": 1400,
         "wires": [
             [
                 "d14fef6d3072a1f9",
@@ -2387,8 +2414,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1410,
-        "y": 1280,
+        "x": 1350,
+        "y": 1160,
         "wires": [
             [
                 "60237f01f465974f"
@@ -2405,7 +2432,7 @@
         "label": "Abonnement :",
         "order": 6,
         "width": "3",
-        "height": "1",
+        "height": "6",
         "maxrows": 0,
         "passthru": false,
         "autocols": false,
@@ -2434,8 +2461,8 @@
         "mobileBreakpointType": "defaults",
         "action": "replace",
         "className": "",
-        "x": 1620,
-        "y": 1280,
+        "x": 1560,
+        "y": 1160,
         "wires": [
             []
         ]
@@ -2453,8 +2480,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1410,
-        "y": 1340,
+        "x": 1350,
+        "y": 1220,
         "wires": [
             [
                 "ce85a3986bf50f1a"
@@ -2471,7 +2498,7 @@
         "label": "Heures :",
         "order": 7,
         "width": "3",
-        "height": "1",
+        "height": "6",
         "maxrows": 0,
         "passthru": false,
         "autocols": false,
@@ -2500,8 +2527,8 @@
         "mobileBreakpointType": "defaults",
         "action": "replace",
         "className": "",
-        "x": 1620,
-        "y": 1340,
+        "x": 1560,
+        "y": 1220,
         "wires": [
             []
         ]
@@ -2516,7 +2543,7 @@
         "label": "Jour de pointe :",
         "order": 8,
         "width": "3",
-        "height": "1",
+        "height": "6",
         "maxrows": 0,
         "passthru": false,
         "autocols": false,
@@ -2545,8 +2572,8 @@
         "mobileBreakpointType": "defaults",
         "action": "replace",
         "className": "",
-        "x": 1610,
-        "y": 1400,
+        "x": 1550,
+        "y": 1280,
         "wires": [
             []
         ]
@@ -2564,8 +2591,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1410,
-        "y": 1400,
+        "x": 1350,
+        "y": 1280,
         "wires": [
             [
                 "d47e0f6925c0b2f5"
@@ -2585,8 +2612,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1410,
-        "y": 1460,
+        "x": 1350,
+        "y": 1340,
         "wires": [
             [
                 "d7c4af217d645455"
@@ -2603,7 +2630,7 @@
         "label": "Tempo :",
         "order": 9,
         "width": "3",
-        "height": "1",
+        "height": "6",
         "maxrows": 0,
         "passthru": false,
         "autocols": false,
@@ -2632,8 +2659,8 @@
         "mobileBreakpointType": "defaults",
         "action": "replace",
         "className": "",
-        "x": 1620,
-        "y": 1460,
+        "x": 1560,
+        "y": 1340,
         "wires": [
             []
         ]
@@ -2651,8 +2678,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 350,
-        "y": 1400,
+        "x": 290,
+        "y": 1280,
         "wires": [
             [
                 "2cd010eee2da8e29"
@@ -2673,8 +2700,8 @@
             "9bc2bfbb3a19f726",
             "f2ba5712ec8cd4b1"
         ],
-        "x": 205,
-        "y": 1520,
+        "x": 145,
+        "y": 1400,
         "wires": [
             [
                 "46d41095c9cd81bb",
@@ -2711,8 +2738,8 @@
         "className": "",
         "typeIsComboBox": false,
         "msgTrigger": "onChange",
-        "x": 570,
-        "y": 1460,
+        "x": 510,
+        "y": 1340,
         "wires": [
             [
                 "cf1550b97074514c"
@@ -2738,8 +2765,8 @@
         "checkall": "false",
         "repair": false,
         "outputs": 2,
-        "x": 770,
-        "y": 1460,
+        "x": 710,
+        "y": 1340,
         "wires": [
             [
                 "2cd010eee2da8e29"
@@ -2770,8 +2797,8 @@
         "checkall": "false",
         "repair": false,
         "outputs": 2,
-        "x": 930,
-        "y": 1400,
+        "x": 870,
+        "y": 1280,
         "wires": [
             [
                 "03980521b441fef9"
@@ -2822,8 +2849,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1250,
-        "y": 1340,
+        "x": 1190,
+        "y": 1220,
         "wires": [
             [
                 "be9df446e8994af5",
@@ -2855,8 +2882,8 @@
         "checkall": "false",
         "repair": false,
         "outputs": 1,
-        "x": 1080,
-        "y": 1280,
+        "x": 1020,
+        "y": 1160,
         "wires": [
             [
                 "c158788b3b968b34"
@@ -2881,8 +2908,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 910,
-        "y": 1280,
+        "x": 850,
+        "y": 1160,
         "wires": [
             [
                 "c03d7fe0c37957cf"
@@ -2909,8 +2936,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 750,
-        "y": 1280,
+        "x": 690,
+        "y": 1160,
         "wires": [
             [
                 "bc17c08e18a403b2"
@@ -2947,8 +2974,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1830,
-        "y": 1520,
+        "x": 1770,
+        "y": 1400,
         "wires": [
             [
                 "01346f67f027524a"
@@ -2973,8 +3000,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 1990,
-        "y": 1520,
+        "x": 1930,
+        "y": 1400,
         "wires": [
             [
                 "f2ba5712ec8cd4b1"
@@ -2991,8 +3018,8 @@
         "links": [
             "92b3657e3f795d51"
         ],
-        "x": 2115,
-        "y": 1520,
+        "x": 2055,
+        "y": 1400,
         "wires": []
     },
     {
@@ -3027,8 +3054,8 @@
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 1620,
-        "y": 1520,
+        "x": 1560,
+        "y": 1400,
         "wires": [
             [
                 "91dbd54711396594"
@@ -3198,8 +3225,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 1090,
-        "y": 1340,
+        "x": 1030,
+        "y": 1220,
         "wires": [
             [
                 "c158788b3b968b34"
@@ -3275,41 +3302,14 @@
         "wires": []
     },
     {
-        "id": "5af1c9c147f10dbe",
-        "type": "group",
-        "z": "3f247e8940433129",
-        "name": "custom - history",
-        "style": {
-            "fill": "#6f2fa0",
-            "fill-opacity": "0.05",
-            "label": true
-        },
-        "nodes": [
-            "1cc39b76a349ca18",
-            "a09ffe797d8b3f3c",
-            "c1f9ed138d7f03f1",
-            "c60fe518173f820c",
-            "465e4a52566f101f",
-            "cb88a612792dee7b",
-            "b8a63d8a172eb4c1",
-            "ae4407340baf704d",
-            "7ca69aa5062dc9eb",
-            "f4a5ab2dd62aa7f8"
-        ],
-        "x": 80,
-        "y": 1260,
-        "w": 1200,
-        "h": 300
-    },
-    {
         "id": "1cc39b76a349ca18",
         "type": "comment",
         "z": "3f247e8940433129",
         "g": "5af1c9c147f10dbe",
         "name": "InfluxDB : DKNR_INFLUX_URL, DKNR_INFLUX_TOKEN, DKNR_INFLUX_ORG, DKNR_INFLUX_BUCKET",
         "info": "Les valeurs de chaque compteur sont écrites une fois par minute dans la mesure `teleinfo` (tag `adco`).\nLes énergies sont calculées par InfluxDB : dernier index de chaque fenêtre moins dernier index de la fenêtre précédente.",
-        "x": 480,
-        "y": 1300,
+        "x": 550,
+        "y": 1640,
         "wires": []
     },
     {
@@ -3325,8 +3325,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 300,
-        "y": 1360,
+        "x": 370,
+        "y": 1700,
         "wires": [
             [
                 "c1f9ed138d7f03f1"
@@ -3350,8 +3350,8 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 520,
-        "y": 1360,
+        "x": 590,
+        "y": 1700,
         "wires": [
             [
                 "c60fe518173f820c"
@@ -3371,8 +3371,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 720,
-        "y": 1360,
+        "x": 790,
+        "y": 1700,
         "wires": []
     },
     {
@@ -3384,8 +3384,8 @@
         "links": [
             "7c8ca45d292975fb"
         ],
-        "x": 185,
-        "y": 1440,
+        "x": 255,
+        "y": 1780,
         "wires": [
             [
                 "b8a63d8a172eb4c1"
@@ -3409,8 +3409,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "refresh",
-        "x": 220,
-        "y": 1480,
+        "x": 290,
+        "y": 1820,
         "wires": [
             [
                 "b8a63d8a172eb4c1"
@@ -3430,8 +3430,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
-        "y": 1460,
+        "x": 480,
+        "y": 1800,
         "wires": [
             [
                 "ae4407340baf704d"
@@ -3458,8 +3458,8 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 630,
-        "y": 1440,
+        "x": 700,
+        "y": 1780,
         "wires": [
             [
                 "7ca69aa5062dc9eb"
@@ -3479,8 +3479,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 830,
-        "y": 1460,
+        "x": 900,
+        "y": 1800,
         "wires": [
             [
                 "ae4407340baf704d"
@@ -3509,8 +3509,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 1060,
-        "y": 1520,
+        "x": 1130,
+        "y": 1860,
         "wires": [
             [
                 "b8a63d8a172eb4c1"
