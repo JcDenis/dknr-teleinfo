@@ -3260,7 +3260,7 @@
         "z": "3f247e8940433129",
         "g": "41f6bf7d5f4ab75c",
         "name": "data",
-        "func": "const topic = global.get('mqtt.topic', 'default') || '';\nconst source = 'teleinfo';\nconst sn = msg.payload.ADCO.raw || '';\n\nif (topic === '' || sn === '') {\n\n    return;\n}\n\nfor (const k in msg.payload) {\n    if (flow.get('last[\"' + sn + '_' + k + '\"]', 'memoryOnly') !== msg.payload[k]['raw']) {\n        flow.set('last[\"' + sn + '_' + k + '\"]', msg.payload[k]['raw'], 'memoryOnly');\n        let newMsg = {\n            'topic': [topic, 'get', source, sn, k].join('/'),\n            'payload': msg.payload[k]['raw']\n        };\n\n        node.send([newMsg]);\n    }\n}\n\nreturn;",
+        "func": "const topic = global.get('mqtt.topic', 'default') || '';\nconst source = 'teleinfo';\nconst sn = msg.payload.ADCO.raw || '';\n\nif (topic === '' || sn === '') {\n\n    return;\n}\n\n// PREFERRED first: it is computed from PTEC and must be known before PTEC triggers scenes (tariff routine)\nconst keys = Object.keys(msg.payload).sort((a, b) => (b === 'PREFERRED') - (a === 'PREFERRED'));\nfor (const k of keys) {\n    if (flow.get('last[\"' + sn + '_' + k + '\"]', 'memoryOnly') !== msg.payload[k]['raw']) {\n        flow.set('last[\"' + sn + '_' + k + '\"]', msg.payload[k]['raw'], 'memoryOnly');\n        let newMsg = {\n            'topic': [topic, 'get', source, sn, k].join('/'),\n            'payload': msg.payload[k]['raw']\n        };\n\n        node.send([newMsg]);\n    }\n}\n\nreturn;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
