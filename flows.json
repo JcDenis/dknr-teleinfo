@@ -251,12 +251,9 @@
         },
         "nodes": [
             "d27d098a886db556",
-            "d5fbf57a0ee68499",
             "624d4ac73eb21105",
             "a6b074fafe9eab76",
-            "57e3097bb0fb436d",
             "11a311cff80fcfb0",
-            "f4b715c1321c6848",
             "02278f78e79bba90",
             "92e55f9a4d7e4ff9",
             "345396b74f5a76d0",
@@ -1012,13 +1009,6 @@
                 "rows": null
             },
             {
-                "label": "Old topic",
-                "key": "old_topic",
-                "type": "text",
-                "required": false,
-                "rows": null
-            },
-            {
                 "label": "Langue des options",
                 "key": "lang",
                 "type": "dropdown",
@@ -1040,9 +1030,8 @@
             "username": "",
             "password": "",
             "homeassistant": "",
-            "old_topic": "",
-            "enabled": false,
-            "lang": "fr"
+            "lang": "",
+            "enabled": false
         },
         "payload": "",
         "submit": "Enregistrer",
@@ -1288,7 +1277,7 @@
         "z": "80d735b541c47847",
         "g": "9d1da43b0436ef48",
         "name": "app",
-        "func": "delete msg.filename;\n\nif (typeof global.get('describe', 'memoryOnly') !== 'object') {\n    global.set('describe', {}, 'memoryOnly')\n}\n\nlet describe = global.get('describe', 'memoryOnly');\n\nif (typeof msg.payload === 'object') {\n    describe.app = {\n        'title': msg.payload.description.slice(5) || '', // remove \"DKNR \"\n        'version' : msg.payload.version || '',\n        'git': msg.payload.name || '',\n        'mdi': 'transmission-tower'\n    };\n}\n\ndescribe.mqtt = {\n    'host': '',\n    'port': 1883,\n    'username': '',\n    'password': '',\n    'topic': 'dknr',\n    'enabled': false,\n    'homeassistant': 'homeassistant',\n    'old_topic': 'teleinfo',\n    'lang': 'fr'\n};\n\nreturn msg;",
+        "func": "delete msg.filename;\n\nif (typeof global.get('describe', 'memoryOnly') !== 'object') {\n    global.set('describe', {}, 'memoryOnly')\n}\n\nlet describe = global.get('describe', 'memoryOnly');\n\nif (typeof msg.payload === 'object') {\n    describe.app = {\n        'title': msg.payload.description.slice(5) || '', // remove \"DKNR \"\n        'version' : msg.payload.version || '',\n        'git': msg.payload.name || '',\n        'mdi': 'transmission-tower'\n    };\n}\n\ndescribe.mqtt = {\n    'host': '',\n    'port': 1883,\n    'username': '',\n    'password': '',\n    'topic': 'dknr',\n    'enabled': false,\n    'homeassistant': 'homeassistant',\n    'lang': 'fr'\n};\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -2008,48 +1997,11 @@
         "y": 500,
         "wires": [
             [
-                "d5fbf57a0ee68499",
                 "8895034b18c01f36",
                 "644d1057cd0b9909"
             ],
             [
-                "57e3097bb0fb436d"
-            ]
-        ]
-    },
-    {
-        "id": "d5fbf57a0ee68499",
-        "type": "change",
-        "z": "3f247e8940433129",
-        "g": "41f6bf7d5f4ab75c",
-        "name": "topic",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "mqtt.old_topic",
-                "tot": "global"
-            },
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "msg.topic & '/' & msg.payload.ADCO.raw",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 490,
-        "y": 500,
-        "wires": [
-            [
-                "02278f78e79bba90",
-                "11a311cff80fcfb0"
+                "02278f78e79bba90"
             ]
         ]
     },
@@ -2099,42 +2051,7 @@
         "y": 560,
         "wires": [
             [
-                "57e3097bb0fb436d"
-            ]
-        ]
-    },
-    {
-        "id": "57e3097bb0fb436d",
-        "type": "change",
-        "z": "3f247e8940433129",
-        "g": "41f6bf7d5f4ab75c",
-        "name": "topic",
-        "rules": [
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "mqtt.old_topic",
-                "tot": "global"
-            },
-            {
-                "t": "set",
-                "p": "topic",
-                "pt": "msg",
-                "to": "msg.topic & '/error'",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 490,
-        "y": 560,
-        "wires": [
-            [
-                "f4b715c1321c6848"
+                "02278f78e79bba90"
             ]
         ]
     },
@@ -2153,21 +2070,6 @@
         "wires": []
     },
     {
-        "id": "f4b715c1321c6848",
-        "type": "link out",
-        "z": "3f247e8940433129",
-        "g": "41f6bf7d5f4ab75c",
-        "name": "custom - port - ko",
-        "mode": "link",
-        "links": [
-            "2b40167cf7fb8532",
-            "903b30464ff4dd7b"
-        ],
-        "x": 615,
-        "y": 560,
-        "wires": []
-    },
-    {
         "id": "02278f78e79bba90",
         "type": "debug",
         "z": "3f247e8940433129",
@@ -2182,7 +2084,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 670,
-        "y": 440,
+        "y": 560,
         "wires": []
     },
     {
@@ -3268,10 +3170,11 @@
         "finalize": "",
         "libs": [],
         "x": 490,
-        "y": 440,
+        "y": 500,
         "wires": [
             [
-                "11a311cff80fcfb0"
+                "11a311cff80fcfb0",
+                "02278f78e79bba90"
             ]
         ]
     },
@@ -3549,7 +3452,7 @@
             "70521b5c6b8aa223"
         ],
         "x": 455,
-        "y": 380,
+        "y": 440,
         "wires": []
     },
     {
